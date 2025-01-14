@@ -24,6 +24,7 @@ const highlighted = document.querySelector(".highlighted");
 const maskHighlighted = document.querySelector(".mask_highlighted");
 const videoHighlighted = document.querySelectorAll(".video_highlighted");
 
+console.log("Ver las iferencias")
 
 let mypage = '';
 
