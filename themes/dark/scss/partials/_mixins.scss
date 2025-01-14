@@ -1,0 +1,92 @@
+// BUTTONS
+@mixin button ($bgColorButton, $strokeColorButton, $heightButton, $colorButton, $fontSizeButton) {
+	background-color: $bgColorButton;
+	border: 2px solid $strokeColorButton;
+	padding: 0 16px;
+	height: $heightButton;
+	color: $colorButton;
+	border-radius: 32px;
+	font-weight: $bold;
+	display: inline-flex;
+	align-items: center;
+	font-size: $fontSizeButton;
+    text-decoration: none;
+    transition: all 3s ease;
+}
+
+a.button:hover {
+    background-color: lighten($color: $l_Surface, $amount: 3) !important;
+}
+
+.header_navigation_items a.button:hover {
+    background-color: darken($color: $l_Background, $amount: 3) !important;
+}
+
+
+
+body.dark .search_button a.button:hover,
+body#wishlist .search_button a.button:hover {
+    background-color: lighten($color: $d_Surface, $amount: 3) !important;
+}
+
+body.dark a.button:hover,
+body#wishlist a.button:hover {
+    background-color: darken($color: $d_Background, $amount: 3) !important;
+}
+
+.material-icons {
+    padding-left: 8px;
+    -webkit-transition: transform 0.3s ease-out;
+    -moz-transition: transform 0.3s ease-out;
+    -ms-transition: transform 0.3s ease-out;
+    -o-transition: transform 0.3s ease-out;
+    transition: transform 0.3s ease-out;
+}
+
+.material-icons.material-icons_right {
+    padding-right: 8px;
+    -webkit-transition: none;
+    -moz-transition: none;
+    -ms-transition: none;
+    -o-transition: none;
+    transition: none;
+}
+
+.button:hover .material-icons {
+    -webkit-transform: translateX(4px);
+    -moz-transform: translateX(4px);
+    -ms-transform: translateX(4px);
+    -o-transform: translateX(4px);
+    transform: translateX(4px);
+}
+
+.button:hover .material-icons.material-icons_right {
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform:none;
+}
+
+
+
+// BADGES
+@mixin badge ($bgColorBadge, $strokeColorBadge, $colorBadge, $boderRounded){
+    background-color: $bgColorBadge;
+    height: 24px;
+    font-size: $small;
+    font-weight: $bold;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 8px;
+    border: 1px solid $strokeColorBadge;
+    border-radius: $boderRounded;
+    text-transform: uppercase;
+    color: $colorBadge;
+
+        a {
+            color: $colorBadge;
+            text-decoration: none;
+        }
+}

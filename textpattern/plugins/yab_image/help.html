@@ -1,0 +1,120 @@
+<h1>yab_image</h1>
+
+<p>This plugin allows you to display an image with an assigned caption as caption :). The width of the caption will always fits the width of the displayed image.</p>
+
+<h2>Usage</h2>
+
+<p>You can use this plugin almost the same as <code>&lt;txp:image /&gt;</code>. The behavior is a little bit different: If a caption for an image is available and if you want to float the image and the caption, use the <code>align</code> attribute. This will float the image <strong>and</strong> the caption.</p>
+
+<p>If no image caption (neither as tag attribute nor in image tab) is given <code>&lt;txp:yab_image /&gt;</code> works similar as <code>&lt;txp:image /&gt;</code>·</p>
+
+<p>F.i.: <code>&lt;txp:yab_image id=&quot;5&quot; align=&quot;right&quot; /&gt;</code></p>
+
+<h2>Attributes</h2>
+
+<p>The following attributes works as expected (as in <code>&lt;txp:image /&gt;</code>·) when no caption is given:</p>
+
+<p><strong>id</strong><br />
+Specifies the id assigned at upload of the image to display. Can be found on the images tab. If both name and id are specified, name is used while id is ignored.<br />
+(Integer)<br />
+<strong>name</strong><br />
+Specifies which image to display by its image name as shown on the images tab.<br />
+(String)<br />
+<strong>class</strong><br />
+<span class="caps">CSS</span> class attribute applied to the wraptag, if set, otherwise to the img tag.<br />
+(Default: unset)<br />
+<strong>escape</strong><br />
+Escape <span class="caps">HTML</span> entities such as &lt;, &gt; and &amp; for the image&#8217;s alt and title attributes.<br />
+(Default: unset)<br />
+<strong>html_id</strong><br />
+The <span class="caps">HTML</span> id attribute applied to the wraptag, if set, otherwise to the img tag.<br />
+(Default: unset)<br />
+<strong>style</strong><br />
+Inline <span class="caps">CSS</span> style rule.<br />
+(Default: unset)<br />
+<strong>wraptag</strong><br />
+<span class="caps">HTML</span> tag to be used to wrap the img tag, specified without brackets.<br />
+(Default: unset)</p>
+
+<p>The following attributes are new oder modified:</p>
+
+
+<p><strong>align</strong><br />
+Alignment of the image and the caption.<br />
+left, right, center (default: center)<br />
+<strong>alt_caption</strong><br />
+Alternate caption, overwrites caption given in image tab.<br />
+(Default: unset)<br />
+<strong>alt_alt</strong><br />
+Alternate img alt, overwrites alternate text given in image tab.<br />
+(Default: unset)<br />
+<strong>alt_title</strong><br />
+Alternate title, overwrites caption text given in image tab, which is regulary used for img title attribute.<br />
+(Default: unset)<br />
+<strong>alt_as_title</strong><br />
+If set, the alt_alt tag attribute or the alternate text is used for the img title attribute.<br />
+(Default: 0)</p>
+
+<h2>Some weird logic and priorities:</h2>
+
+<p>Tag attributes will always overwrites given text in the image tab!</p>
+
+<p>Intentionally usage of alt_as_title tag attribute:<br />
+Mainly it could be used for displaying hyperlinks in the caption (the thingy, which is shown under the image) without breaking the <span class="caps">HTML</span> validity.<br />
+If you want to display hyperlinks in the caption so you can either write these hyperlinks as <strong>raw <span class="caps">HTML</span> in the caption field in your image tab</strong> or as <strong>textile markup in the tag attribute</strong>:</p>
+
+<p>F.i.: <code>&lt;txp:yab_image id=&quot;5&quot; align=&quot;right&quot; alt_caption=&#39;This is a &quot;Link (Link)&quot;:http://textpattern.com/ in a caption&#39; /&gt;</code></p>
+
+<p><strong>Important:</strong><br />
+<ul>
+	<li>Use single quotes for tags when insert double quotes!</li>
+	<li>Don&#8217;t start with an double quote (<code>alt_caption=&#39;&quot;Link (Link)&quot;:http://textpattern.com/ in a caption&#39;</code> will not work).<br />
+Use a beginning whitespace or text before the double quote (<code>alt_caption=&#39; &quot;Link (Link)&quot;:http://textpattern.com/ in a caption&#39;</code>).</li>
+	<li>Be sure the line will be textiled.</li><br />
+</ul></p>
+
+<p>Problem: The generated img title attribute is broken, because the hyperlink with the double quotes breaks it.<br />
+Solution: Now you can additionally use the <strong>alt_title</strong> tag attribute to set a specific img title or the <strong>alt_as_title</strong> so that the img title will generated from alternate text in the image tab.</p>
+
+<p>F.i.: <code>&lt;txp:yab_image id=&quot;5&quot; align=&quot;right&quot; alt_caption=&#39;This is a &quot;Link (Link)&quot;:http://textpattern.com/ in a caption&#39; alt_as_title=&quot;1&quot; /&gt;</code></p>
+
+<p>or</p>
+
+<p>F.i.: <code>&lt;txp:yab_image id=&quot;5&quot; align=&quot;right&quot; alt_caption=&#39;This is a &quot;Link (Link)&quot;:http://textpattern.com/ in a caption&#39; alt_title=&quot;Nice picture which shows something&quot; /&gt;</code></p>
+
+<h2>Styling</h2>
+
+<p>The plugin will create new <span class="caps">HTML</span> elements (other than <code>&lt;txp:image /&gt;</code>):</p>
+
+<p>If an image caption is given:<br />
+<code>&lt;small class=&quot;caption&quot;&gt;given caption here&lt;/small&gt;</code>: This elements will wrap the caption.</p>
+
+<p>And if additionally the attribute <code>align</code> is used:<br />
+<code>&lt;span class=&quot;img-caption-{align}&quot;&gt;image+caption&lt;/span&gt;</code>, where <code>{align}</code> will be your given align: This span is wrapped around the image and the caption. So you have the ability to set different paddings for different floats.</p>
+
+<p>As of version 0.3 <code>&lt;txp:yab_image /&gt;</code> will produce (X)HTML-strict output. The align attribute in the image element will be completly removed. So the <span class="caps">HTML</span> markup will be different from <code>&lt;txp:image /&gt;</code>.</p>
+
+<p>You can always use the <code>wraptag</code> attribute to wrap all with another html element.<br />
+Depending on your usage and used wraptag you have to clear the floats.</p>
+<!-- *** BEGIN PLUGIN CSS *** -->
+<style type="text/css">
+	h1, h2, h3
+	h1 code, h2 code, h3 code {
+		margin-bottom: 0.6em;
+		font-weight: bold
+	}
+	h1 {
+		font-size: 1.4em
+	}
+	h2 {
+		font-size: 1.25em
+	}
+	h3 {
+		margin-bottom: 0;
+		font-size: 1.1em
+	}
+	table {
+		margin-bottom: 1em
+	}
+</style>
+<!-- *** END PLUGIN CSS *** -->

@@ -1,0 +1,313 @@
+.comments_wrap {
+    background-image: url("../../../images/background/footer_background.svg"), url("https://darkblobcine.com/images/background/footer_background_rotate.svg");
+    background-repeat: repeat-x;
+    background-position: top center, bottom center;
+    background-color: $l_Secondary;
+    margin: 80px 0 0;
+    color: $l_On_Background;
+    padding: 40px 0;
+}
+
+body.dark .comments_wrap {
+    background-image: url("../../../images/background/footer_background_dark.svg"), url("https://darkblobcine.com/images/background/footer_background_rotate_dark.svg");
+}
+
+#comments-head {
+    max-width: 1330px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+
+        h3 {
+            font-size: $title_1;
+            font-family: 'Outfit', sans-serif;
+            color: $l_On_Secondary;
+            margin-top: 40px
+        }
+
+} 
+
+.comments_content {
+    grid-column: 3 / span 8;
+    margin: 40px 0 80px;
+}
+
+ol.comments-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+ol.comments-list li {
+    margin-bottom: 32px;
+}
+
+.comments.comments-author .comment_header {
+    background-image: url("../../../images/background/avatar_bullet.svg");
+    background-repeat: no-repeat;
+    background-position: center right 16px;
+}
+
+.comment_header {
+    background-color: $l_Surface;
+    font-weight: bold;
+    font-family: 'Outfit', sans-serif;
+    font-size: $body_1;
+}
+
+.comments {
+    background-color: $l_Background;
+    border-radius: 0 0 8px 8px;
+
+        .comments_display {
+            padding: 8px 16px;
+            color: $l_On_Surface;
+            margin: 0;
+        }
+}
+
+.comment_body {
+    padding: 0 24px 1px;
+
+        p {
+            padding: 8px 0;
+        }
+}
+
+.article_individual article.comments {
+    margin: 24px 0;
+    padding: 0;
+    border-radius: 0 0 16px 16px;
+}
+
+.comment_previo_item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    background-color: $l_Accent;
+    color: $white;
+    padding: 16px;
+    margin: 0;
+}
+
+#cpreview {
+    margin: 0;
+}
+
+#cpreview  a {
+            color: $white;
+}
+
+.comment_previo article.comments {
+    margin-top: 0;
+}
+
+.comment_previo .comments.comments-author .comment_header,
+.comment_previo .comments .comment_header {
+    background-color: #999;
+}
+
+.comment_previo .comment_body {
+    color: #999;
+}
+
+.comment_previo .comment_rating_display img {
+    opacity: 0;
+}
+
+.comments-wrapper .button {
+    @include button ($l_Surface, $l_Secondary, 56px, $l_On_Surface, $body_2);
+    cursor: pointer;
+}
+
+.comments-wrapper .button.comment_submit {
+    @include button ($l_Background, $l_Accent, 56px, $l_Accent, $body_2);
+    cursor: pointer;
+    min-width: 130px;
+    justify-content: center;
+}
+
+.comments-wrapper .button.disabled {
+    opacity: 0.3;
+    cursor:default;
+}
+
+.comments-wrapper label {
+    display: inline-block;
+    padding-left: 16px;
+    margin-bottom: 4px;
+}
+
+.comments-wrapper .comment_rating label {
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.comment_rating {
+    display: flex;
+    gap: 16px;
+    align-items: baseline;
+    padding-top: 8px;
+    margin-left: 16px;
+}
+
+.comment_invitation span {
+    color: $l_On_Secondary;
+    font-size: $body_1;
+    font-weight: $bold;
+}
+
+.comment_invitation {
+    font-size: $small;
+    color: #777777;
+    margin: 24px 0;
+}
+
+.comment_remember {
+    margin: 24px 0;
+    display: flex;
+    gap: 16px;
+    padding: 16px;
+    background-color:$REVIEW;
+    border-radius: 8px;
+    color: $white;
+}
+
+textarea,
+input.comment_email_input,
+input.comment_name_input {
+    border: none;
+    background-color: $l_Background;  
+    font-family: 'Poppins', sans-serif;
+}
+
+textarea,
+input.comment_email_input,
+input.comment_name_input {
+    border-left: 16px solid $l_Surface;
+    transition: 0.2s;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    box-sizing: border-box;
+    padding: 16px;
+    font-size: $body_1;
+}
+
+input:focus, textarea:focus {
+    outline-style:  none !important;
+    border-left: 8px solid $l_Surface;
+}
+
+textarea {
+    width: 70%;
+}
+
+input.comment_email_input,
+input.comment_name_input {
+    width: 50%;
+    min-height: 56px;
+}
+
+.comment_rating div {
+    display: flex;
+    margin-top: 8px;
+    gap: 16px;
+
+        span {
+            display: inline-flex;
+            flex-direction: column-reverse;
+            align-items: center;
+            justify-content: center;
+        }
+}
+
+.comment_rating div span:first-child {
+    display: none;
+}
+
+.comment_rating_display {
+    display: flex;  
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+    font-size: $small;
+
+        em {
+            display: none;
+        }
+}
+
+.comment_rating input[type="radio"] {
+    /* Add if not using autoprefixer */
+    -webkit-appearance: none;
+    appearance: none;
+    /* For iOS < 15 to remove gradient background */
+    background-color: $l_Secondary;
+    /* Not removed via appearance */
+    margin: 0;
+  }
+
+.comment_rating input[type="radio"] {
+    appearance: none;
+    background-color: $l_Secondary;
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    width: 1.5em;
+    height: 1.5em;
+    border: 0.15em solid $l_Surface;
+    border-radius: 50%;
+    display: grid;
+    place-content: center;
+}
+
+.comment_rating input[type="radio"]::before {
+    content: "";
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em $l_Surface;
+  }
+
+  input[type="radio"]:checked::before {
+    transform: scale(1);
+  }
+
+  @media (max-width: 980px) {
+    input.comment_email_input, input.comment_name_input {
+        width: 70%;
+    }
+  }
+
+  @media (max-width: 728px) {
+
+    #comments-head {
+        margin: 0 16px;
+    }
+
+    .comments_content {
+        grid-column: 1 / span 12;
+    }
+
+    .comment_rating {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .comments_wrap {
+        margin-top: 40px;
+    }
+
+    input.comment_email_input, input.comment_name_input {
+        box-sizing: border-box;
+        width: 100%;
+        min-height: 48px;
+    }
+
+    textarea {
+        box-sizing: border-box;
+        width: 100%
+    }
+}

@@ -1,0 +1,206 @@
+.searcher {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: $l_Surface;
+    color: $white;
+    display: none;
+    opacity: 0;
+    transition: 0.5s;
+    z-index: 100;
+    width: 100dvw;
+    height: 100dvh;
+}
+
+body.opened_searcher {
+    height: 100vh;
+    overflow-y: hidden;
+}
+
+.close_searcher {
+    position: absolute;
+    right: 32px;
+    top: 32px;
+
+        .material-icons {
+            font-size: 48px;
+            color: $white;
+        }
+}
+
+.searcher_content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.searcher_input_item>input[type=search] {
+    border: none;
+    display: block;
+    height: 64px;
+    color: #fff;
+    width: 100%;
+    background-color: transparent;
+    font-size: 24px;
+    border-bottom: 1px solid #B0AFAC;
+    padding: 0 8px;
+}
+
+.searcher_input {
+    max-width: 1200px;
+    display: flex;
+    gap: 16px;
+    height: 64px;
+    align-items: center;
+    padding: 0 16px;
+}
+
+.searcher_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    .material-icons {
+        font-size: 56px;
+        width: 64px;
+        height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+}
+
+.searcher_button>input[type=submit] {
+    appearance: button;
+    -webkit-appearance: button;
+    cursor: pointer;
+}
+
+.searcher_button_item {
+    background-color: transparent;
+    color: #fff;
+    margin: 0;
+    border: none;
+    width: 64px;
+    height: 64px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+input[type=submit] {
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    box-shadow: none;
+}
+
+.search_content {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 32px 0 0 8px;
+
+        h1 {
+            font-size: $body_1;
+            font-weight: $bold;
+            margin-bottom: 8px;
+
+                span {
+                    color: $accent;
+                }
+
+                a {
+                    color: $black;
+                }
+        }
+
+        h2 {
+            font-size: $small;
+            color: #777;
+            margin-top: 8px;
+        }
+}
+
+#search .article_grid_list {
+    margin-top: 40px;
+}
+
+.search_by_category {
+    padding: 0 16px;
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            max-width: 500px;
+        }
+}
+
+.search_by_category ul li a {
+    @include badge ($white, $black, $black, 8px);
+    text-decoration: none;
+}
+
+.search_content .breadcrumb a {
+    color: $black;
+}
+
+.claim_plataformas_search {
+    margin: 24px 0;
+    padding: 0 16px;
+
+    ul {
+        list-style-type: none;
+        display: flex;
+        margin: 0;
+        padding: 0;
+        gap: 24px;
+        align-items: center;
+        flex-wrap: wrap;
+        max-width: 500px;
+    }
+    
+
+        li img {
+            max-height: 32px;
+            filter: brightness(0) invert(1);
+        }
+}
+
+.search .search_button .button {
+    @include button ($l_Surface, $l_On_Surface, 56px, $l_On_Surface, $body_2);
+    transition: 0.2s;
+}
+
+.search .header_navigation_items .button {
+    @include button ($l_Background, $l_On_Surface, 56px, $l_On_Background, $body_2);
+    transition: 0.2s;
+}
+
+body.dark .search .search_button .button,
+body#wishlist .search .search_button .button {
+    @include button ($d_Surface, $d_On_Surface, 56px, $d_On_Surface, $body_2);
+    transition: 0.2s;
+}
+
+body.dark .contextual_nav .search .search_button .button,
+body#wishlist .contextual_nav .search .search_button .button {
+    @include button ($d_Surface, $d_On_Surface, 36px, $d_On_Surface, $body_2);
+}
+
+
+body.dark .search .header_navigation_items .button,
+body#wishlist .search .header_navigation_items .button {
+    @include button ($d_Background, $d_On_Surface, 56px, $d_On_Background, $body_2);
+    transition: 0.2s;
+}
+

@@ -1,0 +1,1107 @@
+body {
+    font-family: 'Outfit', sans-serif;
+    color: #272934;
+    background-color: #EDE6C0;
+}
+
+/* 
+MENÚ DOTS
+*/
+#fp-nav {
+    z-index: 2000;
+}
+
+#fp-nav.fp-right {
+    right: 8px;
+}
+
+#fp-nav ul li .fp-tooltip {
+    color: #272934;
+    font-family: 'Outfit', sans-serif;
+    font-size: 16px;
+    top: -4px;
+}
+
+body.fp-viewing-quiz #fp-nav ul li .fp-tooltip {
+    color: #EDE6C0;
+    font-size: 16px;
+    top: -4px;
+}
+
+body.fp-viewing-quiz #fp-nav ul li a span {
+    background-color: #EDE6C0;
+}
+
+/* 
+HEADER - fotos de Júlia and me
+*/
+
+.logo {
+    fill: #272934;
+    z-index: 200;
+    position: relative;
+}
+
+.fix_nav {
+    position: absolute;
+    margin: 16px;;
+}
+
+.fix_nav a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+header.header {
+    background-image: url("../images/about/two.webp");
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: 65%;
+    background-size: cover;
+}
+
+.about_header {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    max-width: 1440px;
+    margin: 0 auto;
+    height: 100%;
+    padding: 32px 32px 0 32px;
+    align-items: flex-end;
+    justify-content: center;
+    margin-bottom: -243px;
+}
+
+.about_header_layout {
+    grid-column: 2 / span 10;
+    position: relative;
+    bottom: 33%;
+    margin: 32px;
+    width: 65%;
+    padding: 16px;
+}
+
+.about_header_layout h1, .about_header_layout img {
+    grid-column: 2 / span 10;
+}
+
+.about_header_layout img {
+    height: 100%;
+}
+
+
+.about_header_content {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    height: 80px;
+}
+
+.about_header_text {
+    background-color: rgba(258,258,258,0.3);
+    border-radius: 16px;
+    padding: 8px 16px;
+    margin-top: 16px;
+}
+
+.about_header_text h1 {
+    font-size: 28px;
+    font-weight: 300;
+    margin: 0;
+    position: relative;
+}
+
+.about_header_text p {
+    font-size: 28px;
+    font-weight: 300;
+    margin: 12px 0 0;
+}
+
+.tachado {
+    text-decoration: line-through;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.movies_animation_1 {
+    height: 80px;
+    overflow: hidden;
+}
+
+.movies_animation_1 span:first-child {
+    animation: text-animation 5s infinite;
+}
+
+@keyframes text-animation {
+    0% {margin-top: 0;}
+    10% {margin-top: 0;}
+    20% {margin-top: -80px;}
+    30% {margin-top: -80px;}
+    40% {margin-top: -80px;}
+    50% {margin-top: -80px;}
+    60% {margin-top: 0;}
+    70% {margin-top: 0;}
+    80% {margin-top: 0;}
+    90% {margin-top: 0;}
+    100% {margin-top: 0;}
+}
+
+div.hate {
+    margin-top: 48px;
+}
+
+.about_header_content span {
+    display: block;
+    height: 80px;
+}
+
+.header_footer, .julia_footer, .joan_footer {
+    display: flex;
+}
+
+.header_footer_left, .header_footer_right {
+    background-image: url("../images/about/header_tiled_dark.svg");
+    background-repeat: repeat-x;
+    flex-grow: 1;
+}
+
+.header_footer_main {
+    min-height: 243px;
+    width: 1244px;
+    background-image: url("../images/about/header_background.svg");
+    background-repeat: no-repeat;
+    background-position: top center;
+}
+
+/* 
+QU¡Z - adivinar los personajes
+*/
+
+.quiz_container_mobile {
+    display: none;
+    color: #ffffff;
+    padding: 16px 16px 0 16px;
+}
+
+.quiz_container_mobile h3 span {
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.quiz_container_mobile h3 {
+    font-size: 16px;
+    margin-top: 8px;
+}
+
+.quiz_container_mobile .quiz {
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 700;
+    background-color: #6892FE;
+    padding: 4px 8px;
+    color: #ffffff;
+    display: inline-block;
+    border-radius: 4px;
+}
+
+    
+
+.section.both {
+    background-color: #272934;
+    padding: 24px 0;
+}
+
+.quiz_container {
+    padding: 16px;
+}
+
+.quiz_container h3 span {
+    display: inline-block;
+    font-weight: 400;
+    padding-bottom: 8px;
+}
+
+.both_grid {
+    box-sizing: border-box;
+    max-width: 1440px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 80px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 24px;
+    color: #ffffff;
+    perspective: 30em;
+}
+
+.both_grid .quiz {
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 700;
+    background-color: #6892FE;
+    padding: 4px 8px;
+    color: #ffffff;
+    display: inline-block;
+    border-radius: 4px;
+}
+
+.both_grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.both_grid div.both_grid_card {
+    opacity: 0;
+    position:relative;
+    perspective: 30m;
+}
+
+.both_grid div.both_grid_card .card {
+    width:100%;
+    height:100%;
+    position:relative;
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+}
+
+.face {
+    width:100%;
+    height:100%;
+    position:absolute;
+    backface-visibility:hidden;
+    cursor: pointer;
+}
+
+.face.front span {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    line-height: 1;
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    background-color: #EDE6C0;
+    padding: 2px 8px;
+    border-radius: 8px;
+    color: #272934;
+}
+
+.face.front.firstquiz span i {
+    margin-right: 8px;
+}
+
+.back {
+    transform: rotateY(180deg);
+}
+
+.face.back p {
+    padding: 12px;
+    line-height: 1.5;
+}
+
+.face.back p span {
+    display: block;
+    font-size: 20px;
+    padding: 4px 0;
+    font-weight: 700;
+}
+
+.face.back p span.who {
+    font-size: 10px;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: block;
+    padding-bottom: 8px;
+}
+
+.face.back p span.released {
+    display: inline-block;
+    padding: 2px 4px;
+    background-color: #6892FE;
+    margin-top: 8px;
+    border-radius: 4px;
+    color: #ffffff;
+}
+
+div.both_grid_card:active .card {
+    transform: rotateY(180deg);
+}
+
+.fp-viewing-quiz .both_grid div.both_grid_card {
+    opacity: 1;
+}
+
+.both_grid .both_grid_card:nth-child(2) {
+    transition: all 0.8s ease-in-out 0.2s;
+}
+
+.both_grid .both_grid_card:nth-child(3) {
+    transition: all 0.8s ease-in-out 1.4s;
+}
+
+.both_grid .both_grid_card:nth-child(5) {
+    transition: all 0.8s ease-in-out 0.4s;
+}
+
+.both_grid .both_grid_card:nth-child(6) {
+    transition: all 0.8s ease-in-out 1.6s;
+}
+
+.both_grid .both_grid_card:nth-child(7) {
+    transition: all 0.8s ease-in-out 0.6s;
+}
+
+.both_grid .both_grid_card:nth-child(8) {
+    transition: all 0.8s ease-in-out 0.8s;
+}
+
+.both_grid .both_grid_card:nth-child(9) {
+    transition: all 0.8s ease-in-out 1.8s;
+}
+
+.both_grid .both_grid_card:nth-child(10) {
+    transition: all 0.8s ease-in-out 1s;
+}
+
+.both_grid .both_grid_card:nth-child(12) {
+    transition: all 0.8s ease-in-out 1.2s;
+}
+
+/* 
+JÚLIA & JOAN
+*/
+
+.section_julia_slide, .section_joan_slide, .section_works_camisetas, .section_works_boxeo, .section_works_malapell {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.julia, .joan {
+    background-color: #F8F3E5;
+}
+
+.julia_img, .joan_img, .camisetas_img, .boxeo_img, .malapell_img {
+    width: 50vw;
+    height: 100vh;
+}
+
+.julia_img, .joan_img {
+    opacity: 0;
+}
+
+.camisetas_img {
+    background-color: #F8F3E5;
+}
+
+.estoyactivo .julia_img, .estoyactivo .joan_img {
+    animation-name: opacity_img;
+    animation-duration: 1.8s;
+    animation-delay: 0.2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.estoyactivocamisetas .camisetas_img, .estoyactivoboxeo .boxeo_img, .estoyactivomalapell .malapell_img {
+    animation-delay: 0s;
+}
+
+.julia_img img, .joan_img img, .camisetas_img img, .boxeo_img img, .malapell_img img {
+    width: 100%;
+    height: 99%;
+    object-fit: cover;
+    object-position: top center;
+}
+
+.julia_img img {
+    object-position: center 70%;
+}
+
+.camisetas_img img, .boxeo_img img, .malapell_img img {
+    object-fit: contain;
+    object-position: center;
+}
+
+@keyframes opacity_img { 
+    0% {opacity: 0}
+    100% {opacity: 1}  
+}
+
+.julia_text, .joan_text, .camisetas_text, .boxeo_text, .malapell_text{
+    width: 50vw;
+    height: 100vh;
+}
+
+.julia_text_content, .joan_text_content, .camisetas_text_content, .boxeo_text_content, .malapell_text_content {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: calc(100vh - 243px);
+    align-items: flex-start;
+    gap: 0;
+    padding: 80px 80px 0 80px;
+    max-width: 560px;
+    position: relative;
+    z-index: 1000;
+}
+
+.julia_text_content h1, .joan_text_content h1, .camisetas_text_content h1, .boxeo_text_content h1, .malapell_text_content h1 {
+    font-size: 64px;
+    line-height: 1;
+    margin-top: 0;
+    margin-bottom: 16px;
+    transition: all 0.5ms ease-in-out !important;
+    position: relative;
+    opacity: 0;
+}
+
+.estoyactivo .julia_text_content h1,
+.estoyactivo .joan_text_content h1,
+.estoyactivocamisetas .camisetas_text_content h1,
+.estoyactivoboxeo .boxeo_text_content h1,
+.estoyactivomalapell .malapell_text_content h1 {
+    animation-name: opacity;
+    animation-duration: 0.8s;
+    animation-delay: 0.1s;
+    animation-timing-function: ease-out;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.estoyactivocamisetas .camisetas_text_content h1,
+.estoyactivoboxeo .boxeo_text_content h1,
+.estoyactivomalapell .malapell_text_content h1 {
+    animation-delay: 0s;
+}
+
+@keyframes opacity { 
+    0% {opacity: 0; left: 32px}
+    100% {opacity: 1; left: 0}  
+}
+
+.julia_text_content p, .joan_text_content p, .camisetas_text_content p, .boxeo_text_content p, .malapell_text_content p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    position: relative;
+    opacity: 0;
+}
+
+.julia_text_content p.quote, .joan_text_content p.quote, .camisetas_text_content p.quote, .boxeo_text_content p.quote, .malapell_text_content p.quote {
+    font-family: 'Outfit', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.estoyactivo .julia_text_content p,
+.estoyactivo .joan_text_content p,
+.estoyactivocamisetas .camisetas_text_content p,
+.estoyactivoboxeo .boxeo_text_content p,
+.estoyactivomalapell .malapell_text_content p {
+    animation-name: opacity_p;
+    animation-duration: 1.2s;
+    animation-delay: 0.2s;
+    animation-timing-function: ease-out;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.estoyactivocamisetas .camisetas_text_content p,
+.estoyactivoboxeo .boxeo_text_content p,
+.estoyactivomalapell .malapell_text_content p {
+    animation-delay: 0s;
+}
+
+@keyframes opacity_p { 
+    0% {opacity: 0; right: 32px}
+    100% {opacity: 1; right: 0}  
+}
+
+.julia_footer, .joan_footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    z-index: 200;
+}
+
+.julia_footer_left, .julia_footer_right {
+    background-image: url("../images/about/julia_tiled_secondary.svg");
+    background-repeat: repeat-x;
+}
+
+.joan_footer_left, .joan_footer_right {
+    background-image: url("../images/about/julia_tiled_secondary.svg");
+    background-repeat: repeat-x;
+}
+
+.julia_footer_left, .julia_footer_right, .joan_footer_left, .joan_footer_right {
+    flex-grow: 1;
+}
+
+.julia_footer_main, .joan_footer_main {
+    min-height: 243px;
+    width: 1244px;
+}
+
+.julia_footer_main {
+    background-image: url("../images/about/julia_background.svg");
+    background-repeat: no-repeat;
+    background-position: top center;
+}
+
+.joan_footer_main {
+    background-image: url("../images/about/joan_background.svg");
+    background-repeat: no-repeat;
+    background-position: top center;
+}
+
+/* 
+WORKS JÚLIA
+*/
+
+.works {
+    background-color: #EDE6C0;
+    padding: 24px 0;
+}
+
+.works_contenedor {
+    max-width: 1440px;
+    margin: 0 auto;
+    margin-bottom: 60px;
+}
+
+.works_title {
+    padding: 0 32px;
+}
+
+.works_title h2 {
+    margin: 0;
+}
+
+.works_content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 48px 24px 0 24px;
+    max-width: 1232px;
+}
+
+.works_content img {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.works_content_1, .works_content_2, .works_content_3 {
+    width: 32%;
+    max-height: 400px;
+}
+
+.works_content_1 {
+    background-color: #F8F3E5;
+}
+
+.works_content_1 img {
+    object-fit: contain;
+}
+
+.works_content_2 img {
+    object-fit: cover;
+}
+
+.works_content_3 img {
+    object-fit: cover;
+}
+
+/* 
+WORKS JULIA ARROWS
+*/
+
+.fp-controlArrow {
+    bottom: 8%;
+    top: unset;
+}
+
+.fp-controlArrow.fp-next, .fp-controlArrow.fp-prev {
+    width: 48px;
+    height: 92px;
+    border: none;
+    cursor: pointer;
+    background-size: contain;
+}
+
+.fp-controlArrow.fp-next {
+    right: 5%; 
+    background: url(../images/about/slide_right.svg) no-repeat;
+    cursor: pointer;
+    background-size: contain;
+    display: flex;
+}
+
+.fp-controlArrow.fp-prev {
+    left: unset;
+    right: 15%;
+    background: url(../images/about/slide_left.svg) no-repeat;
+    cursor: pointer;
+    background-size: contain;
+    display: flex;
+}
+
+body.fp-viewing-works-0 .fp-controlArrow.fp-prev {
+    display: none;
+}
+
+body.fp-viewing-works-3 .fp-controlArrow.fp-next {
+    opacity: 0.3;
+}
+
+body.fp-viewing-works-0 .fp-controlArrow.fp-next::before,
+body.fp-viewing-works-1 .fp-controlArrow.fp-next::before,
+body.fp-viewing-works-2 .fp-controlArrow.fp-next::before {
+    position: absolute;
+    top: -20px;
+    left: -13px;
+    width: 52px;
+    text-align: center;
+    display: inline-block;
+    line-height: 1.1;
+    padding: 4px;
+    background: #6892FE;
+    border-radius: 8px;
+    margin-bottom: 4px;
+    transform: rotate(45deg);
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 10px;
+}
+
+body.fp-viewing-works-0 .fp-controlArrow.fp-next::before {
+    content: 't-shirts';
+}
+
+body.fp-viewing-works-1 .fp-controlArrow.fp-next::before {
+    content: 'Inapa';
+}
+
+body.fp-viewing-works-2 .fp-controlArrow.fp-next::before {
+    content: 'Malapell';
+}
+
+/* 
+CONTACT
+*/
+
+footer {
+    max-width: 1440px;
+    margin: 0 auto;
+    color: #272934;
+    background-color: #EDE6C0;
+}
+
+.contact_contenedor {
+    display: flex;
+    justify-content: center;
+    margin-top: -64px;
+}
+
+.section_contact_slide {
+    box-sizing: border-box;
+    display: flex;
+    gap: 24px;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 16px;
+}
+
+.contact_joan, .contact_julia {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact_julia {
+    flex-grow: 1;
+}
+
+.contact_joan {
+    flex-grow: 1;
+}
+
+.contact_dades {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.contact_dades ul {
+    list-style-type: none;
+    margin: 16px 0;
+    padding: 0;
+}
+
+.contact_dades_name {
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.contact_dades li.contact_dades_job {
+    padding-top: 4px;
+    margin-bottom: 8px
+}
+
+.contact_dades li {
+    padding-top: 12px;
+}
+
+.contact_dades li a {
+    color: #272934;
+    text-decoration: none;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.contact_dades li a:hover {
+    text-decoration: underline;
+}
+
+img.contact_avatar {
+    max-width: 160px;
+    border-radius: 200px;
+}
+
+.footer_despedida {
+    position: absolute;
+    bottom: 0;
+    padding: 8px 0 24px;
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    color: #272934;
+    flex-wrap: wrap;
+}
+
+.seeyou {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+
+/* 
+BREAKPOINTS PARA MOBILE
+*/
+
+@media (max-width: 980px) {
+
+ /* 
+HEADER
+*/
+    .about_header_layout {
+        grid-column: 1 / span 12;
+        width: 90%;
+        bottom: calc(234px + 2%);
+        margin: 16px;
+    }
+
+    .about_header_content {
+        height: 60px;
+    }
+    
+    .movies_animation_1 {
+        height: 60px;
+    }
+    
+    @keyframes text-animation {
+        0% {margin-top: 0;}
+        10% {margin-top: 0;}
+        20% {margin-top: -60px;}
+        30% {margin-top: -60px;}
+        40% {margin-top: -60px;}
+        50% {margin-top: -60px;}
+        60% {margin-top: 0;}
+        70% {margin-top: 0;}
+        80% {margin-top: 0;}
+        90% {margin-top: 0;}
+        100% {margin-top: 0;}
+    }
+    
+    .about_header_content span {
+        display: block;
+        height: 60px;
+    }
+
+ /* 
+QUIZ
+*/
+    .quiz_container {
+        padding: 0;
+    }
+
+    .quiz_container h3 span {
+        font-size: 14px;
+    }
+
+    .quiz_container h3 {
+        font-size: 16px;
+    }
+
+    .face.back p {
+        padding: 4px;
+        line-height: 1.2;
+        margin: 0;
+    }
+    
+    .face.back p span {
+        font-size: 16px;
+        font-weight: 700;
+    }
+    
+    .face.back p span.who {
+        font-size: 8px;
+    }
+    
+    .face.back p span.released {
+        font-size: 14px;
+    }
+
+ /* 
+JULIA
+*/
+
+    .julia_text_content h1, .camisetas_text_content h1, .boxeo_text_content h1, .malapell_text_content h1, .joan_text_content h1 {
+        font-size: 40px;
+        margin-bottom: 12px;
+    }
+
+    .julia_text_content p, .camisetas_text_content p, .boxeo_text_content p, .malapell_text_content p, .joan_text_content p {
+        font-size: 16px;
+    }
+
+    .julia_text_content p.quote, .camisetas_text_content p.quote, .boxeo_text_content p.quote, .malapell_text_content p.quote, .joan_text_content p.quote {
+        font-size: 20px;
+    }
+
+ /* 
+WORKS
+*/
+
+    .works_content {
+        justify-content: flex-start;
+    }
+
+    .works_content_1, .works_content_2, .works_content_3 {
+        width: 49%;
+    }
+
+}
+
+@media (max-width: 800px) {
+
+ /* 
+QUIZ
+*/
+    .quiz_container_mobile {
+        display: block;
+    }    
+
+    .quiz_container {
+        display: none;
+    }
+
+    .both_grid {
+        padding: 0 16px;
+        gap: 8px;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+    }
+
+    .both_grid .both_grid_card:nth-child(6) {
+        display: none;
+    }
+
+    .both_grid .both_grid_card:nth-child(12) {
+        display: none;
+    }
+
+    .both_grid .both_grid_card:nth-child(5) {
+        display: none;
+    }
+
+ /* 
+JULIA
+*/
+
+    .section_julia_slide, .section_works_camisetas, .section_works_boxeo, .section_works_malapell, .section_joan_slide {
+        flex-direction: column;
+    }
+
+    .julia_img img, .joan_img img {
+        object-position: center 25%;
+    }
+
+    .julia_text_content, .camisetas_text_content, .boxeo_text_content, .malapell_text_content, .joan_text_content {
+        height: 100%;
+        max-width: none;
+        justify-content: flex-start;
+        padding: 24px 32px 234px 32px;
+    }
+
+    .julia_text, .camisetas_text, .boxeo_text, .malapell_text, .joan_text {
+        width: 100%;
+        height: 70vh;
+    }
+
+    .julia_img, .camisetas_img, .boxeo_img, .malapell_img, .joan_img {
+        width: 100%;
+        height: 30vh;
+        opacity: 0;
+    }
+
+    .camisetas_img, .boxeo_img, .malapell_img {
+        opacity: 1;
+    }
+
+
+
+ /* 
+JULIA WORKS ARROWS
+*/
+
+    .fp-controlArrow.fp-next, .fp-controlArrow.fp-prev {
+        width: 32px;
+        height: 61px;
+    }
+
+    .fp-controlArrow.fp-prev {
+        right: 25%;
+    }
+}
+
+@media (max-width: 600px) {
+
+#fp-nav {
+    display: none;
+}
+
+    .logo {
+        width: 180px;
+    }
+
+/* 
+HEADER
+*/
+
+    .about_header_content {
+        height: 40px;
+    }
+
+    .movies_animation_1 {
+        height: 40px;
+    }
+
+    @keyframes text-animation {
+        0% {margin-top: 0;}
+        10% {margin-top: 0;}
+        20% {margin-top: -40px;}
+        30% {margin-top: -40px;}
+        40% {margin-top: -40px;}
+        50% {margin-top: -40px;}
+        60% {margin-top: 0;}
+        70% {margin-top: 0;}
+        80% {margin-top: 0;}
+        90% {margin-top: 0;}
+        100% {margin-top: 0;}
+    }
+
+    .about_header {
+        padding: 24px;
+    }
+
+    .about_header_layout {
+        margin: 0;
+    }
+
+    .about_header_content span {
+        display: block;
+        height: 40px;
+    }
+
+    .about_header_text h1 {
+        font-size: 22px;
+    }
+
+    .about_header_text p {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+ 
+/* 
+WORKS
+*/
+
+    .works_content_1, .works_content_2, .works_content_3 {
+        height: 180px;
+        width: 180px;
+    }
+
+    .works_contenedor {
+        margin-bottom: 24px;
+    }
+
+    .works_content {
+        margin: 16px 24px 0 24px;
+        justify-content: center;
+    }
+
+ /* 
+JULIA WORKS ARROWS
+*/
+
+    .fp-controlArrow.fp-prev {
+        right: 20%;
+    }
+
+ /* 
+CONTACT
+*/
+    img.contact_avatar {
+        max-width: 100px;
+    }
+
+    .section_contact_slide {
+        flex-direction: column;
+        gap: 48px;
+    }
+
+    .contact_joan, .contact_julia {
+        flex-direction: row;
+        gap: 16px;
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+    .contact_dades ul {
+        margin-top: 8px;
+    }
+
+    .contact_dades_name {
+        padding-top: 0 !important;
+    }
+
+}

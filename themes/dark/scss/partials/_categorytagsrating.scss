@@ -1,0 +1,124 @@
+.ratings_author {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.ratings {
+    display: flex;
+    gap: 32px;
+}
+
+.category_tags, .home_category_tags {
+    display: flex;
+    gap: 16px;
+    margin: 0 0 32px 0;
+    flex-wrap: wrap;
+}
+
+.article_list .home_category_tags {
+    margin-bottom: 8px;
+}
+
+.article_list .home_category_tags_rating {
+    padding-top: 16px;
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+}
+
+.article_list .article_rating {
+    margin-bottom: 24px;
+    padding: 2px 0;
+}
+
+.rating_lectores {
+    display: none;
+}
+
+.article_rating, .article_users_rating_average {
+    display:flex;
+    align-items: center;
+    gap: 8px;
+}
+
+body.dark .article_users_rating_average img {
+    filter: brightness(4);
+}
+
+
+ul.article_tags {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul.article_tags li {
+    display: inline-block;
+}
+
+ul.article_tags li a {
+    padding-right: 8px;
+    text-decoration: none;
+    font-size: $small;
+    font-weight: $bold;
+}
+
+.article_header ul.article_tags li a {
+    color: $white;
+}
+
+.article_list ul.article_tags li a, .article_individual ul.article_tags li a {
+    color: $l_On_Background;
+}
+
+body.dark .article_individual ul.article_tags li a {
+    color: $d_On_Background;
+}
+
+ul.article_tags li a:hover {
+    text-decoration: underline;
+}
+
+ul.article_tags li a::before {
+    content: "#";
+}
+
+.article_header .home_category_tags_rating .badge {
+    @include badge (transparent, $white, $white, 8px);
+}
+
+.article_header .home_category_tags_rating .article_rating .badge {
+    @include badge (transparent, $accent, $accent, 8px);
+}
+
+.article_main_category {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 32px 0 0 8px;
+
+        h1 {
+            font-size: $body_1;
+            font-weight: $bold;
+            margin-bottom: 8px;
+
+                span {
+                    color: $accent;
+                }
+
+                a {
+                    color: $black;
+                }
+        }
+
+        h2 {
+            font-size: $small;
+            color: #777;
+            margin-top: 8px;
+        }
+
+        .breadcrumb a {
+            color: $black;
+        }
+}
+

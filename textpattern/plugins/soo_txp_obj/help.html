@@ -1,0 +1,201 @@
+<h1>soo_txp_obj</h1>
+
+<p>A support library for Textpattern plugins.</p>
+
+<ul>
+	<li><a href="http://ipsedixit.net/txp/21/soo-txp-obj">Information and examples</a></li>
+	<li><a href="http://ipsedixit.net/api/soo_txp_obj/"><span class="caps">API</span> Documentation</a></li>
+</ul>
+
+<h2 id="history">Version history</h2>
+
+<h3 id="1_1_3">1.1.3</h3>
+
+<p>2022-03-12</p>
+
+<ul>
+	<li><span class="caps">PHP</span> 8 compatibility update</li>
+</ul>
+
+<h3 id="1_1_2">1.1.2</h3>
+
+<p>2017-02-15</p>
+
+<ul>
+	<li>Textpattern 4.6 compatibility update. (Breaks compatibility with earlier versions of Textpattern.)</li>
+</ul>
+
+<h3 id="1_1_1">1.1.1</h3>
+
+<p>2012/01/25</p>
+
+<ul>
+	<li>Moved soo_txp_left_join::count() to parent class (soo_txp_select)</li>
+	<li>Bugfix/update for soo_uri: ampersands now encoded/decoded appropriately</li>
+</ul>
+
+<h3 id="1_1_0">1.1.0</h3>
+
+<p>2011/01/07</p>
+
+<ul>
+	<li>soo_txp_select::distinct() for <code>SELECT DISTINCT</code> queries</li>
+	<li>Bugfix: soo_txp_left_join now works with database table prefixes</li>
+</ul>
+
+<h3 id="b9">1.1.b.1</h3>
+
+<p>9/12/2010</p>
+
+<p><em>Note: this changelist includes items from the 1.0.b.9 and 1.0.b.10 releases</em></p>
+
+<ul>
+	<li>New class, <strong>soo_txp_left_join</strong>, for <code>SELECT ... LEFT JOIN</code> queries</li>
+	<li><strong>soo_txp_upsert</strong> new features:
+	<ul>
+		<li>properties and methods for <code>VALUES()</code> syntax</li>
+		<li>can be initialized with a <strong>soo_txp_rowset</strong> or <strong>soo_txp_row</strong> object</li>
+	</ul></li>
+	<li><strong>soo_txp_rowset</strong> new features:
+	<ul>
+		<li>can be initialized with a query result resource</li>
+		<li>new function <code>subset()</code> to create a new rowset object from an existing one</li>
+	</ul></li>
+	<li>New class, <strong>soo_nested_set</strong>, for Celko nested sets (modified preorder tree)</li>
+	<li><strong>soo_html_form</strong>, new features and related classes:
+	<ul>
+		<li>Constructor&#8217;s <code>atts</code> argument can include an <code>action</code> array for adding query parameters to the form&#8217;s <code>action</code> attribute</li>
+		<li>New classes:
+		<ul>
+			<li><strong>soo_html_label</strong> for labeling form controls</li>
+			<li><strong>soo_html_input</strong> for input elements</li>
+			<li><strong>soo_html_select</strong> for select elements (can be initialized with an array which will auto-create appropriate <code>option</code> elements)</li>
+			<li><strong>soo_html_option</strong> (see above)</li>
+			<li><strong>soo_html_textarea</strong> for textarea elements</li>
+		</ul></li>
+		</ul></li>
+	<li><strong>soo_html_img</strong> bugfix for pre Txp 4.2 compatibility</li>
+	<li><strong>soo_html_table</strong> can now be initialized with an array of values or table cells; these will automatically be formatted into rows and cells appropriately</li>
+	<li>New class, <strong>soo_html_caption</strong>, for table captions</li>
+	<li><strong>soo_html_ol</strong> and <strong>soo_html_ul</strong> can be initialized with nested arrays, automatically generating nested lists (see <strong>soo_nested_set</strong> for a possible source of the nested array)</li>
+</ul>
+
+<h3 id="b8">1.0.b.8</h3>
+
+<p>7/9/2010</p>
+
+<ul>
+	<li>Documentation updates (DoxyGen compatibility)</li>
+</ul>
+
+<h3 id="b7">1.0.b.7</h3>
+
+<p>7/4/2010</p>
+
+<ul>
+	<li><strong>soo_html_img</strong> now adds thumbnail <code>height</code> and <code>width</code> attributes (Txp 4.2.0 or later)</li>
+</ul>
+
+<h3 id="b6">1.0.b.6</h3>
+
+<p>7/1/2010</p>
+
+<ul>
+	<li>New class: soo_util, for static utility methods</li>
+</ul>
+
+<h3 id="b5">1.0.b.5</h3>
+
+<p>1/27/2010</p>
+
+<ul>
+	<li>new method: <code>where_clause()</code> in <strong>soo_txp_query</strong>, a catch-all for complex clauses</li>
+	<li>minor <span class="caps">HTML</span> formatting change to <code>tag()</code> method in <strong>soo_html</strong></li>
+</ul>
+
+<h3 id="b4">1.0.b.4</h3>
+
+<p>10/3/2009</p>
+
+<ul>
+	<li><strong>soo_uri</strong> updated for correct behavior in Txp sub-dir installations</li>
+</ul>
+
+<h3 id="b3">1.0.b.3</h3>
+
+<p>9/22/2009</p>
+
+<ul>
+	<li><strong>soo_uri</strong> now gets query params by parsing $_SERVER[&#8216;<span class="caps">QUERY</span>_STRING&#8217;] instead of $_GET</li>
+</ul>
+
+<h3 id="b2">1.0.b.2</h3>
+
+<p>9/16/2009</p>
+
+<ul>
+	<li>New callback function for <span class="caps">MLP</span> Pack compatibility with <strong>soo_uri</strong></li>
+	<li>New classes:
+	<ul>
+		<li>soo_txp_upsert for <span class="caps">SQL</span> insert/update statements</li>
+		<li>soo_txp_delete for <span class="caps">SQL</span> delete statements</li>
+		<li>soo_html_form for form elements</li>
+	</ul></li>
+	<li>soo_txp_rowset overrides parent::__get() method</li>
+</ul>
+
+<h3 id="b1">1.0.b.1</h3>
+
+<ul>
+	<li>Major re-organization and re-write of most classes.
+	<ul>
+		<li>The old <strong>Soo_Txp_Data</strong> family has been divided into separate classes for queries and data.</li>
+		<li>There are no longer separate classes for each Txp table.</li>
+		<li>All class names now lowercase (these aren&#8217;t case sensitive anyway).</li>
+		<li>Generic setting is now in the form <code>obj-&gt;property()</code> instead of <code>obj-&gt;set_property()</code>.</li>
+		<li>Various renaming, code cleaning, etc.</li>
+	</ul></li>
+	</ul>
+
+<h3 id="a6">1.0.a.6</h3>
+
+<p>6/2/2009</p>
+
+<p>What the heck, time to use the same naming convention I&#8217;m using with other plugins.</p>
+
+<ul>
+	<li>Added <strong>Soo_Txp_Uri</strong> class, for <span class="caps">URI</span> query string manipulation</li>
+	<li><strong>Soo_Html_P</strong> and <strong>soo_html_th</strong> can now have contents set during instantiation. Note that this will break compatibility with some previous uses, e.g. <code>new Soo_Html_P($atts)</code>.</li>
+	<li>Added <code>$in</code> argument to <code>where_in()</code> method (<strong>Soo_Txp_Data</strong>) to allow &#8220;<span class="caps">NOT</span> IN&#8221; queries</li>
+</ul>
+
+<h3 id="a5">1.0.a5</h3>
+
+<p>5/13/2009</p>
+
+<ul>
+	<li>Corrected <span class="caps">SQL</span> syntax in <code>order_by_field()</code> function of <code>Soo_Txp_Data</code> class</li>
+	<li>Modified <code>tag()</code> function of <code>Soo_Html</code> class to handle a <span class="caps">PHP</span> 5.2.0 bug</li>
+</ul>
+
+<h3 id="a4">1.0.a4</h3>
+
+<p>5/1/2009</p>
+
+<p>Added <code>count()</code> and <code>field()</code> methods to the abstract <code>Soo_Txp_Data</code> class.</p>
+
+<h3 id="a3">1.0.a3</h3>
+
+<p>2/19/2009</p>
+
+<p>Added &#8220;Expires&#8221; property to <code>Soo_Txp_Article</code> and &#8220;load_order&#8221; property to <code>Soo_Txp_Plugin</code>. These fields were added in Textpattern version 4.0.7.</p>
+
+<h3 id="a2">1.0.a2</h3>
+
+<p>2/5/2009</p>
+
+<p>No significant changes, but added generic getters and setters (thanks to <strong>jm</strong> for the hint), making the file about 35% smaller.</p>
+
+<h3 id="a1">1.0.a1</h3>
+
+<p>2/4/2009</p>

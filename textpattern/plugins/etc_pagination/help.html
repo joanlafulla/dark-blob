@@ -1,0 +1,277 @@
+<h1>etc_pagination</h1>
+
+<p><a href="https://github.com/etc-plugins/etc_pagination/releases">Download</a> | <a href="https://packagist.org/packages/etc-plugins/etc_pagination">Packagist</a></p>
+
+<p>This Textpattern plugin creates a paginated navigation bar. It has a wide variety of attributes &#8211; so you are able to customise it until you drop! It can be used alone for <code>&lt;txp:article /&gt;</code> and <code>&lt;txp:article_custom /&gt;</code> pagination, but it also has the ability to paginate any list, with a little help from <a href="http://www.iut-fbleau.fr/projet/etc/index.php?id=3">etc_query</a>.</p>
+
+<p>Please report bugs and problems with this plugin at <a href="https://github.com/etc-plugins/etc_pagination/issues">the GitHub project&#8217;s issues page</a>.</p>
+
+<p class="alert-block information">Note that this plugin creates a list that is meant to be <em>styled by you</em> using <span class="caps">CSS</span>.</p>
+
+<h2>Installing</h2>
+
+<p>Using <a href="https://getcomposer.org">Composer</a>:</p>
+
+<pre><code>$ composer require etc-plugins/etc_pagination:*</code></pre>
+
+<p>Or download the latest version of the plugin from <a href="https://github.com/etc-plugins/etc_pagination/releases">the GitHub project page</a>, paste the code into the Textpattern Plugins administration panel, install and enable the plugin. Visit the <a href="https://forum.textpattern.io/viewtopic.php?id=39302">forum thread</a> for more info or to report on the success or otherwise of the plugin.</p>
+
+<h2>Requirements</h2>
+
+<ul>
+	<li>Textpattern 4.5.0 or newer.</li>
+</ul>
+
+<h2>Tags</h2>
+
+<h3>etc_pagination tag</h3>
+
+<pre><code>&lt;txp:etc_pagination /&gt;</code></pre>
+
+<p>The <strong>etc_pagination</strong> tag is a <em>single</em> or a <em>container</em> tag that renders the pagination widget <span class="caps">HTML</span> structure.</p>
+
+<p>If used as a container, it must be specified as an opening and closing pair of tags, like this:</p>
+
+<pre><code>&lt;txp:etc_pagination&gt;
+    ...contained statements...
+&lt;/txp:etc_pagination&gt;</code></pre>
+
+<h4>Attributes</h4>
+
+<ul>
+	<li><code>atts=&quot;value&quot;</code><br />
+Additional attributes to apply to the <code>wraptag</code> attribute value.</li>
+	<li><code>break=&quot;value&quot;</code><br />
+Where value is an <span class="caps">HTML</span> element, specified without brackets (e.g., <code>break=&quot;li&quot;</code>) to separate list items.</li>
+	<li><code>class=&quot;class name&quot;</code><br />
+<span class="caps">HTML</span> <code>class</code> to apply to the <code>wraptag</code> attribute value.</li>
+	<li><code>current=&quot;text&quot;</code><br />
+A text active on the current tab.</li>
+	<li><code>delimiter=&quot;value&quot;</code><br />
+A string to use as delimiter in <code>general,current</code> link pairs, see below. Default: <code>,</code> (a comma).</li>
+	<li><code>first=&quot;text&quot;</code><br />
+Enables you to alter the text inside the &#8216;first&#8217; link.</li>
+	<li><code>gap=&quot;text&quot;</code><br />
+One or two *delimiter*-separated symbols that state that there are more tabs before or after the ones currently viewable. Default: <code>…</code>.</li>
+	<li><code>html_id=&quot;id&quot;</code><br />
+The <span class="caps">HTML</span> <code>id</code> attribute assigned to the <code>wraptag</code> attribute value.</li>
+	<li><code>last=&quot;text&quot;</code><br />
+Enables you to alter the text inside the &#8216;last&#8217; link.</li>
+	<li><code>link=&quot;text&quot;</code><br />
+Enables you to alter the text in the titles of the page tabs. If two *delimiter*-separated strings are given, then the first one will be used on <code>general</code> pages, and the second one on the <code>current</code> page. Default: <code>{*}</code>, where <code>{*}</code> will be replaced by appropriate tab numbers, see &#8216;Replacements&#8217; section below.</li>
+	<li><code>mask=&quot;value&quot;</code><br />
+If set, the whole output will be constructed by replacing the patterns <code>{links}</code>, <code>{first}</code>, <code>{last}</code>, <code>{prev}</code>, <code>{next}</code>, <code>{&lt;+}</code> (gap before) and <code>{+&gt;}</code> (gap after) by corresponding strings. Default: unset.</li>
+	<li><code>next=&quot;text&quot;</code><br />
+Enables you to alter the text inside the &#8216;next&#8217; link.</li>
+	<li><code>offset=&quot;number&quot;</code><br />
+Page number offset. Default: <code>0</code>.</li>
+	<li><code>page=&quot;number&quot;</code><br />
+An integer to be considered as <code>default</code> page (typically <code>1</code>).</li>
+	<li><code>pages=&quot;value&quot;</code><br />
+The total number of pages, or a range <code>start..end</code>, or a *delimiter*-separated list of <code>page[::title]</code> items. Not needed when paginating <code>&lt;txp:article /&gt;</code> tag (default value).</li>
+	<li><code>pgcounter=&quot;value&quot;</code><br />
+The <span class="caps">URL</span> parameter to drive the navigation. Not needed when paginating <code>&lt;txp:article /&gt;</code> tag. Default: <code>pg</code>.</li>
+	<li><code>prev=&quot;text&quot;</code><br />
+Enables you to alter the text inside the &#8216;previous&#8217; link.</li>
+	<li><code>query=&quot;a&amp;b=c&quot;</code><br />
+A <code>&amp;</code>-separated list of <span class="caps">GET</span> parameters to be unset/modified in <code>root</code>.</li>
+	<li><code>range=&quot;number&quot;</code><br />
+The maximum number of left/right neighbours (including gaps) to display. If negative (default), all pages will be displayed. The plugin tries to avoid &#8216;nonsense&#8217; gaps like <code>1 … 3 4</code> and adjust the output so that the number of displayed tabs is <code>2*range+1</code>.</li>
+	<li><code>reversenumberorder=&quot;number&quot;</code><br />
+Makes it possible to reverse the numbers in the tabs. Setting to value to <code>0</code> (default) renders <code>1,2,3,...</code>, setting value to <code>1</code> reverses the link numbers, <code>2</code> reverses theirs hrefs, and <code>3</code> reverses both numbers and hrefs.</li>
+	<li><code>root=&quot;URL&quot;</code><br />
+The <span class="caps">URL</span> to be used as base for navigation, defaults to the current page <span class="caps">URL</span>.</li>
+	<li><code>scale=&quot;1&quot;</code><br />
+An integer to be used as grid for &#8216;gap&#8217; links.</li>
+	<li><code>wraptag=&quot;element&quot;</code><br />
+<span class="caps">HTML</span> element to wrap (markup) block, specified without brackets (e.g., <code>wraptag=&quot;ul&quot;</code>).</li>
+</ul>
+
+<h4>Replacements</h4>
+
+<p>If you are not happy with the default <code>&lt;a&gt;</code> links, use <code>&lt;etc_pagination /&gt;</code> as container to construct your own links. The following replacement tokens are available inside <code>etc_pagination</code>:</p>
+
+<ul>
+	<li><code>{$}</code><br />
+The absolute page number.</li>
+	<li><code>{#}</code><br />
+The displayed page number.</li>
+	<li><code>{*}</code><br />
+The page title.</li>
+	<li><code>{current}</code><br />
+The text given by <code>current</code> attribute, enabled only on the current tab.</li>
+	<li><code>{href}</code><br />
+The page <span class="caps">URL</span>.</li>
+	<li><code>{link}</code><br />
+The text given by <code>link</code> attribute, replaced by <code>first</code>, <code>prev</code>, etc when necessary.</li>
+	<li><code>{pages}</code><br />
+The total pages number.</li>
+	<li><code>{rel}</code><br />
+The page relation (<code>next</code>, <code>prev</code>).</li>
+</ul>
+
+<p>For example, the following (container tag) will generate a <code>&lt;select&gt;</code> pagination list:</p>
+
+<pre><code>&lt;txp:etc_pagination link=&quot;Page {*}&quot; current=&quot;selected&quot; wraptag=&quot;select&quot; atts=&#39;name=&quot;pg&quot;&#39;&gt;
+    &lt;option value=&quot;{*}&quot; {current}&gt;{link}&lt;/option&gt;
+&lt;/txp:etc_pagination</code></pre>
+
+<h4>Examples</h4>
+
+<h5>Example 1</h5>
+
+<pre><code>&lt;txp:etc_pagination range=&quot;2&quot; prev=&quot;Previous&quot; next=&quot;Next&quot;  wraptag=&quot;ul&quot; break=&quot;li&quot; /&gt;</code></pre>
+
+<p>This example outputs, if there are ten pages and we are on the third one, like so:</p>
+
+<pre><code>&lt;ul&gt;
+    &lt;li&gt;
+        &lt;a href=&quot;https://example.com/blog/?pg=2&quot; rel=&quot;prev&quot;&gt;Previous&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;a href=&quot;https://example.com/blog/&quot;&gt;1&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;a href=&quot;https://example.com/blog/?pg=2&quot;&gt;2&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;span data-rel=&quot;current&quot;&gt;3&lt;/span&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;span data-rel=&quot;gap&quot;&gt;…&lt;/span&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;a href=&quot;https://example.com/blog/?pg=10&quot;&gt;10&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;a href=&quot;https://example.com/blog/?pg=4&quot; rel=&quot;next&quot;&gt;Next&lt;/a&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+<p>The <code>&lt;a&gt;</code> and <code>&lt;span&gt;</code> tags linking to <code>first</code>, <code>prev</code>, <code>current</code>, <code>next</code>, <code>last</code>, <code>gap</code> pages, will be given the corresponding value of <code>rel</code> or <code>data-rel</code> attributes.</p>
+
+<h5>Example 2</h5>
+
+<pre><code>&lt;txp:etc_pagination range=&quot;0&quot;&gt;
+    &lt;p&gt;Page {*} of {pages}&lt;/p&gt;
+&lt;/txp:etc_pagination&gt;</code></pre>
+
+<p>This example outputs, if there are eight pages and we are on the sixth one, like so:</p>
+
+<pre><code>&lt;p&gt;Page 6 of 8&lt;/p&gt;</code></pre>
+
+<h5>Example 3</h5>
+
+<pre><code>&lt;txp:etc_pagination wraptag=&quot;nav&quot; class=&quot;paginator&quot; range=&quot;3&quot; atts=&#39;aria-label=&quot;Blog navigation&quot;&#39;
+    prev=&#39;&lt;a class=&quot;prev&quot; rel=&quot;prev&quot; href=&quot;https://example.com{href}&quot; title=&quot;Go to previous page&quot; aria-label=&quot;Go to previous page&quot;&gt;Prev&lt;/a&gt;,
+          &lt;span class=&quot;prev disabled&quot; aria-label=&quot;This is the first page&quot;&gt;Prev&lt;/span&gt;&#39;
+    next=&#39;&lt;a class=&quot;next&quot; rel=&quot;next&quot; href=&quot;https://example.com{href}&quot; title=&quot;Go to next page&quot; aria-label=&quot;Go to next page&quot;&gt;Next&lt;/a&gt;,
+          &lt;span class=&quot;next disabled&quot; aria-label=&quot;This is the last page&quot;&gt;Next&lt;/span&gt;&#39;
+    link=&#39;&lt;li&gt;&lt;a href=&quot;https://example.com{href}&quot; title=&quot;Go to page {*}&quot; aria-label=&quot;Go to page {*}&quot;&gt;{*}&lt;/a&gt;&lt;/li&gt;,
+          &lt;li class=&quot;current&quot;&gt;&lt;b title=&quot;Current page&quot; aria-label=&quot;Current page&quot;&gt;{*}&lt;/b&gt;&lt;/li&gt;&#39;
+    gap=&#39;&lt;li&gt;&lt;span title=&quot;More pages&quot; aria-label=&quot;More pages&quot;&gt;…&lt;/span&gt;&lt;/li&gt;&#39;
+    mask=&#39;{prev}{next}
+    &lt;ul class=&quot;pagination&quot;&gt;
+        {first}{&lt;+}{links}{+&gt;}{last}
+    &lt;/ul&gt;&#39;
+    /&gt;</code></pre>
+
+<p>Fully customised <span class="caps">HTML</span> solutions can be achieved &#8211; this example outputs, if there are eleven pages and we are on the fifth one, like so:</p>
+
+<pre><code>&lt;nav class=&quot;paginator&quot; aria-label=&quot;Blog navigation&quot;&gt;
+    &lt;a class=&quot;prev&quot; rel=&quot;prev&quot; href=&quot;https://example.com/blog/?pg=4&quot; title=&quot;Go to previous page&quot; aria-label=&quot;Go to previous page&quot;&gt;Prev&lt;/a&gt;
+    &lt;a class=&quot;next&quot; rel=&quot;next&quot; href=&quot;https://example.com/blog/?pg=6&quot; title=&quot;Go to next page&quot; aria-label=&quot;Go to next page&quot;&gt;Next&lt;/a&gt;
+    &lt;ul class=&quot;pagination&quot;&gt;
+        &lt;li&gt;
+            &lt;a href=&quot;https://example.com/blog/&quot; title=&quot;Go to page 1&quot; aria-label=&quot;Go to page 1&quot;&gt;1&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;span title=&quot;More pages&quot; aria-label=&quot;More pages&quot;&gt;…&lt;/span&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;a href=&quot;https://example.com/blog/?pg=4&quot; title=&quot;Go to page 4&quot; aria-label=&quot;Go to page 4&quot;&gt;4&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;current&quot;&gt;
+            &lt;b title=&quot;Current page&quot; aria-label=&quot;Current page&quot;&gt;5&lt;/b&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;a href=&quot;https://example.com/blog/?pg=6&quot; title=&quot;Go to page 6&quot; aria-label=&quot;Go to page 6&quot;&gt;6&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;span title=&quot;More pages&quot; aria-label=&quot;More pages&quot;&gt;…&lt;/span&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;a href=&quot;https://example.com/blog/?pg=11&quot; title=&quot;Go to page 11&quot; aria-label=&quot;Go to page 11&quot;&gt;11&lt;/a&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+
+<h3>etc_numpages tag</h3>
+
+<pre><code>&lt;txp:etc_numpages /&gt;</code></pre>
+
+<p>The <strong>etc_numpages</strong> tag is a <em>single</em> helper tag that counts the number of pages in various lists (articles, images, links, &#8230;).</p>
+
+<p>This tag is typically used as a <strong>pages</strong> attribute value, passed to <strong>etc_pagination</strong>, like this:</p>
+
+<pre><code>&lt;txp:etc_pagination pages=&#39;&lt;txp:numpages section=&quot;example&quot; /&gt;&#39; /&gt;</code></pre>
+
+<h4>Attributes</h4>
+
+<p>Most attributes come from <code>&lt;txp:article /&gt;</code> and other Textpattern list tags:</p>
+
+<ul>
+	<li><code>limit=&quot;10&quot;</code><br />
+The default value of <strong>pageby</strong>, see below.</li>
+	<li><code>offset=&quot;0&quot;</code><br />
+The number of items to exclude from the beginning of the list.</li>
+	<li><code>pageby=&quot;number&quot;</code><br />
+The maximum number of items per page.</li>
+	<li><code>table=&quot;txp_table&quot;</code><br />
+A name of Textpattern database table from which the list will be extracted. Default: <code>textpattern</code> (articles).</li>
+	<li><code>total=&quot;number&quot;</code><br />
+An optional list length, if known.</li>
+	<li><code>author</code>, <code>category</code>, <code>excerpted</code>, <code>exclude</code>, <code>expired</code>, <code>id</code>, <code>include</code>, <code>keywords</code>, <code>month</code>, <code>realname</code>, <code>section</code>, <code>status</code>, <code>time</code><br />
+These attributes have the same function as in <a href="http://www.textpattern.net/wiki/index.php?title=article_custom">txp:article_custom</a> and other <a href="http://www.textpattern.net/wiki/index.php?title=Category:List_Tags">list tags</a>.</li>
+</ul>
+
+<h4>Examples</h4>
+
+<h5>Example 1</h5>
+
+<pre><code>&lt;txp:if_individual_article&gt;
+    &lt;txp:etc_pagination pgcounter=&quot;page&quot; pages=&#39;&lt;txp:etc_numpages section=&quot;news&quot; /&gt;&#39; /&gt;
+&lt;/txp:if_individual_article&gt;</code></pre>
+
+<p>This example shows pagination on individual article pages within the <code>news</code> section (i.e., <strong>not</strong> on an article list context page).</p>
+
+<h3>etc_offset tag</h3>
+
+<pre><code>&lt;txp:article_custom offset=&#39;&lt;txp:etc_offset pgcounter=&quot;page&quot; pageby=&quot;5&quot; /&gt;&#39; limit=&quot;5&quot; /&gt;</code></pre>
+
+<p>Used as helper tag to calculate the offset of article|image|&#8230; listing tags. The example above sets the offset to <code>15</code> on a page with <code>...&amp;page=4</code> <span class="caps">URL</span>, so <code>&lt;txp:article_custom /&gt;</code> will display the fourth page of 5 articles.</p>
+
+<h4>Attributes</h4>
+
+<ul>
+	<li><code>pageby=&quot;10&quot;</code><br />
+The number of items per page.</li>
+	<li><code>pgcounter=&quot;pg&quot;</code><br />
+The <span class="caps">URL</span> variable to be considered as page number.</li>
+	<li><code>offset=&quot;0&quot;</code><br />
+An optional page offset.</li>
+	<li><code>type=&quot;value|page|start|end&quot;</code><br />
+Outputs either the raw (escaped) <strong>value</strong> of <code>pgcounter</code>, or the calculated <strong>page</strong> number, or the <strong>start</strong> page item number, or the <strong>end</strong> page item number.</li>
+</ul>
+
+<h4>Examples</h4>
+
+<h5>Example 1</h5>
+
+<pre><code>Showing articles &lt;txp:etc_offset type=&quot;start&quot; /&gt; to &lt;txp:etc_offset type=&quot;end&quot; /&gt;</code></pre>
+
+<p>Outputs <code>Showing articles 21 to 30</code> on the third page of the standard <code>&lt;txp:article /&gt;</code> list.</p>
+
+<h2>Authors/credits</h2>
+
+<p>Written by <a href="http://www.iut-fbleau.fr/projet/etc/">Oleg Loukianov</a>. Many thanks to <a href="https://github.com/etc-plugins/etc_pagination/graphs/contributors">all additional contributors</a>.</p>

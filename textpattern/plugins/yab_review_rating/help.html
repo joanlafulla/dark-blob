@@ -1,0 +1,202 @@
+<h1>yab_review_rating</h1>
+
+<p>A comment based rating system for articles.</p>
+
+<p><strong>Version:</strong> 0.6</p>
+
+<h2>Table of contents</h2>
+
+<ol>
+	<li><a href="#help-section02">Plugin requirements</a></li>
+	<li><a href="#help-config03">Configuration</a></li>
+	<li><a href="#help-section05">Tags</a></li>
+	<li><a href="#help-section09">Examples</a></li>
+	<li><a href="#help-section10">Changelog</a></li>
+	<li><a href="#help-section11">License</a></li>
+	<li><a href="#help-section12">Author contact</a></li>
+</ol>
+
+<h2 id="help-section02">Plugin requirements</h2>
+
+<p>yab_review_rating&#8217;s  minimum requirements:</p>
+
+<ul>
+	<li>Textpattern 4.x</li>
+</ul>
+
+<h2 id="help-config03">Configuration</h2>
+
+<p>Open the plugin code. the first function contains the configuration values. There is a min and a max values for the rating. Valid values are 0-255.</p>
+
+<h2 id="help-section05">Tags</h2>
+
+<h3>yab_review_rating</h3>
+
+<p>Place this in your comment form. It will show the rating of the current comment.<br />
+Can be used elsewhere. If not used in comment context as comments_form or recent_comments you have to fill the id attribute.</p>
+
+<p><strong>id:</strong> integer (comment id)<br />
+Default: <i>no set</i><br />
+Show the rating of a comment with this ID. Useful in a non comment context.</p>
+
+<p><strong>char:</strong> a valid string<br />
+Default: <i>no set</i><br />
+If empty (default) the output will be the rating number. If a char (e.g. a asterisk <code>*</code>) is set the output will be the n-times repeated char, where n is the rating.</p>
+
+<h3>yab_review_rating_input</h3>
+
+<p>The form element for the rating. Should be placed in the <code>comment_form</code> form.</p>
+
+<p><strong>type:</strong> input type (text, select, radio, number, range)<br />
+Default: text<br />
+The type of the form element for the rating. Valid value are <code>text</code>, <code>select</code>, <code>radio</code>, <code>number</code> and <code>range</code>.</p>
+
+<p><strong>html_id:</strong> <span class="caps">HTML</span> id name<br />
+Default: <i>not set</i><br />
+The <span class="caps">HTML</span> id attribute applied to the element.</p>
+
+<p><strong>class:</strong> <span class="caps">HTML</span> class name<br />
+Default: <i>not set</i><br />
+The <span class="caps">HTML</span>/CSS class attribute applied to the element.</p>
+
+<p><strong>reverse:</strong> integer|string (a non-null value)<br />
+Default: 0<br />
+If reverse is given the output of the select or radio type is displayed in reverse order.</p>
+
+<p><strong>break:</strong> breakpoint (br|__empty__)<br />
+Default: &#8216;br&#8217;<br />
+Breakpoints für radio intputs. Can be empty or <code>br</code>.</p>
+
+<p><strong>default:</strong> integer<br />
+Default: <i>not set</i><br />
+Preselected rating value (Could be any number between your min and max values).</p>
+
+<h3>yab_review_rating_average</h3>
+
+<p>Display the average rating for a given article.</p>
+
+<p><strong>id:</strong> string (comma-separated article ids)<br />
+Default: <i>no set</i><br />
+The IDs of articles. If not set it must be placed in an article form (article context).</p>
+
+<p><strong>only_visible:</strong> integer|bool (1|0)<br />
+Default: 1<br />
+If set to 0 all comments (spam and moderated comments too) will be calculated.</p>
+
+<p><strong>exclude:</strong> string (a comma separated list of ratings)<br />
+Default: <i>null</i><br />
+Exclude these ratings from the average rating calculation. So you can exclude &#8216;0&#8217; values for not rated articles, due 0 is the default value. Depending on your rating system setting.</p>
+
+<p><strong>default:</strong> string (Text)<br />
+Default: &#8216;not yet rated&#8217;<br />
+The default text on articles without a rating.</p>
+
+<p><strong>decimals:</strong> integer<br />
+Default: 1<br />
+Define the decimal precision of the calculation and the output.</p>
+
+<p><strong>separator:</strong> string (string|empty)<br />
+Default: . (perdiod)<br />
+Choose your decimal separator. Can be empty (separator will be omitted) for <span class="caps">HTML</span> class friendly output.</p>
+
+<p><strong>round_to_half</strong>: string (up|down|)<br />
+Default: <i>no net</i><br />
+Round to first half integer up or down or not at all. If not set the last decimal is automatically rounded up.</p>
+
+<h2 id="help-section09">Examples</h2>
+
+<h3>Example 1</h3>
+
+<p>Example of <code>yab_review_rating_input</code> in a <code>comment_form</code> form.</p>
+
+<pre><code>&lt;txp:comments_error wraptag=&quot;ul&quot; break=&quot;li&quot; /&gt;
+	&lt;div class=&quot;message&quot;&gt;
+		&lt;p&gt;&lt;label for=&quot;name&quot;&gt;Name:&lt;/label&gt;&lt;br /&gt;&lt;txp:comment_name_input /&gt;&lt;/p&gt;
+		&lt;p&gt;&lt;label for=&quot;email&quot;&gt;Mail (not required, not visible):&lt;/label&gt;&lt;br /&gt;
+			&lt;txp:comment_email_input /&gt;&lt;/p&gt;
+		&lt;p&gt;&lt;label for=&quot;yab-rr-rating&quot;&gt;Rating&lt;/label&gt;&lt;br /&gt;
+			&lt;txp:yab_review_rating_input html_id=&quot;yab-rr-rating&quot; type=&quot;select&quot; reverse=&quot;1&quot; default=&quot;3&quot; /&gt;&lt;/p&gt;
+		&lt;p&gt;&lt;label for=&quot;message&quot;&gt;Review:&lt;/label&gt;&lt;br /&gt;
+			&lt;txp:comment_message_input /&gt;&lt;/p&gt;
+		&lt;p class=&quot;submit&quot;&gt;&lt;txp:comments_help /&gt;&lt;txp:comment_preview /&gt;&lt;txp:comment_submit /&gt;&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+
+<p>Will produce a comment form for article reviews (e.g. with yab_shop). The select dropdown menu for the rating is in reversed order (highest top) and the preselected rating value is 3.</p>
+
+<h3>Example 2</h3>
+
+<p>Example of <code>yab_review_rating</code> in a <code>comments</code> form.</p>
+
+<pre><code>&lt;h3 class=&quot;commenthead&quot;&gt;&lt;txp:comment_permlink&gt;#&lt;/txp:comment_permlink&gt; - &lt;txp:comment_name /&gt; wrote at &lt;txp:comment_time /&gt;:&lt;/h3&gt;
+&lt;span class=&quot;rating&quot;&gt;Rating: &lt;txp:yab_review_rating char=&quot;*&quot; /&gt;&lt;/span&gt;
+&lt;txp:comment_message /&gt;</code></pre>
+
+<p>Will produce a comment/review with the name, text and time of the comment and the rating with asterisks <code>*</code>.</p>
+
+<h3>Example 3</h3>
+
+<p>Example of <code>yab_review_rating</code> in a <code>comments</code> form.</p>
+
+<pre><code>&lt;h3 class=&quot;commenthead&quot;&gt;&lt;txp:comment_permlink&gt;#&lt;/txp:comment_permlink&gt; - &lt;txp:comment_name /&gt; wrote at &lt;txp:comment_time /&gt;:&lt;/h3&gt;
+&lt;span class=&quot;rating rating-value-&lt;txp:yab_review_rating /&gt;&quot;&gt;Rating:&lt;/span&gt;
+&lt;txp:comment_message /&gt;</code></pre>
+
+<p>Will produce a the a comment/review with the name, text and time of the comment and the rating as <span class="caps">HTML</span>/CSS class.</p>
+
+<h3>Example 4</h3>
+
+<p>Example <code>yab_review_rating_average</code>.</p>
+
+<pre><code>&lt;txp:yab_review_rating_average id=&quot;12&quot; exclude=&quot;0&quot; decimals=&quot;2&quot; separator=&quot;&quot; round_to_half=&quot;down&quot; /&gt;</code></pre>
+
+<p>Say the article with the ID 12 do have 3 reviews: One with a rating of 0 and two with a rating of 4 each. The output will exclude the 0 from the calculation. So only the two 4-ratings will be used 4+4 = 8÷2 = 4. Average rating is 4. But we have decimals precision of 2, so it will be 4.00. No rounding required but the separator will be ommitted: 400 will be displayed.<br />
+exclude=&#8220;0&#8221; decimals=&#8220;2&#8221; separator=&#8221;&#8220; round_to_half=&#8220;down&#8221; /&gt;</p>
+
+<pre><code>&lt;txp:yab_review_rating_average id=&quot;12&quot; decimals=&quot;2&quot; separator=&quot;&quot; round_to_half=&quot;down&quot; /&gt;</code></pre>
+
+<p>Here we calculate an average from all reviews/ratings. Like above we have two 4 and 0-rating. So the rating is 0+4+4 = 8÷3 = 2.6666666667. Now we round to half down: 2.500000000 and use the decimal precision of 2: 2.50 and ommit the separator: 250.</p>
+
+<h2 id="help-section10">Changelog</h2>
+
+<ul>
+	<li>v0.1: 2013-12-24
+	<ul>
+		<li>initial release</li>
+	</ul></li>
+	<li>v0.2: 2014-01-08
+	<ul>
+		<li>new: added a the tag <code>&lt;txp:yab_review_rating_average /&gt;</code></li>
+	</ul></li>
+	<li>v0.3: 2014-01-12
+	<ul>
+		<li>new: added the id attribute to <code>&lt;txp:yab_review_rating /&gt;</code></li>
+		<li>modify: <code>&lt;txp:yab_review_rating /&gt;</code> can now be used in <code>&lt;txp:recent_comments /&gt;</code></li>
+	</ul></li>
+	<li>v0.4: 2014-01-16
+	<ul>
+		<li>new: added reverse attribute to <code>&lt;txp:yab_review_rating_input /&gt;</code></li>
+		<li>new: added only_visible attribute to <code>&lt;txp:yab_review_rating_average /&gt;</code></li>
+		<li>modify: id attribute of <code>&lt;txp:yab_review_rating_average /&gt;</code> can now contain list of article ids</li>
+	</ul></li>
+	<li>v0.5: 2017-02-10
+	<ul>
+		<li><span class="caps">TXP</span> 4.6-ready</li>
+	</ul></li>
+	</ul>
+
+<h2 id="help-section11">Licence</h2>
+
+<p>This plugin is released under the <span class="caps">GNU</span> General Public License Version 2 and above<br />
+<ul>
+	<li>Version 2: <a href="http://www.gnu.org/licenses/gpl-2.0.html">http://www.gnu.org/licenses/gpl-2.0.html</a></li>
+	<li>Version 3: <a href="http://www.gnu.org/licenses/gpl-3.0.html">http://www.gnu.org/licenses/gpl-3.0.html</a></li><br />
+</ul></p>
+
+<h2 id="help-section12">Author contact</h2>
+
+<ul>
+	<li><a href="http://www.yablo.de/article/475/yab_review_rating-a-comment-based-rating-system-for-textpattern">Plugin on author&#8217;s site</a></li>
+	<li><a href="https://github.com/trenc/yab_review_rating">Plugin on GitHub</a></li>
+	<li><a href="http://forum.textpattern.com/viewtopic.php?id=40374">Plugin on textpattern forum</a></li>
+	<li><a href="http://textpattern.org/plugins/1285/yab_review_rating">Plugin on textpattern.org</a></li>
+</ul>

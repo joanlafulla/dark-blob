@@ -1,0 +1,19 @@
+#@admin
+#@language en-gb
+yab_rating_label => Rating
+#@language en-us
+yab_rating_label => Rating
+#@language de-de
+yab_rating_label => Bewertung
+#@language fr-fr
+yab_rating_label => Évaluation
+#@language es-es
+yab_rating_label => Clasificación
+#@language it-it
+yab_rating_label => valutazione
+#@language fi-fi
+yab_rating_label => Luokitus
+#@language nl-nl
+yab_rating_label => Aanslag
+#@language ru-ru
+yab_rating_label => Pейтинг

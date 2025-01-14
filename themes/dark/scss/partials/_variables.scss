@@ -1,0 +1,69 @@
+//COLORS
+
+// BASIC PALETTE
+$black: #020202;
+$white: #FFFFFF;
+$dutch_white: #EDE6C0;
+$cal_poly_green: #2D462A;
+$old_lace: #F8F3E5;
+$cornflower_blue: #6892FE;
+$raisin_black: #272934;
+$accent: #E22269;
+$blue_light: #A1DDFF;
+$blue_dark: #1A45B4;
+$green_light: #A1FFE8;
+$green_dark: #11775E;
+$orange_light: #FAD861;
+$orange_dark: #F9630F;
+$accent_light: #FDD4E3;
+
+
+
+//LIGHT SCHEMA
+$l_Background: $old_lace;
+$l_On_Background: $raisin_black;
+$l_Surface: $raisin_black;
+$l_On_Surface: $old_lace;
+$l_Secondary: $dutch_white;
+$l_On_Secondary: $raisin_black;
+$l_Accent: $accent;
+$l_Mask: $cal_poly_green;
+
+//DARK SCHEMA
+$d_Background: $raisin_black;
+$d_On_Background: $old_lace;
+$d_Surface: $old_lace;
+$d_On_Surface: $raisin_black;
+$d_Secondary: $dutch_white;
+$d_On_Secondary: $raisin_black;
+$d_Mask: $cornflower_blue;
+$d_Accent: $accent;
+
+//SEMANTIC SCHEMA
+$REVIEW: $cornflower_blue;
+$NOTICIA: $cal_poly_green;
+$TRAILER: $raisin_black;
+$TOP: $accent;
+$ESPECIAL: $dutch_white;
+
+$FROZEN_BACK: $blue_light;
+$FROZEN_FRONT: $blue_dark;
+$WARM_BACK: $green_light;
+$WARM_FRONT: $green_dark;
+$EXCITED_BACK: $orange_light;
+$EXCITED_FRONT: $orange_dark;
+$MINDBLOWN_FRONT: $accent;
+
+
+
+// TEXT STYLES
+$header: 48px;
+$header2: 40px;
+$title_1: 32px;
+$subtitle : 24px;
+$body_1: 18px;
+$body_2: 16px;
+$small: 14px;
+$normal: 400;
+$bold: 600;
+

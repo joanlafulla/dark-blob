@@ -1,0 +1,131 @@
+<h1>daz_clickable_keywords</h1>
+
+<p><a href="https://reverendmoonbeam.com/code/389/textpattern-plugin-daz_clickable_keywords">Download page</a></p>
+
+<p><a href="https://textpattern.com">Textpattern <span class="caps">CMS</span></a> article tag that makes the keywords clickable.</p>
+
+
+<h2>Basics</h2>
+
+<p>The plugin, daz_clickable_keywords, is a drop-in replacement for <txp:keywords /> Place it in an article form and it will display the article&#8217;s keywords plus link to a <span class="caps">URL</span> with a query using that keyword. Use it to link to other articles with that keyword, or grab the keyword for your own programming.</p>
+
+<pre><code>&lt;txp:daz_clickable_keywords /&gt;</code></pre>
+
+<h2>Attributes</h2>
+
+<pre><code>&lt;txp:daz_clickable_keywords section =&quot;keywords&quot; wraptag=&quot;ul&quot; break=&quot;li&quot; class=&quot;list-inline&quot; breakclass=&quot;list-inline-item&quot; keyword=&quot;keyword&quot; /&gt;</code></pre>
+
+<p>To show the articles indicated by the keywords, you&#8217;ll need to place a <txp:article> or <txp:article_custom> tag on the &#8216;section&#8217; page, like so:</p>
+
+<pre><code>&lt;txp:article_custom keywords=&#39;&lt;txp:page_url type=&quot;keyword&quot; /&gt;&#39; /&gt;</code></pre>
+
+<p><txp:page_url type="keyword" /> is a regular Textpattern tag. Make sure that you change &#8216;keyword&#8217; in that tag to what ever word you use as &#8216;keyword&#8217; in <txp:daz_clickable_keywords /></p>
+
+
+
+<p>The attributes are:</p>
+
+<p><strong>section</strong><br />
+The Textpattern section that you want linked in the <span class="caps">URL</span>.<br />
+Default is &#8216;keywords&#8217;. If you want to use &#8216;keywords&#8217; as a section, you&#8217;ll need to create it as a section first.</p>
+
+<p><strong>wraptag</strong><br />
+The <span class="caps">HTML</span> tags wrapping the list of keywords:</p>
+
+ul for unordered list, eg <ul></ul>
+ol for numbered list, eg <ol></ol>
+p for paragraph, eg <p></p>
+Default is unset.
+
+<p><strong>break</strong><br />
+The <span class="caps">HTML</span> tags wrapping each individual keyword</p>
+
+li for list, eg <li></li>
+p for paragraph, eg <p></p>
+
+<p>Default is unset.</p>
+
+<p><strong>class</strong><br />
+The <span class="caps">CSS</span> class for the wraptag</p>
+
+<p>Default is unset.</p>
+
+<p><strong>breakclass</strong><br />
+The <span class="caps">CSS</span> class for the break tag</p>
+
+<p>Default is unset.</p>
+
+<p><strong>keyword</strong><br />
+The identifier in the <span class="caps">URL</span> that indicates the linked keyword</p>
+
+<p>Default is keyword.</p>
+
+
+
+
+<h2>Examples</h2>
+
+<p>Assuming your article keywords are: Sammy, Lola, Floyd, Bob, Doug, Edith</p>
+
+<h3>Section is tags</h3>
+
+<pre><code>&lt;txp:daz_clickable_keywords section = &quot;tags&quot; /&gt;</code></pre>
+
+<p><code>Returns: &lt;a href=&quot;/tags/?keyword=Sammy&quot;&gt;Sammy&lt;/a&gt; (etc)</code></p>
+
+<h3>Keyword is &#8216;inventory&#8217;</h3>
+
+<pre><code>&lt;txp:daz_clickable_keywords keyword = &quot;inventory&quot; /&gt;</code></pre>
+
+<p>Returns: <code>&lt;a href=&quot;/keywords/?inventory=Lola&quot;&gt;Lola&lt;/a&gt; (etc)</code></p>
+
+<h3>Wrap tag with unordered list</h3>
+
+<pre><code>bc. &lt;txp:daz_clickable_keywords wraptag = &quot;ul&quot; break = &quot;li&quot; /&gt;</code></pre>
+
+<p>Returns: <code>&lt;ul&gt;&lt;li&gt;&lt;a href=&quot;/keywords/?keyword=Bob&quot;&gt;Bob&lt;/a&gt;&lt;/li&gt; (etc) &lt;li&gt;&lt;a href=&quot;/keywords/?keyword=Doug&quot;&gt;Doug&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</code></p>
+
+<h3>Assign class to wraptag and break</h3>
+
+<pre><code>&lt;txp:daz_clickable_keywords wraptag = &quot;ul&quot; break = &quot;li&quot; class=&quot;list-inline&quot; breaktag=&quot;list-inline-item&quot; /&gt;</code></pre>
+
+<p>Returns: <code>&lt;ul class=&quot;list-inline&quot;&gt;&lt;li class=&quot;list-inline-item&quot;&gt;&lt;a href=&quot;/keywords/?keyword=Edith&quot;&gt;Edith&lt;/a&gt;&lt;/li&gt; (etc)&lt;/ul&gt;</code></p>
+
+<h2>License</h2>
+
+<p><span class="caps">MIT</span> License</p>
+
+<p>Copyright &#169; 2022 Darren Atwater</p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy<br />
+of this software and associated documentation files (the &#8220;Software&#8221;), to deal<br />
+in the Software without restriction, including without limitation the rights<br />
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell<br />
+copies of the Software, and to permit persons to whom the Software is<br />
+furnished to do so, subject to the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be included in all<br />
+copies or substantial portions of the Software.</p>
+
+<p><span class="caps">THE</span> <span class="caps">SOFTWARE</span> IS <span class="caps">PROVIDED</span> &#8220;AS IS&#8221;, <span class="caps">WITHOUT</span> <span class="caps">WARRANTY</span> OF <span class="caps">ANY</span> <span class="caps">KIND</span>, <span class="caps">EXPRESS</span> OR<br />
+<span class="caps">IMPLIED</span>, <span class="caps">INCLUDING</span> <span class="caps">BUT</span> <span class="caps">NOT</span> <span class="caps">LIMITED</span> TO <span class="caps">THE</span> <span class="caps">WARRANTIES</span> OF <span class="caps">MERCHANTABILITY</span>,<br />
+<span class="caps">FITNESS</span> <span class="caps">FOR</span> A <span class="caps">PARTICULAR</span> <span class="caps">PURPOSE</span> <span class="caps">AND</span> <span class="caps">NONINFRINGEMENT</span>. IN NO <span class="caps">EVENT</span> <span class="caps">SHALL</span> <span class="caps">THE</span><br />
+<span class="caps">AUTHORS</span> OR <span class="caps">COPYRIGHT</span> <span class="caps">HOLDERS</span> BE <span class="caps">LIABLE</span> <span class="caps">FOR</span> <span class="caps">ANY</span> <span class="caps">CLAIM</span>, <span class="caps">DAMAGES</span> OR <span class="caps">OTHER</span><br />
+<span class="caps">LIABILITY</span>, <span class="caps">WHETHER</span> IN AN <span class="caps">ACTION</span> OF <span class="caps">CONTRACT</span>, <span class="caps">TORT</span> OR <span class="caps">OTHERWISE</span>, <span class="caps">ARISING</span> <span class="caps">FROM</span>,<br />
+<span class="caps">OUT</span> OF OR IN <span class="caps">CONNECTION</span> <span class="caps">WITH</span> <span class="caps">THE</span> <span class="caps">SOFTWARE</span> OR <span class="caps">THE</span> <span class="caps">USE</span> OR <span class="caps">OTHER</span> <span class="caps">DEALINGS</span> IN <span class="caps">THE</span><br />
+<span class="caps">SOFTWARE</span>.</p>
+
+<h2>Author</h2>
+
+<p>Darren Atwater<br />
+<strong>Website:</strong> <a href="https://www.reverendmoonbeam.com">ReverendMoonbeam.com</a><br />
+<strong>Email:</strong> dba@darrenatwater.com</p>
+
+
+<h2>Changelog</h2>
+
+<h3>Version 0.1 &#8211; 2022/10/28</h3>
+
+<ul>
+	<li>Initial release.</li>
+</ul>

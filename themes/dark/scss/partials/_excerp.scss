@@ -1,0 +1,72 @@
+.excerp_article_text p {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    white-space: pre-wrap;
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.article_list .header_info {
+  display: none;
+}
+
+ .article_individual_header_layout .excerp_article_image img {
+    width: 100%;
+    height: 100%; 
+    max-height: 480px;
+    object-fit: cover;
+  }
+
+
+
+  .excerp_article_image .img_platform {
+    display: block;
+    position: absolute;
+    right: 8px;
+    bottom: -8px;
+    background: #f5f5f5;
+    padding: 4px;
+    border-radius: 8px;
+    max-height: 32px;
+    z-index: 1;
+  }
+
+  .article_list .excerp_article_image h2 a:hover{
+    text-decoration: underline;
+  }
+
+  .article_individual_header_grid .excerp_article_image h1 {
+    position: absolute;
+    bottom: 24px;
+    left: -16px;
+    margin: 0;
+    text-align: left;
+    padding-top: 24px;
+    background-image: url("../../../images/background/caret_titulo_left.png");
+    background-repeat: no-repeat;
+    background-position: top 10px left;
+  }
+  
+  .article_individual_header_grid .excerp_article_image h1 a{
+    font-family: 'Outfit', sans-serif;
+    color: $black;
+    background: $white;
+    display: inline-block;
+    text-decoration: none;
+    padding: 8px;
+    font-size: $header;
+  }
+
+  article.article_list .excerp_article_image h2 {
+    display: none;
+  }
+
+  article.article_header .excerp_article_text {
+    display: none;
+  }
+
+  .article_platform {
+    display: none;
+  }

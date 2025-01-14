@@ -1,0 +1,116 @@
+.article_header .excerp_article_publi_comments .badge {
+    @include badge ($white, transparent, $black, 0);
+}
+
+.article_trailer .button {
+    @include button ($accent, $accent, 48px, $white, $body_2);
+    transition: 0.2s;
+}
+
+.article_trailer .button#open_instagram {
+    @include button ($white, $accent, 48px, $accent, $body_2);
+    transition: 0.2s;
+
+            span {
+                padding-left: 0;
+                padding-right: 8px;
+                display: flex;
+            }
+}
+
+.article_trailer {
+    padding-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 48px;
+
+        a {
+            text-decoration: none;
+            color: $l_On_Background;
+            font-size: $body_1;
+            line-height: 1;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        span {
+            color: #7e7a7a;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        i {
+            vertical-align: middle;
+        }
+}
+
+body.dark .breadcrumb a,
+body#wishlist .breadcrumb a {
+    color: $l_On_Surface;
+}
+
+
+
+
+.platform {
+    margin-top: 16px;
+}
+
+.article_list h5{
+    display: none;
+}
+
+.article_list #rating_de_lectores, .article_header #rating_de_lectores {
+    display: none;
+}
+
+
+
+.article_list .article_rating span, .article_header .article_rating span {
+    display: none;
+}
+
+.ratings {
+    display: flex;
+    gap: 32px;
+
+        h5 {
+            margin: 0 0 8px;
+            font-size: $small;
+        }
+}
+
+.glowCookies__banner__3 .btn__section button {
+    border-radius: 32px !important;
+}
+
+#glowCookies-banner h2 {
+    color: $white;
+    margin-top: 0;
+    display: flex;
+}
+
+#glowCookies-banner h2::before {
+    content: url("https://darkblobcine.com/images/background/cookie.png");
+    padding-right: 12px;
+}
+
+#glowCookies-banner h3 {
+    display: none;
+}
+
+.glowCookies__banner__3 {
+    border-radius: 16px 16px 0 0 !important;
+}
+
+

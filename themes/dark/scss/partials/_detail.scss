@@ -1,0 +1,261 @@
+.article_individual_header_layout {
+    color: $white;
+}
+
+.article_individual_header_grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto auto minmax(auto, 480px);
+    gap: 16px;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding-bottom: 80px;
+}
+
+.article_individual {
+    max-width: 1330px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    margin-top: 48px;
+}
+
+.article_individual article {
+    grid-column: 3 / span 8;
+    margin: 32px 0;
+}
+
+.article_individual_header_grid .breadcrumb {
+    grid-column: 3 / span 8;
+    grid-row: 1 / span 1;
+}
+
+.article_individual_header_grid .excerp_article_publi_comments{
+    position: relative;
+    grid-column: 3 / span 8;
+    grid-row: 2 / span 1;
+}
+
+.article_individual_header_grid .excerp_article_image {
+    grid-column: 3 / span 8;
+    grid-row: 3 / span 1;
+    position: relative;
+}
+
+#articles .header_info {
+    top: 40%;
+}
+
+.article_individual_content_datos {
+    display: flex;
+    gap: 24px;
+}
+
+.datos_datos {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-bottom: 8px;
+
+        img {
+            margin-top: 4px;
+        }
+
+        h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: $title_1;
+            color: $l_On_Background;
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+                li {
+                    padding-bottom: 8px;
+                    font-size: $body_2;
+
+                        span {
+                            text-transform: uppercase;
+                            font-weight: $bold;
+                        }
+                }
+        }
+
+        .badge.review {
+            display: none;
+        }
+}
+
+body.dark .datos_datos h2 {
+    color: $d_Mask;
+}
+
+.datos_image img{
+    max-width: 212px;
+    min-width: 212px;
+    width: 100%;
+    max-height: 313px;
+    object-fit: cover;
+}
+
+.nacion_ano {
+    display: flex;
+    gap: 8px;
+}
+
+.article_argumento, .article_youlike {
+    margin: 32px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    
+
+    .argumento, .youlike {
+        background-color: $l_Secondary;
+        padding: 24px;
+        font-size: $body_1;
+        font-weight: $bold;
+        color: $l_On_Secondary;
+        box-sizing: border-box;
+        width: 100%;
+    }
+
+    .badge {
+        @include badge ($l_Surface, transparent, $l_On_Surface, 0);
+    }
+}
+
+body.dark .article_argumento, body.dark .article_youlike {
+    .badge {
+        @include badge ($d_Mask, transparent, $d_On_Background, 0);
+    }
+}
+
+.article_review {
+    font-size: $body_1;
+    margin: 32px 0;
+    line-height: 1.65;
+}
+
+.article_review  a:not(.donde_ver_logo > a) {
+    overflow: hidden;
+    text-decoration: none;
+    color: $l_Accent;
+    font-weight: bold;
+    vertical-align: top;
+    background-image: linear-gradient($l_Background 50%, $l_Accent 50%);
+	background-size: auto 175%;
+	transition: background-position-y .2s ease-in-out, color .2s ease-in-out;
+
+	&:hover {
+		background-position-y: 100%;
+        color: $l_On_Surface;
+	} 
+}
+
+body.dark .article_review a {
+    color: $cornflower_blue;
+    background-image: linear-gradient($d_Background 50%, $cornflower_blue 50%);
+	background-size: auto 175%;
+	transition: background-position-y .2s ease-in-out, color .2s ease-in-out;
+
+	&:hover {
+		background-position-y: 100%;
+        color: $l_On_Surface;
+	} 
+}
+
+
+
+.article_review.article_news h1 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 32px;
+    color: $l_Surface;
+    margin-top: 0;
+    margin-bottom: 24px;
+}
+
+.article_users_rating_average .badge {
+    @include badge (transparent, $l_Surface, $l_Surface, 8px);
+}
+
+body.dark .article_users_rating_average .badge {
+    @include badge (transparent, #9CA4D0, #9CA4D0, 8px);
+}
+
+.article_individual .article_category .badge {
+    @include badge ($l_Background, $l_On_Background, $l_On_Background, 8px);
+}
+
+.article_gallery.article_grid_list {
+    margin-top: 40px;
+    gap: 24px;
+    grid-template-columns: 1fr;
+}
+
+.article_gallery.article_grid_list img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 16/9;
+}
+
+.article_gallery_poster img {
+    width: 100%;
+    height: auto;
+}
+
+body#articles .hype_contenedor {
+    max-width: 328px;
+}
+
+
+body#articles .hype_frozen,
+body#articles .hype_warm,
+body#articles .hype_excited,
+body#articles .hype_mindBlown {
+    opacity: 1;
+}
+
+.donde_ver {
+    margin-top: 32px;
+    border-top: 1px solid $l_Secondary;
+
+        h3 {
+            font-size: $title_1;
+            font-family: 'Outfit', sans-serif;
+            margin-bottom: 24px;
+        }
+}
+
+body.dark .donde_ver {
+    border-top: 1px solid rgb(237 230 192 / 15%)
+}
+
+.donde_ver_logo {
+    margin-top: 0.5em;
+    margin-bottom: 2em;
+    margin-left: 0.4em;
+}
+
+@media (max-width: 980px) {
+
+    #articles .header_info {
+        max-width: 88%;
+    }
+
+    #articles  .title_header_article h2 a {
+        font-size: 40px;
+        padding: 16px;
+        padding-right: 8px;
+    }
+
+    .article_individual {
+        margin-top: 8px;
+    }
+}

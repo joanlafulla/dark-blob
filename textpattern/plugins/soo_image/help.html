@@ -1,0 +1,633 @@
+<style type="text/css">
+div#sed_help pre {padding: 0.5em 1em; background: #eee; border: 1px dashed #ccc;}
+div#sed_help h1, div#sed_help h2, div#sed_help h3, div#sed_help h3 code {font-family: sans-serif; font-weight: bold;}
+div#sed_help h1, div#sed_help h2, div#sed_help h3 {margin-left: -1em;}
+div#sed_help h2, div#sed_help h3 {margin-top: 2em;}
+div#sed_help h1 {font-size: 2.4em;}
+div#sed_help h2 {font-size: 1.8em;}
+div#sed_help h3 {font-size: 1.4em;}
+div#sed_help h4 {font-size: 1.2em;}
+div#sed_help h5 {font-size: 1em;margin-left:1em;font-style:oblique;}
+div#sed_help h6 {font-size: 1em;margin-left:2em;font-style:oblique;}
+div#sed_help li {list-style-type: disc;}
+div#sed_help li li {list-style-type: circle;}
+div#sed_help li li li {list-style-type: square;}
+div#sed_help li a code {font-weight: normal;}
+div#sed_help li code:first-child {background: #ddd;padding:0 .3em;margin-left:-.3em;}
+div#sed_help li li code:first-child {background:none;padding:0;margin-left:0;}
+div#sed_help dfn {font-weight:bold;font-style:oblique;}
+div#sed_help .required, div#sed_help .warning {color:red;}
+div#sed_help .default {color:green;}
+</style>
+ <div id="sed_help">
+
+	<h1>soo_image</h1>
+
+	<h2>Contents</h2>
+
+	<ul>
+		<li><a href="#overview">Overview</a></li>
+		<li><a href="#usage">Usage</a></li>
+		<li><a href="#image_context">Image Context</a></li>
+		<li><a href="#tags">Tags</a></li>
+		<li><a href="#controller_tag">Controller tag</a>
+	<ul>
+		<li><a href="#soo_image_select">soo_image_select</a></li>
+	</ul></li>
+	<ul>
+		<li><a href="#output_tags">Output tags</a>
+	<ul>
+		<li><a href="#soo_image">soo_image</a></li>
+		<li><a href="#soo_image_">soo_image_*</a> <em>(-author, -caption, etc.)</em></li>
+		<li><a href="#soo_thumbnail_">soo_thumbnail_*</a> <em>(-url, -height, -width)</em></li>
+		<li><a href="#soo_exif">soo_exif</a></li>
+		<li><a href="#pagination">Pagination</a></li>
+	</ul></li>
+		<li><a href="#conditional_tags">Conditional tags</a>
+	<ul>
+		<li><a href="#soo_if_txp_image">soo_if_txp_image</a></li>
+		<li><a href="#soo_if_image_">soo_if_image_*</a> <em>(-author, -category, etc.)</em></li>
+		<li><a href="#soo_if_image_count">soo_if_image_count</a></li>
+	</ul></li>
+	</ul></li>
+		<li><a href="#requirements">Requirements &#38; Installation</a></li>
+		<li><a href="#preferences">Preferences</a></li>
+		<li><a href="#examples">Examples</a></li>
+		<li><a href="#history">History</a></li>
+	</ul>
+
+	<p>A full <a href="http://ipsedixit.net/txp/55/soo_image-user-guide">User Guide</a> is available at the <a href="http://ipsedixit.net/">author&#8217;s website</a>.</p>
+
+	<h2 id="overview">Overview</h2>
+
+	<p>Yes, it&#8217;s <em>Yet Another Image Plugin</em>&#174;. This one, though, fits right into <em>The Textpattern Way</em>&#8482;. Seriously, it does aim to be as Txp-ish as possible. No fancy stuff (with all the locked-in formatting that typically goes along with it), but simple tags that bring image display the same kind of flexible power Txp offers for article display.</p>
+
+	<p>Basic features include tags for displaying images and associated info (such as <code>author</code> &#38; <code>caption</code>). There are also <a href="#conditional_tags">conditional tags</a> for checking against that info, and <a href="#soo_exif">tags for reading and displaying <span class="caps">EXIF</span> metadata</a> directly from image files.</p>
+
+	<p>The key feature is flexible image selection combined with Txp forms. Retrieve images singly or in groups. Select particular images or search on category, author, aspect ratio, and/or file type. Your selection works with <em>image forms</em> for your choice of formatting. Your automatically-formatted images can be placed anywhere, including directly into article body text. You can create and control galleries with your choice of Txp tags and <span class="caps">HTML</span> markup. You can assign multiple images to an article.</p>
+
+	<p><strong>soo_image</strong> is designed for images managed through the Txp Images tab (it&#8217;s <em>The Textpattern Way</em>&#8482;, after all), but also allows direct selection by <span class="caps">URL</span> (of course these won&#8217;t have captions etc.).</p>
+
+	<h2 id="usage">Usage</h2>
+
+	<p>The <a href="#soo_image"><code>soo_image</code></a> tag can be used standalone, in place of <a href="http://textbook.textpattern.net/wiki/index.php?title=image"><code>image</code></a>, <a href="http://textbook.textpattern.net/wiki/index.php?title=thumbnail"><code>thumbnail</code></a>, or <a href="http://textbook.textpattern.net/wiki/index.php?title=article_image"><code>article_image</code></a>. One advantage is control over the <code>height</code> and <code>width</code> attributes in the <code>img</code> tag, making it easier to create layouts in which the images scale along with the text size, using only <span class="caps">CSS</span>. There is a <code>title</code> attribute for control over the corresponding <code>title</code> in the <span class="caps">HTML</span> output. <code>soo_image</code> also accepts <code>link_rel</code> and <code>onclick</code> attributes, helpful for hooking into javascript-based galleries.</p>
+
+	<p><code>soo_image</code> can go in an image form to display images retrieved by <a href="#soo_image_select"><code>soo_image_select</code></a>. Txp doesn&#8217;t have image forms per se, so an <dfn>image form</dfn> is a form of type &#8220;misc&#8221; that is called by <code>soo_image_select</code> and that contains one or more <strong>soo_image</strong> tags.</p>
+
+	<p><code>soo_image_select</code> is generally used in conjunction with an image form. What <a href="http://textbook.textpattern.net/wiki/index.php?title=article"><code>article</code></a> and <a href="http://textbook.textpattern.net/wiki/index.php?title=article_custom"><code>article_custom</code></a> do for articles, <code>soo_image_select</code> does for images. The tag itself can go nearly anywhere (but <span class="warning">not</span> in an image form). It retrieves images based on your criteria and then sends them to the image form for display. It plus an image form can replace <code>article_image</code>, allowing you to assign multiple images per article.</p>
+
+	<p>Instead of using an image form, you can also use <code>soo_image_select</code> as a container tag (in the same way <code>article</code> and <code>article_custom</code> work either as single or container tags). Sometimes this is more expedient than creating a new form.</p>
+
+	<p>The other tags work wherever there is <a href="#image_context">image context</a>.</p>
+
+	<h2 id="image_context">Image Context and Forms</h2>
+
+	<p>Most <strong>soo_image</strong> tags require image context to produce output. (The exceptions are <code>soo_image_select</code>, which is a controller rather than an output tag per se, and <code>soo_image</code> if it is used with a specified <code>id</code> or <code>name</code> value. Also, <strong>soo_image</strong> conditional tags work anywhere, but will always evaluate to false if there is no image context; note that <code>soo_if_image_count</code> uses a more expansive definition of image context.)</p>
+
+	<p><dfn>Image context</dfn> is provided by the first of, in descending order of priority:</p>
+
+	<ul>
+		<li>Inside an image form, the images selected by <code>soo_image_select</code>
+	<ul>
+		<li>specified <code>name</code> values, or;</li>
+		<li>specified <code>id</code> values, or;</li>
+		<li>specified <code>category</code>, <code>author</code>, <code>ext</code> (file type), or <code>aspect_ratio</code> values, or;</li>
+		<li>article images, or;</li>
+	</ul></li>
+		<li>Outside an image form but inside an article form (or tag)
+	<ul>
+		<li>(first) article image, or;</li>
+		<li>(optionally) first image selected by previous <code>soo_image_select</code> tag (persistent context)</li>
+	</ul></li>
+	</ul>
+
+	<p>Inside an <dfn>image form</dfn>, i.e. a form called by <code>soo_image_select</code> (or the contents of a <code>soo_image_select</code> container tag), all of the selected images will be passed, one at a time, to any <strong>soo_image</strong> tags. Outside an image form, a <strong>soo_image</strong> tag only sees the first image in the current context. This will be the first article image or, if there is no article image, the first image from the previous <code>soo_image_select</code> tag.</p>
+
+	<p>This last element, the first image from the previous <code>soo_image_select</code> tag, is called <dfn>persistent context</dfn>. It is optional because it can be disabled either in preferences or in <code>soo_image_select</code>&#8217;s attributes. See <a href="http://ipsedixit.net/txp/61/pagination#persistent_context">pagination</a> for a useful example of persistent context.</p>
+
+	<p>Note that <code>soo_image_select</code> usually needs to appear before any other <strong>soo_image</strong> tags in order to provide this context. The <a href="#pagination">pagination tags</a> are an exception; they can go anywhere on the page.</p>
+
+	<p><code>soo_if_image_count</code> works differently; see the <a href="#soo_if_image_count">tag help</a> below.</p>
+
+	<h2 id="tags">Tags</h2>
+
+	<h3 id="controller_tag">Controller tag</h3>
+
+	<h4 id="soo_image_select">soo_image_select</h4>
+
+	<p>Select images for display via other <strong>soo_image</strong> tags. Select specific images by name or id; search for images by author, category, aspect ratio, or file type, retrieve article image(s), or select images from Txp 4.3.0&#8217;s new image context. Each selected image will be passed to the image form or container contents.</p>
+
+	<p>Can be used almost anywhere, but <span class="warning">do not use recursively</span>, i.e. inside another <strong>soo_image</strong> image form or <code>soo_image_select</code> container tag. In general you must place <code>soo_image_select</code> above any other <strong>soo_image</strong> tags if <code>soo_image_select</code> is expected to provide the image context for the other tags. (<strong>soo_image</strong> pagination tags are an exception, and can be placed anywhere.)</p>
+
+	<p>Use as a single tag (in which case the <code>form</code> attribute is <span class="required">required</span>)</p>
+
+<pre>&#60;txp:soo_image_select /&#62;
+</pre>
+
+	<p>or as a container (in which case <code>form</code> and <code>listform</code> will be overridden)</p>
+
+<pre>&#60;txp:soo_image_select&#62;
+... *soo_image* tags and other content
+&#60;/txp:soo_image_select&#62;
+</pre>
+
+	<h5>Attributes</h5>
+
+	<p>Unless otherwise stated, all attributes default to unset (&#8220;0&#8221; or empty).</p>
+
+	<p>Note that <code>name</code> will override <code>id</code>, and either of these will override <code>author</code>, <code>category</code>, <code>aspect_ratio</code>, and <code>ext</code>. If none of these is declared, inside an article form <code>soo_image_select</code> looks for the article image(s) (and so <span class="required">requires</span> an article context). And if neither applies, <code>soo_image_select</code> checks for global image context (new in Txp 4.3.0).</p>
+
+	<p><code>author</code>, <code>category</code>, <code>aspect_ratio</code>, and <code>ext</code> can be used together for a complex selection. Each attribute accepts a comma-separated list, and within each attribute the result is an OR (disjunctive) search, widening the search. However, across attributes the result is an <span class="caps">AND</span> (conjunctive) search, narrowing the search. E.g., <code>&#60;txp:soo_image_select category=&#34;a,b&#34; author=&#34;c&#34; /&#62;</code> searches for images that are either in category &#8220;a&#8221; or &#8220;b&#8221;, but only those that are by author &#8220;c&#8221;.</p>
+
+	<p><code>form</code> and <code>listform</code> are overridden by the tag contents when <code>soo_image_select</code> is used as a container tag.</p>
+
+	<h6>Image selection attributes</h6>
+
+	<ul>
+		<li><code>name</code> <em>(text)</em><br />
+Txp name (from Content-&#62;Images) of image to select for display. Will accept a comma-separated list for multiple images.</li>
+		<li><code>id</code> <em>(integer)</em><br />
+Txp ID (from Content-&#62;Images) for image selection. Will accept a comma-separated list for multiple images; multiple id values can also be entered as ranges (&#8220;id:id&#8221; or &#8220;id-id&#8221;), including multiple ranges, preserving order (e.g., &#8220;44-46, 11:9&#8221; equivalent to &#8220;44,45,46,11,10,9&#8221;)</li>
+		<li><code>aspect_ratio</code> <em>(text)</em><br />
+Image aspect ratio (width:height), written as a number (e.g. &#8220;1.5&#8221;) or ratio (e.g. &#8220;3:2&#8221; or &#8220;3/2&#8221;). Optionally prefix &#8220;+&#8221; to get greater than or equal to specified aspect ratio, or &#8220;&minus;&#8221; to get less than or equal to (e.g., &#8220;+3:2&#8221; returns images with an aspect ratio of 3:2 or greater). Or, optionally give two ratios separated by &#8220;&minus;&#8221; to specify a range (e.g., &#8220;1-2&#8221;, &#8220;4:3-3:2&#8221;, etc.)</li>
+		<li><code>author</code> <em>(text)</em><br />
+Comma-separated list of author names (login names) for image selection.</li>
+		<li><code>category</code> <em>(text)</em><br />
+Comma-separated list of categories for image selection.</li>
+		<li><code>ext</code> <em>(filename extension)</em><br />
+Comma-separated list of file types for image selection, e.g. &#8220;png,jpg&#8221;.</li>
+		<li><code>limit</code> <em>(integer)</em><br />
+Limit on number of images to return per page. Defaults to &#8220;0&#8221;, no limit.</li>
+		<li><code>sort</code> <em>(MySQL sort value)</em><br />
+Sort order to use when selecting by <code>author</code>, <code>category</code>, <code>aspect_ratio</code> and/or <code>ext</code>. Defaults to &#8220;name asc&#8221; (alphabetical by image name). Other possibilities include &#8220;date desc&#8221; (most recent first) and &#8220;rand&#8221; or &#8220;random&#8221; (random). <code>sort</code> is overriden when selection is by <code>name</code>, <code>id</code>, or article image.</li>
+		<li><code>pagination</code> <em>(boolean)</em><br />
+<span class="default">Enabled by default</span>. Set <code>pagination=&#34;0&#34;</code> to prevent this tag from changing or using pagination variables. In general this is only needed when using multiple <code>soo_image_select</code> tags on a single page, and where more than one of these tags has a <code>limit</code> set.</li>
+		<li><code>persistent_context</code> <em>(boolean)</em><br />
+<span class="default">Enabled by default</span>, so that later <code>soo_image</code> tags will find the first selected image if they don&#8217;t find something else first. Set <code>persistent_context=&#34;0&#34;</code> to prevent this behavior.</li>
+	</ul>
+
+	<h6>Form output attributes</h6>
+
+	<ul>
+		<li><code>form</code> <em>(text)</em> <span class="required">Required</span> (except when using <code>soo_image_select</code> as a container tag)<br />
+Name of Txp form to apply to the image(s). Defaults to &#8220;soo_image&#8221; (or the plugin&#8217;s preference value, if you have assigned one).</li>
+		<li><code>listform</code> <em>(text)</em><br />
+Name of Txp form to use if multiple images are retrieved. Defaults to the same value as <code>form</code> (or whatever value you have assigned to the global array).</li>
+		<li><code>break</code> <em>(text)</em><br />
+<span class="caps">HTML</span> tag name (no brackets) or text to separate multiple images.</li>
+		<li><code>wraptag</code> <em>(<span class="caps">HTML</span> tag name)</em><br />
+<span class="caps">HTML</span> tag name (no brackets) for element to wrap the image(s).</li>
+		<li><code>class</code> <em>(text)</em><br />
+<a href="http://www.w3.org/TR/html401/struct/global.html#adef-class" title="s"><span class="caps">HTML</span> class name</a> for the <code>wraptag</code>.</li>
+		<li><code>html_id</code> <em>(text)</em><br />
+<a href="http://www.w3.org/TR/html401/struct/global.html#adef-id"><span class="caps">HTML</span> id</a> for the <code>wraptag</code>.</li>
+	</ul>
+
+	<h3 id="output_tags">Output tags</h3>
+
+	<h4 id="soo_image">soo_image</h4>
+
+<pre>&#60;txp:soo_image /&#62;
+</pre>
+
+	<p>Display a single image.</p>
+
+	<h5>Attributes</h5>
+
+	<p>None required (but see paragraph below). Unless otherwise stated, all attributes default to unset (&#8220;0&#8221; or empty).</p>
+
+	<p>Note that <code>name</code> will override <code>id</code>. If neither is declared, <code>soo_image</code> <span class="required">requires</span> article or image context.</p>
+
+	<p>By default, the <code>img</code> tag produced by <code>soo_image</code> has <code>height</code> and <code>width</code> attributes set to the actual image dimensions, in pixels. You can change this in the plugin&#8217;s preferences so that these attributes are not added. In either case you can override the default setting by specifying <code>height</code> and/or <code>width</code> in <code>soo_image</code>:</p>
+
+	<ul>
+		<li>If your preference setting is to display <code>height</code> and <code>width</code> by default, you can suppress this by declaring <code>height=&#34;0&#34;</code> or <code>width=&#34;0&#34;</code> in the <code>soo_image</code> tag. You don&#8217;t need to declare both; setting either of them will suppress both.</li>
+		<li>If your preference setting is to suppress both by default, you can override this by declaring <code>height=&#34;1&#34;</code> or <code>width=&#34;1&#34;</code> in the <code>soo_image</code> tag. Again, you don&#8217;t need to declare both.</li>
+		<li>As of version 1.0.b.7, thumbnail attributes are treated the same way (Txp version 4.2.0 or later; note that the Txp 4.2.0 upgrade does not automatically add thumbnail height and width to the database for existing images).</li>
+	</ul>
+
+	<p>You can also assign arbitrary <a href="http://www.w3.org/TR/2008/REC-CSS2-20080411/syndata.html#length-units"><span class="caps">CSS</span> length values</a> to either attribute. In this case, the value will be passed directly to the <code>img</code> tag. If you assign <code>height</code> such a value, but declare nothing for <code>width</code>, the <code>img</code> tag will have the specified <code>height</code> but will not have a <code>width</code> attribute (and vice versa); this preserves the correct aspect ratio.</p>
+
+	<p>Setting any of the link-related attributes (<code>link</code>, <code>link_class</code>, <code>link_id</code>, <code>link_rel</code>, <code>link_to</code>, or <code>onclick</code>) automatically enables both <code>link</code> and <code>thumbnail</code>.</p>
+
+	<h6>Image selection attributes</h6>
+
+	<ul>
+		<li><code>name</code> <em>(text)</em><br />
+Txp name (from Content-&#62;Images) of image to display.</li>
+		<li><code>id</code> <em>(integer)</em><br />
+Txp ID (from Content-&#62;Images) of image to display.</li>
+		<li><code>thumbnail</code> <em>(boolean)</em><br />
+Set to display the thumbnail instead of the full-size image.</li>
+	</ul>
+
+	<h6>Image tag attributes</h6>
+
+	<ul>
+		<li><code>height</code> <em>(mixed)</em>
+	<ul>
+		<li>empty (<span class="default">default</span>): add standard <code>height</code> attribute (actual image height in pixels) if <code>default_dimensions</code> preference is on.</li>
+		<li><code>0</code> : Suppress <code>height</code> and <code>width</code> attributes if <code>default_dimensions</code> preference is on.</li>
+		<li><code>1</code> : force standard <code>height</code> and <code>width</code> attributes when <code>default_dimensions</code> preference is off.</li>
+		<li><a href="http://www.w3.org/TR/html401/types.html#type-length"><span class="caps">HTML</span> length value</a> for the <code>height</code> attribute (e.g. &#8220;50%&#8221;).</li>
+	</ul></li>
+		<li><code>width</code> <em>(mixed)</em><br />
+Like <code>height</code>.</li>
+		<li><code>escape</code> <em>(boolean)</em><br />
+<span class="default">True by default</span>. Escape <span class="caps">HTML</span> special characters in the <code>alt</code> and <code>title</code> attributes. Set to &#8220;0&#8221; to leave unescaped.</li>
+		<li><code>class</code> <em>(text)</em><br />
+<a href="http://www.w3.org/TR/html401/struct/global.html#adef-class" title="s"><span class="caps">HTML</span> class name</a> for the <code>img</code> tag.</li>
+		<li><code>html_id</code> <em>(text)</em><br />
+<a href="http://www.w3.org/TR/html401/struct/global.html#adef-id"><span class="caps">HTML</span> id</a> for the <code>img</code> tag.</li>
+		<li><code>title</code> <em>(format string)</em><br />
+<a href="http://www.w3.org/TR/1999/REC-html401-19991224/struct/global.html#adef-title"><span class="caps">HTML</span> title attribute</a> for the <code>img</code> tag (and <code>a</code> tag for linked thumbnails). Any occurrences of &#8220;{caption}&#8221; will be replaced by the image caption from the Txp database; likewise for &#8220;{author}&#8221; and &#8220;{alt}&#8221;. <span class="default">Default</span> is &#8220;{caption}&#8221;.</li>
+	</ul>
+
+	<h6>Linked thumbnail attributes</h6>
+
+	<p><span class="warning">Note:</span> setting any of these automatically enables both <code>link</code> and <code>thumbnail</code>.</p>
+
+	<ul>
+		<li><code>link</code> <em>(boolean)</em><br />
+Display the thumbnail as a link to the full-size image.</li>
+		<li><code>link_class</code> <em>(text)</em><br />
+<a href="http://www.w3.org/TR/html401/struct/global.html#adef-class" title="s"><span class="caps">HTML</span> class name</a> for the <code>a</code> tag.</li>
+		<li><code>link_id</code> <em>(text)</em><br />
+<a href="http://www.w3.org/TR/html401/struct/global.html#adef-id"><span class="caps">HTML</span> id</a> for the <code>a</code> tag.</li>
+		<li><code>link_rel</code> <em>(relation)</em><br />
+<a href="http://www.w3.org/TR/html401/struct/links.html#adef-rel"><span class="caps">HTML</span> <code>rel</code> attribute</a> for the <code>a</code> tag.</li>
+		<li><code>onclick</code> <em>(text)</em><br />
+<a href="http://www.w3.org/TR/1999/REC-html401-19991224/interact/scripts.html#adef-onclick"><span class="caps">HTML</span> <code>onclick</code> attribute</a> for the <code>a</code> tag.</li>
+		<li><code>link_to</code> <em>(<span class="caps">URI</span>)</em><br />
+Root-relative <span class="caps">URI</span> to link to; if that <span class="caps">URI</span> contains a <strong>soo_image</strong> gallery that includes this image, the link will be to that point in the gallery (works for multi-page galleries).</li>
+	</ul>
+
+	<h4 id="metadata">Txp Metadata tags</h4>
+
+	<p>Display metadata fields from the Txp image table. These tags can be used anywhere, but require image context.</p>
+
+<pre>&#60;txp:soo_image_alt /&#62;
+&#60;txp:soo_image_author /&#62;
+&#60;txp:soo_image_caption /&#62;
+&#60;txp:soo_image_category /&#62;
+&#60;txp:soo_image_date /&#62;
+&#60;txp:soo_image_height /&#62;
+&#60;txp:soo_image_id /&#62;
+&#60;txp:soo_image_name /&#62;
+&#60;txp:soo_image_url /&#62;
+&#60;txp:soo_image_width /&#62;
+&#60;txp:soo_thumbnail_url /&#62;
+&#60;txp:soo_thumbnail_height /&#62;
+&#60;txp:soo_thumbnail_width /&#62;
+</pre>
+
+	<p><code>soo_image_date</code> returns the date stored by Txp, which is the image upload date, which is not all that useful. See <code>soo_exif</code> for how to show the exposure date for images containing <span class="caps">EXIF</span> data.</p>
+
+	<p><code>soo_image_author</code> returns the author&#8217;s full name rather than the login name stored in the image table.</p>
+
+	<p>Note that thumbnail height and width are available only in Txp 4.2.0 or later. Also note that the Txp 4.2.0 update script does not update these fields for images already in the database (the <a href="http://ipsedixit.net/txp/91/soo_thumb_atts">soo_thumb_atts</a> plugin offers a solution).</p>
+
+	<h5>Attributes</h5>
+
+	<p>All of these tags accept standard <code>wraptag</code>, <code>class</code>, and <code>html_id</code> attributes.</p>
+
+	<p>Additionally, <code>soo_image_alt</code> and <code>soo_image_caption</code> each accept the following optional attribute:</p>
+
+	<ul>
+		<li><code>escape</code> <em>(boolean)</em><br />
+Set by default, <span class="caps">HTML</span> special characters will be converted. Set to &#8220;0&#8221; to leave the output unconverted.</li>
+	</ul>
+
+	<p><code>soo_image_caption</code> accepts the following attribute:</p>
+
+	<ul>
+		<li><code>no_widow</code> <em>(boolean)</em><br />
+Set by default, will insert a non-breaking space between the last two words in the caption. Set to &#8220;0&#8221; to leave the output unconverted.</li>
+	</ul>
+
+	<p><code>soo_image_date</code> accepts the following attribute:</p>
+
+	<ul>
+		<li><code>format</code> <em>(format string)</em><br />
+Set to a valid <a href="http://us2.php.net/strftime">strftime()</a> value to override the default date format set in site preferences.</li>
+	</ul>
+
+	<h4 id="soo_exif">Exif tags</h4>
+
+	<ul>
+		<li><strong>soo_exif</strong></li>
+		<li><strong>soo_exif_field</strong></li>
+		<li><strong>soo_exif_value</strong></li>
+	</ul>
+
+	<p>Retrieve and display <span class="caps">EXIF</span> metadata directly from image files. In single-tag mode each field will be displayed in the format &#8220;field: value&#8221;. This can be customized with the <code>format</code> attribute.</p>
+
+	<p>In container-tag mode the tag contents are iterated over, once for each <span class="caps">EXIF</span> field; use the <code>soo_exif_field</code> and <code>soo_exif_value</code> tags to display the data. That is, the tag contents are like a Txp form. The following two blocks are equivalent:</p>
+
+<pre>&#60;txp:soo_exif /&#62;
+</pre>
+
+<pre>&#60;txp:soo_exif&#62;
+&#60;txp:soo_exif_field /&#62;: &#60;txp:soo_exif_value /&#62;
+&#60;/txp:soo_exif&#62;
+</pre>
+
+	<h5>Requirements</h5>
+
+	<p><code>soo_exif</code> uses <span class="caps">PHP</span>&#8217;s <code>exif_read_data()</code> function, which <span class="required">requires</span> <span class="caps">PHP</span> to be compiled with &minus;&minus;<code>enable-exif</code> (you can check this by running <a href="http://php.about.com/od/learnphp/p/PHP_info.htm">phpinfo()</a>). It requires a full file path for the image; this plugin only works for image files in your default Txp image directory (they don&#8217;t have to be in the Txp database, though).</p>
+
+	<h5>Attributes</h5>
+
+	<ul>
+		<li><code>field</code> <em>(text)</em> Comma-separated list of fields to display. Use standard <span class="caps">EXIF</span> field names or shortcuts (see below). Additional options:
+	<ul>
+		<li><span class="default">default</span> <em>(empty)</em> : Display a pre-set list of common fields</li>
+		<li><code>dump</code> : Display all fields</li>
+	</ul></li>
+		<li><code>format=&#34;format string&#34;</code> Default is &#8220;{field}: {value}&#8221;. In single-tag mode the tag will output this string, after any occurences of &#8220;{field}&#8221; have been replaced with the <span class="caps">EXIF</span> field name; likewise for &#8220;{value}&#8221; and the <span class="caps">EXIF</span> field value.</li>
+		<li><code>wraptag=&#34;tag name&#34;</code> Tag name (no brackets) for element to wrap the anchor</li>
+		<li><code>break=&#34;mixed&#34;</code> Tag name (no brackets) or text to add between items</li>
+	</ul>
+
+	<h5>Field-name shortcuts</h5>
+
+	<p>These are the same as used by <a href="http://www.hugsan.com/EXIFutils/"><span class="caps">EXIFU</span>tils</a>, a command-line utility for manipulating <span class="caps">EXIF</span> data.</p>
+
+	<table>
+		<tr>
+			<th><span class="caps"><span class="caps">EXIF</span></span> field </th>
+			<th>Shortcut</th>
+		</tr>
+		<tr>
+			<td>Model</td>
+			<td>model</td>
+		</tr>
+		<tr>
+			<td>ExposureTime</td>
+			<td>exp-time</td>
+		</tr>
+		<tr>
+			<td>FNumber</td>
+			<td>f-number</td>
+		</tr>
+		<tr>
+			<td>ISOSpeedRatings</td>
+			<td>iso-speed</td>
+		</tr>
+		<tr>
+			<td>DateTimeOriginal</td>
+			<td>date-taken</td>
+		</tr>
+		<tr>
+			<td>FocalLength</td>
+			<td>focal-len</td>
+		</tr>
+		<tr>
+			<td>ImageHistory</td>
+			<td>history</td>
+		</tr>
+	</table>
+
+	<h5>Additional fields</h5>
+
+	<p>If the <code>FocalLengthIn35mmFilm</code> field is available, <strong>soo_exif</strong> computes two additional values:</p>
+
+	<table>
+		<tr>
+			<th>Computed field </th>
+			<th>Shortcut </th>
+			<th>Description</th>
+		</tr>
+		<tr>
+			<td><span class="caps"><span class="caps">FOV</span></span></td>
+			<td>fov</td>
+			<td>Field of view (assumes rectilinear lens)</td>
+		</tr>
+		<tr>
+			<td>CropFactor</td>
+			<td>crop</td>
+			<td>Crop factor</td>
+		</tr>
+	</table>
+
+	<h5>Default fields</h5>
+
+	<p>If no <code>field</code> is specified, <code>soo_exif</code> will show the all fields listed above.</p>
+
+	<h5>soo_exif_field, soo_exif_value</h5>
+
+	<p>When placed in a <code>soo_exif</code> container tag, these tags display the <span class="caps">EXIF</span> field name and value, respectively. Each is a single tag and accepts the standard <code>wraptag</code> attribute. As shown above, <code>soo_exif</code> converts some field names to a more readable format; the same is true for some field values. (The <code>DateTimeOriginal</code> field is converted to the date format from your Txp preferences.)</p>
+
+	<h4 id="pagination">Pagination tags</h4>
+
+	<ul>
+		<li><strong>soo_image_prev</strong></li>
+		<li><strong>soo_image_next</strong></li>
+		<li><strong>soo_image_page_count</strong></li>
+	</ul>
+
+	<p>For use when <code>soo_image_select</code> has a <code>limit</code>. The first two can be used as single tags or containers. Any of these can be placed anywhere on the page, even before the associated <code>soo_image_select</code> tag. (Note that if there is more than one <code>soo_image_select</code> tag on the page, you should use the <code>pagination</code> attribute to disable pagination in all but one of the tags.)</p>
+
+<pre>&#60;txp:soo_image_prev /&#62;
+&#60;txp:soo_image_next&#62;Next&#60;/txp:soo_image_next&#62;
+&#60;txp:soo_image_page_count /&#62;
+</pre>
+
+	<h5>Attributes</h5>
+
+	<p><code>soo_image_prev</code> and <code>soo_image_next</code> each accept the following optional attributes:
+	<ul>
+		<li><code>class</code> <em>(text)</em><br />
+<a href="http://www.w3.org/TR/html401/struct/global.html#adef-class" title="s"><span class="caps">HTML</span> class name</a> for the <code>a</code> tag.</li>
+		<li><code>html_id</code> <em>(text)</em><br />
+<a href="http://www.w3.org/TR/html401/struct/global.html#adef-id"><span class="caps">HTML</span> id</a> for the <code>a</code> tag.</li>
+		<li><code>link_text</code> <em>(text)</em><br />
+Link text. Default is &#8220;&larr;&#8221; for <code>soo_image_prev</code> and &#8220;&rarr;&#8221; for <code>soo_image_next</code>. It is overriden by the tag contents if it is a container tag.</li>
+	</ul></p>
+
+	<p><code>soo_image_page_count</code> accepts the following optional attributes:</p>
+
+	<ul>
+		<li><code>format</code> <em>(format string)</em> <span class="default">default</span> <code> &#34;Page {current} of {total}&#34; </code><br />
+Tag will output this string after replacing <code>{current}</code> and <code>{total}</code> with page numbers</li>
+		<li><code>showalways</code> <em>(boolean)</em> <span class="default">default</span> <code>0</code><br />
+Whether or not to show output when the list is a single page</li>
+	</ul>
+
+	<h3 id="conditional_tags">Conditional tags</h3>
+
+	<p>Standard conditional tag behavior, compatible with <a href="http://textbook.textpattern.net/wiki/index.php?title=Txp:else_/"><code>else</code></a>. Can be used anywhere. They <span class="required">require</span> image context or else they will always evaluate to <code>false</code> (or empty in the case of <code>soo_if_image_count</code>, which treats context somewhat differently).</p>
+
+	<h4 id="soo_if_txp_image">soo_if_txp_image</h4>
+
+<pre>&#60;txp:soo_if_txp_image&#62;...&#60;txp:else /&#62;...&#60;/txp:soo_if_txp_image&#62;
+</pre>
+
+	<h5>Attributes</h5>
+
+	<p><code>soo_if_txp_image</code> does not accept any attributes; it simply checks whether or not the image is stored in the Txp image table (as opposed to an article image declared by <span class="caps">URL</span>).</p>
+
+	<h4 id="soo_if_image_">soo_if_image_* <em>(-author, -category, -thumbnail)</em></h4>
+
+<pre>&#60;txp:soo_if_image_author&#62;...&#60;txp:else /&#62;...&#60;/txp:soo_if_image_author&#62;
+&#60;txp:soo_if_image_category&#62;...&#60;txp:else /&#62;...&#60;/txp:soo_if_image_category&#62;
+&#60;txp:soo_if_image_thumbnail&#62;...&#60;txp:else /&#62;...&#60;/txp:soo_if_image_thumbnail&#62;
+</pre>
+
+	<h5>Attributes</h5>
+
+	<p><code>soo_if_image_thumbnail</code> does not accept any attributes; it simply checks whether or not the image has a thumbnail.</p>
+
+	<p><code>soo_if_image_author</code> and <code>soo_if_image_category</code> each accept the following attribute:</p>
+
+	<ul>
+		<li><code>name</code> <em>(text)</em><br />
+Comma-separated list of values. Condition is true if the value from the image is in this list. <span class="warning">Important:</span> for <code>soo_if_image_author</code>, use author login names, not full names. If unset (the default), condition is true if the value from the image is empty or 0.</li>
+	</ul>
+
+	<h4 id="soo_if_image_count">soo_if_image_count</h4>
+
+<pre>&#60;txp:soo_if_image_count&#62;...&#60;txp:else /&#62;...&#60;/txp:soo_if_image_count&#62;
+</pre>
+
+	<p>Counts the images available and allows conditional checks against that number. It checks the following contexts, in order of priority:</p>
+
+	<ul>
+		<li>Inside a <code>soo_image_select</code> tag or form</li>
+		<li>Inside an <code>article</code> or <code>article_custom</code> tag or form (checks article images)</li>
+		<li>In an image category page (Txp 4.3.0 or later).</li>
+	</ul>
+
+	<p>Outside any of these contexts, the tag does not return any output.</p>
+
+	<h5>Attributes</h5>
+
+	<ul>
+		<li><code>exact</code> <em>(integer)</em> Exact number of images to check for</li>
+		<li><code>min</code> <em>(integer)</em> Minimum number of images to check for</li>
+		<li><code>max</code> <em>(integer)</em> Maximum number of images to check for</li>
+	</ul>
+
+	<p>All attributes default to empty; you must set one or the tag returns no output.</p>
+
+	<h2 id="requirements">Requirements &#38; Installation</h2>
+
+	<p>This plugin <span class="required">requires <span class="caps">PHP</span> 5 or greater and the</span> <a href="http://ipsedixit.net/txp/21/soo-txp-obj">soo_txp_obj library plugin</a>. For details see <a href="http://ipsedixit.net/txp/20/installation">http://ipsedixit.net/txp/20/installation</a>.</p>
+
+	<h2 id="preferences">Preferences</h2>
+
+	<p>This plugin is compatible with <a href="http://ipsedixit.net/txp/92/soo_plugin_pref">soo_plugin_pref</a>, allowing you to set default values for image form, image list form, whether or not image dimensions are included in <code>img</code> tag output by default, and whether or not to use <a href="#image_context">persistent context</a> for isolated <code>soo_image</code> tags.</p>
+
+	<h2 id="examples">Examples</h2>
+
+	<p>See <a href="http://ipsedixit.net/txp/55/soo_image-user-guide">http://ipsedixit.net/txp/55/soo_image-user-guide</a> to see <strong>soo_image</strong> in action.</p>
+
+	<h2 id="history">Version History</h2>
+
+	<h3>1.0.b.9 (2017/02/14)</h3>
+
+	<ul>
+		<li>Txp 4.6 compatibility update</li>
+		<li><span class="caps">PHP</span> 5.3+ compatibility update</li>
+	</ul>
+
+	<h3>1.0.b.8 (12/18/2010)</h3>
+
+	<ul>
+		<li><code>soo_image_select</code>, when used without selection attributes (id, category, etc.) and outside article context will now check for image category context (requires Txp 4.3.0).</li>
+		<li>New conditional tag, <code>soo_if_image_count</code>.</li>
+	</ul>
+
+	<h3>1.0.b.7 (7/4/2010, <span class="caps">USA</span> Independence Day)</h3>
+
+	<ul>
+		<li>Thumbnail <code>height</code> and <code>width</code> attributes (Txp 4.2.0 or later) added automatically, according to <code>default_dimensions</code> preference (requires soo_txp_obj v 1.0.b.7).</li>
+		<li>Help text updates.</li>
+	</ul>
+
+	<h3>1.0.b.6 (6/29/2010)</h3>
+
+	<ul>
+		<li>New behavior for <code>soo_image</code>: when used outside <code>soo_image_select</code>, and without <code>id</code> or <code>name</code>, article image now takes priority over any images from <code>soo_image_select</code> tags earlier on the page (i.e., persistent context). This gives more predictable behavior in an article list. (Thanks to Adi for spotting this.)</li>
+		<li>New preference setting to enable/disable persistent context.</li>
+		<li>Code cleaning (soo_txp_obj 1.0.b.6 now required).</li>
+	</ul>
+
+	<h3>1.0.b.5 (6/21/2010)</h3>
+
+	<ul>
+		<li>Fixed bug in <code>soo_image</code> where <code>width=&#34;0&#34;</code> was not suppressing dimension attributes as expected</li>
+		<li>Added <code>wraptag</code>, <code>class</code>, and <code>html_id</code> attributes to various tags (requested by Adi)</li>
+	</ul>
+
+	<h3>1.0.b.4 (4/9/2010)</h3>
+
+	<ul>
+		<li>New tag: <code>soo_image_id</code> (output image ID)</li>
+	</ul>
+
+	<h3>1.0.b.3 (3/29/2010)</h3>
+
+	<ul>
+		<li>Fixed default text for <code>soo_image_prev</code></li>
+		<li>Added <code>pagination</code> attribute to <code>soo_image_select</code>, for better pagination control when there are multiple <code>soo_image_select</code> tags on a page</li>
+	</ul>
+
+	<h3>1.0.b.2 (9/18/2009)</h3>
+
+	<ul>
+		<li>Fixed bug in <code>soo_image_date</code> (was displaying incorrect date or time zone in some cases)</li>
+		<li>New tags:
+	<ul>
+		<li><code>soo_thumbnail_url</code></li>
+		<li><code>soo_thumbnail_height</code> (Txp 4.2.0 or higher)</li>
+		<li><code>soo_thumbnail_width</code> (Txp 4.2.0 or higher)</li>
+		<li><code>soo_image_page_count</code></li>
+	</ul></li>
+		<li>Changed behavior: now uses (optionally) soo_plugin_pref. The old soo_plugin_prefs is no longer supported.</li>
+	</ul>
+
+	<h3>1.0.b.1 (7/5/2009)</h3>
+
+	<ul>
+		<li>New <code>link_to</code> attribute for <code>soo_image</code></li>
+		<li><code>soo_image_next</code> can now be used before its associated <code>soo_image_select</code> tag</li>
+		<li>Underlying soo_txp_obj library has been largely rewritten</li>
+		<li>downshift to v2.0 of the <span class="caps">GPL</span></li>
+	</ul>
+
+	<h3>1.0.a.5 (5/18/2009) (not released publicly)</h3>
+
+	<ul>
+		<li>Changes to the <code>soo_image</code> tag:
+	<ul>
+		<li>New attributes: <code>title</code>, <code>link_class</code>, <code>link_id</code></li>
+		<li>New behavior: Setting any link-related attribute sets <code>thumbnail</code> and <code>link</code> to true</li>
+	</ul></li>
+	</ul>
+
+	<h3>1.0.a.4 (5/17/2009)</h3>
+
+	<ul>
+		<li>Added <code>soo_exif</code> and related tags for reading and displaying <span class="caps">EXIF</span> metadata</li>
+		<li>Can now enter ranges of ids (e.g., &#8220;44-48, 12-9&#8221;) for article image or <code>soo_image_select</code> id</li>
+		<li>Fixed bug in aspect ratio using ratio syntax (e.g., &#8220;4:3&#8221; or &#8220;4/3&#8221;)</li>
+	</ul>
+
+	<h3>1.0.a.3 (5/14/2009)</h3>
+
+	<p><code>soo_image_select</code> can now be used as a single or container tag</p>
+
+	<h3>1.0.a.2 (5/13/2009)</h3>
+
+	<ul>
+		<li>Added <code>soo_image_url</code> tag</li>
+		<li>Fixed incorrect <span class="caps">ORDER</span> BY <span class="caps">FIELD</span> syntax</li>
+		<li>Upgraded <strong>soo_txp_obj</strong> to deal with a <span class="caps">PHP</span> 5.2.0 &#8211; 5.2.3 bug</li>
+	</ul>
+
+	<h3>1.0.a.1 (5/2/2009)</h3>
+
+	<p>Initial release</p>
+
+ </div>

@@ -1,0 +1,5 @@
+To learn more about tru_tags, check out the "introductory article":http://www.rainskit.com/blog/493/trutags-a-tagging-plugin-for-textpattern, "releases page":http://www.rainskit.com/reference/537/tru_tags-releases, "feature list":http://www.rainskit.com/reference/495/trutags-feature-list, "roadmap":http://www.rainskit.com/reference/554/tru_tags-roadmap, and "usage instructions":http://www.rainskit.com/reference/497/trutags-usage-instructions.
+
+You can also find the source code at "github.com/truist/tru-tags":https://github.com/truist/tru-tags.
+
+I've taken the detailed help out of the plugin; my apologies.  It was too big and too difficult to keep maintaining on my site and in the plugin.  If, my site is ever down, however, the source HTML of the usage instructions is available from the "github repo":https://github.com/truist/tru-tags/blob/master/tru_tags-docs.html

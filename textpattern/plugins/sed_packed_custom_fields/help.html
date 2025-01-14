@@ -1,0 +1,342 @@
+<style type="text/css">
+div#sed_help td { vertical-align:top; }
+div#sed_help code { font-weight:bold; font: 105%/130% "Courier New", courier, monospace; background-color: #FFFFCC;}
+div#sed_help code.sed_code_tag { font-weight:normal; border:1px dotted #999; background-color: #f0e68c; display:block; margin:10px 10px 20px; padding:10px; }
+div#sed_help a:link, div#sed_help a:visited { color: blue; text-decoration: none; border-bottom: 1px solid blue; padding-bottom:1px;}
+div#sed_help a:hover, div#sed_help a:active { color: blue; text-decoration: none; border-bottom: 2px solid blue; padding-bottom:1px;}
+div#sed_help h1 { color: #369; font: 20px Georgia, sans-serif; margin: 0; text-align: center; }
+div#sed_help h2 { border-bottom: 1px solid black; padding:10px 0 0; color: #369; font: 17px Georgia, sans-serif; }
+div#sed_help h3 { color: #693; font: bold 12px Arial, sans-serif; letter-spacing: 1px; margin: 10px 0 0;text-transform: uppercase;}
+</style>
+	<p><div id="sed_help"></p>
+	<h1 id="manual"><acronym title="Packed Custom Fields">PCF</acronym></h1>
+	<p>sed_pcf plugin, v0.2 (June 11th, 2006)</p>
+	<p>This little plugin allows you to use an article&#8217;s custom fields to store multiple, named, values. The packing must follow <a href="#format">a specific format</a>. The tag list includes tags to test for a value in the field and to access a value from a field.</p>
+	<h2 id="tags">Tag Directory</h2>
+	<table>
+		<tr>
+			<th>Tag    </th>
+			<th>Description  </th>
+		</tr>
+		<tr>
+			<td> <a href="#get">sed_pcf_get_value</a> </td>
+			<td> Returns the named value from the named section of the named custom field. </td>
+		</tr>
+		<tr>
+			<td> <a href="#if">sed_pcf_if_value</a> </td>
+			<td> Tests for the existence of a named value in a named section of a custom field. </td>
+		</tr>
+		<tr>
+			<td> <a href="#ifsection">sed_pcf_if_field_section</a> </td>
+			<td> Tests for the existence of a named section of a custom field. </td>
+		</tr>
+		<tr>
+			<td> <a href="#email">sed_pcf_email</a> </td>
+			<td> Uses the values in a named section of a custom field to call the TXP email tag. </td>
+		</tr>
+		<tr>
+			<td> <a href="#image">sed_pcf_image</a> </td>
+			<td> Uses the values in a named section of a custom field to call the TXP image tag. </td>
+		</tr>
+		<tr>
+			<td> <a href="#thumb">sed_pcf_thumbnail</a> </td>
+			<td> Uses the values in a named section of a custom field to call the TXP thumbnail tag. </td>
+		</tr>
+		<tr>
+			<td> <a href="#foreach">sed_pcf_for_each_value</a> </td>
+			<td> Uses the values in a named section of a custom field to call the TXP thumbnail tag. </td>
+		</tr>
+	</table>
+	<h2 id="get">The <code>sed_pcf_get_value</code> tag</h2>
+	<p>This tag can take the following attributes&#8230;</p>
+	<table>
+		<tr>
+			<th>Attribute    </th>
+			<th>Default Value </th>
+			<th>Status   </th>
+			<th>Description </th>
+		</tr>
+		<tr>
+			<td> &#8216;custom&#8217;       </td>
+			<td> &#8216;&#8217;          </td>
+			<td> Needed   </td>
+			<td> Name of the custom field to access. </td>
+		</tr>
+		<tr>
+			<td> <strong>&#8216;section&#8217;</strong>    </td>
+			<td> <strong>&#8216;&#8217;</strong>        </td>
+			<td> <strong>Needed</strong> </td>
+			<td> Name of the section within the field to access.<br/><strong>If you are using the simple packing format then set this to &#8216;none&#8217;.</strong> </td>
+		</tr>
+		<tr>
+			<td> &#8216;variable&#8217;     </td>
+			<td> &#8216;&#8217;          </td>
+			<td> Needed   </td>
+			<td> Name of the variable within the section. </td>
+		</tr>
+		<tr>
+			<td> &#8216;default&#8217;      </td>
+			<td> NULL        </td>
+			<td> Optional </td>
+			<td> The value to return if the access fails. </td>
+		</tr>
+	</table>
+	<p><strong>Emphasized items</strong> have been added or changed since the last release.<br />
+<del>Struck out items</del> have been removed since the last release.</p>
+	<h2 id="if">The <code>sed_pcf_if_value</code> tag</h2>
+	<table>
+		<tr>
+			<th>Attribute    </th>
+			<th>Default Value </th>
+			<th>Status   </th>
+			<th>Description </th>
+		</tr>
+		<tr>
+			<td> &#8216;custom&#8217;       </td>
+			<td> &#8216;&#8217;          </td>
+			<td> Needed   </td>
+			<td> Name of the custom field to access. </td>
+		</tr>
+		<tr>
+			<td> <strong>&#8216;section&#8217;</strong>    </td>
+			<td> <strong>&#8216;&#8217;</strong>        </td>
+			<td> <strong>Needed</strong> </td>
+			<td> Name of the section within the field to access.<br/><strong>If you are using the simple packing format then set this to &#8216;none&#8217;.</strong> </td>
+		</tr>
+		<tr>
+			<td> &#8216;variable&#8217;     </td>
+			<td> &#8216;&#8217;          </td>
+			<td> Needed   </td>
+			<td> Name of the variable within the section. </td>
+		</tr>
+		<tr>
+			<td> <strong>&#8216;val&#8217;</strong>        </td>
+			<td> <strong>NULL</strong>     </td>
+			<td> <strong>Optional</strong> </td>
+			<td> <strong>If specified, this value will be checked against the named variable from the named section of the named custom field.</strong> </td>
+		</tr>
+	</table>
+	<p>If the value is present and equal to a suppled <code>val</code> then the contents of the contained tag will be evaluated. If there is an <code>else</code> section then that will be evaluated if the value is not present or if it is present and fails to match the <code>val</code> attribute.</p>
+	<h2 id="ifsection">The <code>sed_pcf_if_field_section</code> tag</h2>
+	<table>
+		<tr>
+			<th>Attribute    </th>
+			<th>Default Value </th>
+			<th>Status   </th>
+			<th>Description </th>
+		</tr>
+		<tr>
+			<td> &#8216;custom&#8217;       </td>
+			<td> &#8216;&#8217;          </td>
+			<td> Needed   </td>
+			<td> Name of the custom field to access. </td>
+		</tr>
+		<tr>
+			<td> &#8216;section&#8217;      </td>
+			<td> &#8216;&#8217;          </td>
+			<td> Needed   </td>
+			<td> Name of the section of the packed field to test for. </td>
+		</tr>
+	</table>
+	<p>If the named section exists within the named custom field then the enclosed part of the tag is parsed.</p>
+	<h2 id="email">The <code>sed_pcf_email</code> tag</h2>
+	<table>
+		<tr>
+			<th>Attribute    </th>
+			<th>Default Value </th>
+			<th>Status   </th>
+			<th>Description </th>
+		</tr>
+		<tr>
+			<td> &#8216;custom&#8217;       </td>
+			<td> &#8216;&#8217;          </td>
+			<td> Needed   </td>
+			<td> Name of the custom field to access. </td>
+		</tr>
+		<tr>
+			<td> <strong>&#8216;section&#8217;</strong>    </td>
+			<td> <strong>&#8216;email&#8217;</strong>   </td>
+			<td> <strong>Optional</strong> </td>
+			<td> Name of the section within the field to grab the values to pass to the TXP <code>email</code> tag.<br/><strong>If you are using the simple packing format then set this to &#8216;none&#8217;.</strong> </td>
+		</tr>
+		<tr>
+			<td> &#8216;default&#8217;      </td>
+			<td> NULL        </td>
+			<td> Optional </td>
+			<td> The value to return if the access fails. </td>
+		</tr>
+		<tr>
+			<td> &#8216;parse&#8217;        </td>
+			<td> false       </td>
+			<td> Optional </td>
+			<td> Set this to true to force a the contents of the packed field to be parsed before being used to call the TXP email function. This means that it is possible to use <strong>attributeless</strong> tags (such as <code>&lt;txp:s/&gt;</code> as arguments to the email call. </td>
+		</tr>
+	</table>
+	<p>Allows you to setup email links on a per-article basis. You need to setup the custom field you are going to stash the email values in. Then add this to the article body or article form <code>&lt;txp:sed_pcf_email custom='my_field_name'/&gt;</code>. Replace the &#8216;my_field_name&#8217; as needed.</p>
+	<p>Next, in the custom field itself, make sure you have <code>email(email='a@b.c';linktext='foo';title='bar')</code>. Replacing the values as you need.</p>
+	<h2 id="image">The <code>sed_pcf_image</code> tag</h2>
+	<table>
+		<tr>
+			<th>Attribute    </th>
+			<th>Default Value </th>
+			<th>Status   </th>
+			<th>Description </th>
+		</tr>
+		<tr>
+			<td> &#8216;custom&#8217;       </td>
+			<td> &#8216;&#8217;          </td>
+			<td> Needed   </td>
+			<td> Name of the custom field to access. </td>
+		</tr>
+		<tr>
+			<td> <strong>&#8216;section&#8217;</strong>    </td>
+			<td> <strong>&#8216;image&#8217;</strong>   </td>
+			<td> <strong>Optional</strong> </td>
+			<td> Name of the section within the field to grab the values to pass to the TXP <code>image</code> tag.<br/><strong>If you are using the simple packing format then set this to &#8216;none&#8217;.</strong> </td>
+		</tr>
+		<tr>
+			<td> &#8216;default&#8217;      </td>
+			<td> NULL        </td>
+			<td> Optional </td>
+			<td> The value to return if the access fails. </td>
+		</tr>
+	</table>
+	<p>Allows you to display an image based upon the contents of a section of a packed custom field. If you want to use a second layer of tags then that is possible providing they are attributeless tags such as <code>&lt;txp:author/&gt;</code> or <code>&lt;txp:s/&gt;</code>.</p>
+	<h2 id="thumb">The <code>sed_pcf_thumbnail</code> tag</h2>
+	<table>
+		<tr>
+			<th>Attribute    </th>
+			<th>Default Value </th>
+			<th>Status   </th>
+			<th>Description </th>
+		</tr>
+		<tr>
+			<td> &#8216;custom&#8217;       </td>
+			<td> &#8216;&#8217;          </td>
+			<td> Needed   </td>
+			<td> Name of the custom field to access. </td>
+		</tr>
+		<tr>
+			<td> <strong>&#8216;section&#8217;</strong>    </td>
+			<td> <strong>&#8216;thumbnail&#8217;</strong>   </td>
+			<td> <strong>Optional</strong> </td>
+			<td> Name of the section within the field to grab the values to pass to the TXP <code>thumbnail</code> tag.<br/><strong>If you are using the simple packing format then set this to &#8216;none&#8217;.</strong> </td>
+		</tr>
+		<tr>
+			<td> &#8216;default&#8217;      </td>
+			<td> NULL        </td>
+			<td> Optional </td>
+			<td> The value to return if the access fails. </td>
+		</tr>
+	</table>
+	<p>As for images, so with thumbnails!</p>
+	<h2 id="foreach">The <code>sed_pcf_for_each_value</code> tag</h2>
+	<p>This can be used as an enclosing tag, or with a form, or as a single tag. It was inspired by the <strong>wet_foreach_image</strong> plugin and works in a very similar manner.</p>
+	<table>
+		<tr>
+			<th>Attribute    </th>
+			<th>Default Value </th>
+			<th>Status   </th>
+			<th>Description </th>
+		</tr>
+		<tr>
+			<td> &#8216;name&#8217;         </td>
+			<td> &#8216;custom1&#8217;       </td>
+			<td> Needed   </td>
+			<td> Name of the custom field to access. </td>
+		</tr>
+		<tr>
+			<td> &#8216;debug&#8217;        </td>
+			<td> 0               </td>
+			<td> Optional </td>
+			<td> Set to 1 to output extra debug info </td>
+		</tr>
+		<tr>
+			<td> &#8216;form&#8217;         </td>
+			<td> &#8216;&#8217;              </td>
+			<td> Optional </td>
+			<td> Form to use to format output </td>
+		</tr>
+		<tr>
+			<td> &#8216;label&#8217;        </td>
+			<td> &#8216;&#8217;              </td>
+			<td> Optional </td>
+			<td> Label text for the output </td>
+		</tr>
+		<tr>
+			<td> &#8216;labeltag&#8217;     </td>
+			<td> &#8216;&#8217;              </td>
+			<td> Optional </td>
+			<td> tag for the label </td>
+		</tr>
+		<tr>
+			<td> &#8216;wraptag&#8217;      </td>
+			<td> &#8216;ul&#8217;            </td>
+			<td> Optional </td>
+			<td> Tag to wrap the whole output in&#8212;you might want to set this to &#8216;&#8217; if using a form. </td>
+		</tr>
+		<tr>
+			<td> &#8216;break&#8217;        </td>
+			<td> &#8216;li&#8217;            </td>
+			<td> Optional </td>
+			<td> Tag to wrap each individual value&#8217;s output in&#8212;again, you may want to set this to &#8216;&#8217; if your form wraps the output. </td>
+		</tr>
+		<tr>
+			<td> &#8216;class&#8217;        </td>
+			<td> &#8216;custom1&#8217;       </td>
+			<td> Optional </td>
+			<td> Class to apply to the wrapped output </td>
+		</tr>
+	</table>
+	<p>This tag can be used in three ways&#8230;</p>
+	<ol>
+		<li>As a single tag with default layout&#8230; <code>&lt;txp:sed_pcf_for_each_value /&gt;</code></li>
+		<li>As a single tag using a form for layout&#8230; <code>&lt;txp:sed_pcf_for_each_value form="your_form" /&gt;</code></li>
+		<li>As an enclosing tag&#8230; <code>&lt;txp:sed_pcf_for_each_value&gt;... your stuff here...&lt;txp:sed_pcf_for_each_value /&gt;</code></li>
+	</ol>
+	<p>The enclosed section, default or supplied form will get parsed once per value in the custom field&#8217;s list.</p>
+	<p>On each parse, the string <code>'{value}'</code> will be replaced by the corresponding value from the custom field.</p>
+	<p>The default layout, used in the absence of a form or contained section, is &#8217;{value}&#8217;.</p>
+	<h2 id="format">Field Formats</h2>
+	<p>There are three formats you can use in your custom fields.</p>
+	<h3 id="foreachformat">ForEach Format.</h3>
+	<p>This format can only be used by the <code>sed_pcf_for_each_value()</code> tag. It&#8217;s a simple comma seperated list of values&#8230;</p>
+	<ul>
+		<li>a,b,c,d,g</li>
+	</ul>
+	<h3 id="simple">Simple Format</h3>
+	<p>This is a list of name=&#8217;value&#8217; pairs, separated with &#8217;;&#8217; characters. Some examples of valid formats would be&#8230;</p>
+	<ul>
+		<li>a=&#8217;1&#8217;</li>
+		<li>a=&#8217;1&#8217;;b=&#8217;2&#8217;</li>
+		<li>name=&#8217;Steve&#8217;;website=&#8217;http://txp-plugins.netcarving.com&#8217;</li>
+	</ul>
+	<p>If you want to use the simple format then set the section name to &#8216;none&#8217; when you call the tags.</p>
+	<h3 id="complete">Normal Format</h3>
+	<p>This allows you to pack mutliple sets of the simple-format lists into one field. Each list is called a section and sections can be named, and separated with the &#8217;|&#8217; character.</p>
+	<p>Some examples of valid fields&#8230;
+	<ul>
+		<li>section1(a=&#8217;1&#8217;;b=&#8217;2&#8217;)|section2(c=&#8217;Hello!&#8217;;d=&#8217;&#8217;;e=&#8217;Goodbye!&#8217;)</li>
+		<li>copyright(start=&#8217;1945&#8217;;owner=&#8217;Ritchard the great&#8217;)|email(email=&#8217;john@nowhere.splat&#8217;;linktext=&#8217;link text&#8217;;title=&#8217;Click here to send a message&#8217;)</li>
+	</ul></p>
+	<h2>Version History.</h2>
+	<p>v0.3 Implemented the following features&#8230;</p>
+	<ul>
+		<li>Added the <code>sed_pcf_for_each_value()</code> tag.</li>
+	</ul>
+	<p>v0.2 Implemented the following features&#8230;</p>
+	<ul>
+		<li>Added the simple field format</li>
+		<li>Added value checking to the <code>sed_pcf_if_value</code> tag</li>
+		<li>Added the <code>sed_pcf_if_field_section</code> tag</li>
+		<li>Added tags to display thumbnails and images from packed custom fields</li>
+		<li>Added parsing of embedded values to allow the use of attributeless tags as arguments to the image, thumbnail and email tags.</li>
+	</ul>
+	<p>v0.1 Implemented the following features&#8230;</p>
+	<ul>
+		<li>Basic retrieve and test of packed values from a custom field.</li>
+		<li>Tag to build a TXP email link from a section of a custom field.</li>
+	</ul>
+	<p></div></p>
+
+ 

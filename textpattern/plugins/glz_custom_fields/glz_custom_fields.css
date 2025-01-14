@@ -1,0 +1,131 @@
+/* - - - - - - - - - - - - - - - - - - - - -
+
+### TEXTPATTERN CUSTOM FIELDS ###
+
+Title : glz_custom_fields stylesheet
+Author : Gerhard Lazu + many contributors
+
+Last modified: 7 April 2018
+
+This file serves as a basis for glz_custom_fields_head_css()
+and is not loaded by the plugin unless:
+
+    $debug = true;
+    $use_minified = false;
+
+is set at the top of the plugin. Use these settings to debug.
+
+- - - - - - - - - - - - - - - - - - - - - */
+
+/* CUSTOM FIELDS PANEL
+-------------------------------------------------------------- */
+
+.glz-cf-setup-switch {
+    float: right;
+}
+[dir="rtl"] .glz-cf-setup-switch {
+    float: left;
+}
+/* define only first and last (narrow) column widths */
+#glz_custom_fields_container .txp-list-col-id {
+    width: 3em;
+    text-align: center;
+}
+#glz_custom_fields_container .txp-list-col-position,
+#glz_custom_fields_container .txp-list-col-options {
+    width: 5em;
+}
+#glz_custom_fields_container .txp-list-col-title .cf-instructions.ui-icon {
+    width: 2em;
+    height: 17px;
+    float: right;
+    background-repeat: no-repeat;
+    background-position: center 2px;
+    opacity: .33;
+    cursor: pointer;
+}
+/* instructions on 'undefined' entries: reverse effect of double opacity */
+#glz_custom_fields_container .txp-list-col-title.disabled .cf-instructions {
+    opacity: 1 !important;
+    pointer-events: auto;
+}
+#glz_custom_fields_container .txp-list-col-options {
+    text-align: center;
+}
+#glz_custom_fields_container .txp-list-col-options .ui-icon {
+    /* larger click target */
+    width: 4em;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+/* change color of svg background */
+#glz_custom_fields_container .txp-list-col-options .ui-icon:hover {
+    /* #00c4bf calculated with https://codepen.io/sosuke/pen/Pjoqqp prepended
+       with brightness(0) saturate(100%) as original icons not black */
+    -webkit-filter: brightness(0) saturate(100%) invert(17%) sepia(51%) saturate(5958%) hue-rotate(211deg) brightness(89%) contrast(101%);
+    filter: brightness(0) saturate(100%) invert(17%) sepia(51%) saturate(5958%) hue-rotate(211deg) brightness(89%) contrast(101%);
+}
+
+/* only attached while dragging */
+#glz_custom_fields_container table.fixed-width {
+    table-layout: fixed;
+}
+#glz_custom_fields_container table.sortable .txp-list-col-sort {
+    width: 3em;
+    text-align: center;
+}
+#glz_custom_fields_container table.sortable .ui-sortable-handle {
+    cursor: row-resize;
+    text-align: center;
+    opacity: 0.66;
+}
+#glz_custom_fields_container table.sortable .txp-list-col-position {
+    display: none;
+}
+#glz_custom_fields_container .ui-sortable-helper,
+#glz_custom_fields_container .ui-sortable-placeholder {
+    display: table;
+}
+/* hide language string spans to avoid FOUT */
+#add_edit_custom_field .hidden {
+  display: none;
+}
+
+
+/* CUSTOM FIELDS EDIT PANEL + PREFS PANE
+-------------------------------------------------------------- */
+
+/* Instructions text styling */
+@media screen and (min-width: 47em) {
+    .txp-edit .txp-form-field .txp-form-field-instructions,
+    .txp-tabs-vertical-group .txp-form-field-instructions {
+        max-width: 50%; /* prevent horizontal scrollbars */
+        padding-left: 50%; /* range right beneath fields */
+    }
+}
+/* "Check paths" button */
+.check-path {
+  float: right;
+  font-size: .7em; /* match normal font-size */
+  font-weight: 400;
+}
+[dir=rtl] .check-path { float: left; }
+.ui-tabs-nav .check-path {
+    display: none; /* hide in panel chooser */
+}
+#prefs-glz_cf_css_asset_url, #prefs-glz_cf_js_asset_url { display: none; }
+
+/* ARTICLE / WRITE PANE
+-------------------------------------------------------------- */
+
+/* reset button, make disabled state appear non-responsive */
+.glz-custom-field-reset.disabled:hover {
+    text-decoration: none;
+}
+.glz-custom-field-reset.disabled {
+    cursor: default;
+}
+.glz-custom-radio .txp-form-field-value label,
+.glz-custom-checkbox .txp-form-field-value label {
+    cursor: pointer;
+}

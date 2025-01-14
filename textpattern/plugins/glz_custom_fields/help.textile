@@ -1,0 +1,136 @@
+h1. Unlimited Custom Fields for Textpattern v4.7+
+
+This plugin removes the limit of 10 custom fields in Textpattern and also allows you to create a range of different custom field types:
+
+* Text inputs (default)
+* Checkboxes
+* Radio buttons
+* Select dropdowns
+* Multiselect boxes
+* Textareas
+
+You can specify a set of predefined choices for selects, multi-selects, checkboxes and radio button custom fields, one of which may also be set as the @{default value}@ by placing it in curly brackets.
+
+Additionally, there are three special custom field types: date pickers, time pickers and custom fields powered by custom scripts of your own making.
+
+You can provide field label titles for the "Write panel":https://docs.textpattern.io/administration/write-panel along with short instruction texts as input hints for admin users (also per UI languages), and define the order in which the custom fields appear on the Write panel.
+
+h2(#installation). Installation
+
+# Open the plugin text file, copy its entire contents to the clipboard and paste into the 'Install plugin' textarea of the "Plugins panel":https://docs.textpattern.io/administration/plugins-panel#uploading-plugins. Click 'Upload' and then 'Install'.
+# Upload the "plugins/glz_custom_fields":https://github.com/jools-r/glz_custom_fields/tree/master/dist/ folder to your Textpattern installation directory.
+# Activate the plugin.
+# Switch to 'Admin › Preferences › Custom fields preferences' and click 'Check paths' at the top right to verify that the corresponding paths in the plugin preferences are correct. The plugin will indicate if there are potential problems. Correct as necessary to match your server setup.
+
+h3(#upgrading). Upgrading
+
+Follow the same process as installation. The installer should detect and convert your existing preferences to new names in the background. Replace all the files in the "plugins/glz_custom_fields":https://github.com/jools-r/glz_custom_fields/tree/master/dist/ folder as all files have changed to work with the most recent admin layout. The timepicker and datepicker have likewise been updated and minified.
+
+_Note: You may relocate the css and js files to locations of your own choosing. Change the paths in the plugin preferences panel accordingly. Only the contents of the jquery.datePicker or jquery.timePicker folders must stay together. You may rename the folders but not the filenames._
+
+h3(#deinstallation). Deinstallation
+
+Deinstalling the plugin does not remove the custom fields settings or the data input into the articles. This is intentional to avoid inadvertent data loss. The fields cannot be edited in the meantime, but reinstalling the plugin restores access to them. To remove data input in the custom fields, delete / reset the custom fields on the “Extensions › Custom Fields” page first before deinstalling the plugin.
+
+h2(#special-custom-fields). Special custom fields
+
+There are three special custom field types:
+
+h3. Time and date pickers
+
+Time and date pickers offer an easy way for users to specify dates and times in a consistent format. The *date format*, *first day of the week* and *start date* for the calendar can be set in the plugin preferences.
+
+Similarly, the *time format* (24 or 12 hours), *start and end times* (e.g. @08:00@ and @19:00@) and *time step* (intervals, e.g. @30@ minutes) can be set in the plugin preferences.
+
+_IMPORTANT: For the datepicker and timepicker to function correctly, you must copy the "plugins/glz_custom_fields":https://github.com/jools-r/glz_custom_fields/tree/master/dist folder to your Textpattern installation directory and set the corresponding paths in the plugin preferences._
+
+h3. Custom scripts
+
+Custom scripts make it possible to build-in custom functionality, for example to pull in information from elsewhere in your site, by writing a corresponding php script to create the custom input field. Please refer to "my_image.php":https://github.com/jools-r/glz_custom_fields/blob/master/dist/plugins/glz_custom_fields/my_images.php file as an example with inline explanations or ask on the forum for tips and examples.
+
+
+h2(#custom-field-names). Custom field names
+
+*Custom field names* should adhere to the following naming rules:
+
+* only lowercase letters and numbers
+* underscores as separators (no spaces or dashes)
+* should not start with a number
+
+This version of glz_custom_fields will convert the names of _newly created_ custom fields to this pattern and notify you when saving. In the interests of backwards compatibility, it will _not_ change existing custom fields but will issue a warning.
+
+Previous versions of glz_custom_fields permitted custom names with spaces, dashes, capital letters and numbers. These can, however, cause problems when using custom field names as an attribute for "txp:article_custom":https://docs.textpattern.io/tags/article_custom#attributes.
+
+Future versions of Textpattern will be stricter about custom field naming and it is advisable to adapt your custom field names and code accordingly.
+
+_*Important:* You can rename custom field names with this plugin but remember you will also need to alter all instances of "txp:custom_field":https://docs.textpattern.io/tags/custom_field and "txp:if_custom_field":https://docs.textpattern.io/tags/if_custom_field as well as all customfieldname attributes in "txp:article_custom":https://docs.textpattern.io/tags/article_custom in your page templates and forms to match._
+
+h3. Custom field titles
+
+*Custom field titles* have no strict naming restrictions and can also be specified per language. Switch the "User language" in "Admin › Languages" and enter a new title.
+
+If no custom field title is specified, the custom_field_name will be displayed as the field label as in previous versions.
+
+The custom field title can be accessed from @page templates@ and @forms@ for displaying to the front-end if required as follows:
+
+bc. <txp:custom_field name="my_custom_field" title="1" />
+
+This outputs the custom field's title string in the current front-side language. If no title has been defined for the custom field, the tag outputs nothing.
+
+_Note: The @title="1"@ attribute does not work when this plugin is not installed._
+
+h2(#upgrading). Version compatibility
+
+This version is compatible with Version 4.7+ of Textpattern. It uses functionality not available in earlier versions of Textpattern and adds new functionality not previously available in earlier versions of glz_custom_fields. It is therefore not for use with earlier versions of Textpattern.
+
+On installation, the plugin upgrades your settings and preferences to avoid potential naming collisions. Downgrading to an earlier version of Textpattern is therefore inadvisable and requires manually renaming preference names to their old naming scheme in the database.
+
+h3(#changelog). Changelog
+
+v2.0.1 – March 2021
+
+* PHP 7.4 deprecation notice / PHP 8 error patched
+
+v2.0 – March 2018
+
+* Refactored for Textpattern v4.7
+* Plugin preferences now handled in Admin › Preferences
+* Plugin preferences not overwritten during installation
+* Support for custom field title labels and supporting instruction hints (also per UI-language)
+* Custom field titles are accessible in page templates and forms by adding the attribute @title="1"@ to "txp:custom_field":https://docs.textpattern.io/tags/custom_field.
+* Change order of custom fields per drag and drop (deactivatable via a hidden pref)
+* Translatable: UI now uses textpacks throughout, custom field labels also translatable by switching the UI language
+* Under the hood: makes use of Textpattern’s in-built functions for UI creation, error messages/notices, language strings, field labels
+* New prefs for js/css URL location including support for relative URLs: relocate your js/css files where you want them
+* Compatibility with multi-site Textpattern installations
+* Updated + minified js/css and datepicker/timepicker labels
+* Adding/deleting/changing a custom field updates site-wide last modified date (for cache renewal)
+
+h2(#credits). Help and Credits
+
+h3. Troubleshooting
+
+Things to check if the plugin does not seem to work as described:
+
+* Have you copied the "plugins folder":https://github.com/jools-r/glz_custom_fields/tree/master/dist to your textpattern installation? Without the corresponding css and js files, the plugin cannot work.
+* Check you have copied _all_ the necessary files. If you have updated from an earlier version, make sure you have the most recent versions. The plugin repository has a "plugins.glz_custom_fields.zip file":https://github.com/jools-r/glz_custom_fields/tree/master/dist with all the necessary files included.
+* Switch to 'Admin › Preferences › Custom fields preferences' and click 'Check paths' at the top right to verify that the corresponding paths in the plugin preferences are correct. The plugin will indicate if there are potential problems. Correct as necessary to match your server setup.
+* If you are using your own custom locations, check the paths are set correctly. Note that the css and js files of the Datepicker should be kept in the same folder. The same applies for the TimePicker.
+* If you are on a windows server avoid a mix of backslashes and forward slashes in your paths. Use just forward slashes and php will understand and convert them automatically.
+* If you see a message in the Write pane indicating a problem with the DatePicker or TimePicker, click the error message to check the paths in the settings pane. See above.
+* If you see a message in the Write pane that a custom script could not be found or could not be read:
+** Check the custom scripts path is correct as described above. Use the 'Check paths' link at the top right to verify the path can be found.
+** Check you have a .php file named in the folder you specified above. Check that the file has read permissions ("0644":http://www.filepermissions.com/file-permission/0644). Write permissions are _not_ necessary.
+** Check that the name of the .php file matches the name you have specified in the corresponding custom field.
+
+h3. Help
+
+Help is always available from the friendly people at the "Textpattern forum":https://forum.textpattern.io/viewtopic.php?id=48511.
+
+Improvements and problem notifications are always welcome. Please "raise an issue":https://github.com/jools-r/glz_custom_fields/issues or "submit a pull request":https://github.com/jools-r/glz_custom_fields/pulls on GitHub.
+
+h3. Credits
+
+This plugin was originally written by "Gerhard Lazu":https://github.com/gerhard and dates back to "2007":https://forum.textpattern.io/viewtopic.php?pid=157983#p157983. It has been repaired, expanded and adopted by numerous forum members over the years (credited in the code), most recently by "Bloke":https://github.com/Bloke/glz_custom_fields. This significantly refactored version adds compatibility with Textpattern v4.7 and is currently looked after by "jools-r":https://github.com/jools-r/glz_custom_fields. Its concept and core workings are still those of Gerhard's original plugin. The Textpattern core will ultimately support unlimited custom fields, making this plugin obsolete at some point in the future.
+
+This plugin uses *jQuery DatePicker* ("homepage":http://2008.kelvinluck.com/assets/jquery/datePicker/v2/demo/ / "github":https://github.com/vitch/jQuery-datepicker) by Kelvin Luck, *jQuery Timepicker* ("github":https://github.com/perifer/timePicker) by Anders Fajerson and *jQuery sortElements* ("github":https://github.com/padolsey-archive/jquery.fn/tree/master/sortElements) by James Padolsey.

@@ -1,0 +1,112 @@
+<h2>Overview</h2>
+
+<p>Create star ratings for articles or other things with <strong>kuo_star_rating</strong>.</p>
+<ul>
+<li>The plugin requires jQuery.</li>
+<li>All ratings have fixed scale between 1&ndash;5 stars.</li>
+<li>Minimum rating is 1 star. Maximum is 5 stars.</li>
+<li>Votes are per IP address.</li>
+<li>An IP address can vote once.</li>
+<li>After vote is submitted, it's saved to database. Voter's IP address is saved in <code>ip2long</code> format.</li>
+</ul>
+
+<h3>Example</h3>
+
+<p><img src="data:image/png;base64,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" alt="" height="150" width="470" /></p>
+
+<hr />
+
+<h3>How to install?</h3>
+
+<ol>
+<li>Install and activate <strong>kuo_star_rating</strong> plugin code like any other Textpattern plugin.</li>
+<li>Modify contents inside <code>kuo_star_rating.js</code>. Check that language strings are as you want, and find the constant named <code>KUO_ROOT_URL</code>. Replace it's value with your website's full URL address.</li>
+<li>Upload files <code>kuo_star_rating.php</code> and <code>kuo_star_rating.js</code> to your website's root.</li>
+<li>Put somewhere in website's layout JavaScript libraries: <code>&lt;script type="text/javascript" src="&lt;txp:site_url /&gt;textpattern/vendors/jquery/jquery/jquery.js"&gt;&lt;/script&gt;</code> and <code>&lt;script type="text/javascript" src="&lt;txp:site_url /&gt;kuo_star_rating.js"&gt;&lt;/script&gt;</code> and test that they are loaded.</li>
+<li>Finally place the tag <code>&lt;txp:kuo_star_rating id='&lt;txp:article_id /&gt;' /&gt;</code> to a Textpattern <strong>form</strong> or <strong>page</strong> template.</li>
+<li><em>Optional:</em> to show a separate rating summary with Schema.org markup, place the tag <code>&lt;txp:kuo_star_rating_snippet id='&lt;txp:article_id /&gt;' /&gt;</code> to a Textpattern <strong>form</strong> or <strong>page</strong> template.</li>
+</ol>
+
+<hr />
+
+<h3>How to uninstall?</h3>
+
+<ul>
+<li>Remove the tag <code>&lt;txp:kuo_star_rating id='&lt;txp:article_id /&gt;' /&gt;</code> and the optional tag <code>&lt;txp:kuo_star_rating_snippet id='&lt;txp:article_id /&gt;' /&gt;</code> from Textpattern <strong>forms</strong> and <strong>pages</strong> templates.</li>
+<li>Delete files <code>kuo_star_rating.php</code> and <code>kuo_star_rating.js</code>.</li>
+<li>Remove the two JavaScript libraries from website's layout.</li>
+<li>Deactivate and/or delete <strong>kuo_star_rating</strong> from Textpattern's Plugins section.</li>
+</ul>
+
+<hr />
+
+<h4>Available tags</h4>
+
+<p>Rating and summary: <code>&lt;txp:kuo_star_rating id="???" /&gt;</code></p>
+<p>Optional rating summary: <code>&lt;txp:kuo_star_rating_snippet id="???" /&gt;</code></p>
+
+<hr />
+
+<h4>About optional rating summary</h4>
+
+<p>It has several attributes that can be used to localize it's output. (By default output is in English.) This is the tag with all attributes in use:</p>
+
+<p><code>&lt;txp:kuo_star_rating_snippet id="???" wraptag="p" wrapclass="kuo-star-rating-snippet" decimal_point="." schema_name="CreativeWork" lan_is_rated="is rated" lan_out_of="/" lan_based_on="based on" lan_vote="vote" lan_votes="votes" /&gt;</code></p>
+
+<hr />
+
+<h5>Database structure</h5>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Extras</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>row_id</code></td>
+<td><code>INT(10)</code></td>
+<td><code>NOT NULL AUTO_INCREMENT</code>, <code>PRIMARY KEY</code></td>
+<td>&mdash;</td>
+</tr>
+
+<tr>
+<td><code>article_id</code></td>
+<td><code>INT(10)</code></td>
+<td>&mdash;</td>
+<td>Can be Textpattern article ID, not necessarily.</td>
+</tr>
+
+<tr>
+<td><code>stars_val</code></td>
+<td><code>TINYINT(1)</code></td>
+<td><code>NOT NULL DEFAULT '1'</code></td>
+<td>Stars between 1&ndash;5.</td>
+</tr>
+
+<tr>
+<td><code>voter_id</code></td>
+<td><code>VARBINARY(16)</code></td>
+<td>&mdash;</td>
+<td>Saved as <code>ip2long</code>.</td>
+</tr>
+
+<tr>
+<td><code>timestamp</code></td>
+<td><code>TIMESTAMP</code></td>
+<td>&mdash;</td>
+<td>Not currently used by <strong>kuo_star_rating</strong>.</td>
+</tr>
+
+</tbody>
+</table>
+
+<hr />
+
+<h6>Tested with</h6>
+
+<p>This plugin has so far been tested with Textpattern 4.6.2 and jQuery versions 1.12.4, 2.2.4 and 3.2.1.</p>

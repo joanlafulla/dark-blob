@@ -1,0 +1,250 @@
+<h1>smd_featured</h1>
+
+<p>Pull one or more articles out of the regular article flow and pimp them &#8212; perhaps on a section landing page or your home page.</p>
+
+<h2>Features</h2>
+
+<ul>
+	<li>One-click selection of articles to feature</li>
+	<li>Label your featured articles, allowing you to group them into areas like Featured, Teasers, etc</li>
+	<li>Add an optional title/description to each article so you can use that as copy, instead of something from the article itself (supports Textile and some <span class="caps">TXP</span> tags)</li>
+	<li>Search your featured articles by name or label; filtering in real-time if you wish</li>
+	<li>Administrators can limit the articles available for pimpage from certain sections</li>
+	<li>Display information from the featured articles using regular <span class="caps">TXP</span> article tags</li>
+	<li>Keeps track of which articles have been seen already on the page so later featured (or unfeatured) articles aren&#8217;t duplicated</li>
+</ul>
+
+<h2>Installation / Uninstallation</h2>
+
+<p class="important">Requires Textpattern 4.6.0+</p>
+
+<p>Download the plugin from either <a href="http://textpattern.org/plugins/1174/smd_featured">textpattern.org</a>, or the <a href="http://stefdawson.com/sw">software page</a>, paste the code into the <span class="caps">TXP</span> Admin -&gt; Plugins pane, install and enable the plugin. Visit the <a href="http://forum.textpattern.com/viewtopic.php?id=33938">forum thread</a> for more info or to report on the success or otherwise of the plugin.</p>
+
+<p>When you install the plugin, the necessary table is automatically installed for you. There&#8217;s currently no facility for removing it during plugin operation, but it will be deleted if the plugin is deleted from your system. Note that if you put the plugin in the cache dir and therefore don&#8217;t go though the normal installation procedure, the table is <strong>not</strong> installed automatically; visit the <em>Content-&gt;Featured articles</em> tab and click the <em>Install table</em> button.</p>
+
+<p>To uninstall, simply delete the plugin from the <em>Admin-&gt;Plugins</em> page.</p>
+
+<p class="important">Unfortunately, when upgrading from v0.3x to v0.40, your Textile preferences will be lost. Please reset them by visiting the <em>Featured articles</em> tab with an administrator account and adjusting the prefs.</p>
+
+<h2>Configuring featured articles</h2>
+
+<p>Visit the <em>Content-&gt;Featured articles</em> tab. A list of all articles (from the admin-selected sections) are presented in a grid.</p>
+
+<h3>To feature an article</h3>
+
+<p>Click its name. It will be highlighted and (if permitted by the administrator) an <code>[Edit]</code> button appears beside it. If you choose not to edit the article information, it will be featured but unlabelled.</p>
+
+<p>An arrow also appears in the lower right hand corner of the box. Click this to take you to the Write tab to view/edit the original article. The same link is available by clicking the article Title while editing an entry.</p>
+
+<p>In the lower left corner of the box, a position input field appears. You can type anything in this box to specify a sort order for the featured item; as soon as the cursor leaves the box the value is saved. You are free to use whichever sort scheme works for you &#8212; numbers, alphanumerics, squiggles, anything. This does not alter the order of the items in the grid (use the <em>Sort by</em> value in the plugin&#8217;s control panel for that) but allows you to order the items as they appear on your site. You may leave this box empty if you wish. Note that sorting is performed on a per-label basis so you may reuse sort values under different labels.</p>
+
+<p>Clicking <code>[Edit]</code> will display up to four input boxes, depending on the <a href="#smd_feat_prefs">prefs</a>:</p>
+
+<ul>
+	<li><strong>Label</strong> : allows you to label (group) the article with others of a similar featured status. For example, you could label some articles to go in a &#8216;teasers&#8217; block on your home page by labelling each potential article with <code>Teaser</code>. Be careful: <strong>labels are case sensitive</strong>. To help, you may choose a label from the dropdown list of all currently defined labels or enter a new one.</li>
+	<li><strong>Title</strong> : allows you to store some Textile-aware title related to the article. This is different from the article&#8217;s actual Title and can be used for any purpose you see fit.</li>
+	<li><strong>Description</strong> : allows you to store some Textile-aware supporting information about the article. This could simply be additional information for your own use, or some copy that you may wish to display in your teasers block to entice people to read the article. It can be as simple or as complex as you like and can contain <span class="caps">TXP</span> tags (if they make sense to use at that point &#8212; article tags cannot be used, for example, but <code>&lt;txp:site_url /&gt;</code> can).</li>
+	<li><strong>Position</strong> : allows you to store some positioning text (up to 16 characters) that governs the order this item appears on your site. This is the same value as in the little box in the lower left corner of the article cell.</li>
+</ul>
+
+<p>When you&#8217;re happy with your values, hit Save to store the entry. You can edit the information at any time by clicking the appropriate <code>[Edit]</code> button from the featured article list.</p>
+
+<h3>To unfeature an article</h3>
+
+<p>Click its name again. You may be offered a confirmation dialog box, in which case confirm that you are sure first. The article&#8217;s label, title and description are deleted, so be sure you really want to remove them, or have backed the information up somewhere.</p>
+
+<h3>Finding articles to feature</h3>
+
+<p>With large article lists it can become difficult to find the one you want. Above the grid is a control panel. Click it to reveal the plugin options.  On the left is the Article search area and on the right are the plugin preferences. If you are in <em>Display: All</em> mode, simply start typing in the <em>By name</em> box and your article list will be reduced as you type to only those that match. Type multiple words to find articles that contain any of the given words. To quickly clear the box, hit the <span class="caps">ESC</span>ape key.</p>
+
+<p>Alternatively, you can use the select list to choose all articles with a particular label. The empty entry at the top of the list means &#8220;all articles&#8221;. If you have featured an article but don&#8217;t supply a label you can filter it by choosing the <code>[unlabelled]</code> item from the list. If you have labelled any articles, each label you have supplied will also be an option in the list. Remember that labels are case sensitive.</p>
+
+<p>Note that filtering by name or by label are mutually exclusive actions: selecting something from the dropdown will clear the text box, and typing something in the text box will reset the dropdown.</p>
+
+<p>Your search criteria are remembered between edit/list views so you won&#8217;t lose your place. If you are in <em>Display: Paginated</em> mode, the search works in exactly the same way but you have to hit Enter or click <em>Go</em> to submit the search criteria. This mode is handy for very long article lists or slow servers / computers.</p>
+
+<h3 id="smd_feat_prefs">Plugin preferences</h3>
+
+<p>Users of the <em>Featured articles</em> tab also have a few preferences at their disposal which can be altered at will:</p>
+
+<ol>
+	<li><strong>Display</strong> : choose whether you wish to display all articles on one page (and use the live search to filter them) or choose a paginated view (and use the traditional search). The traditional search might be useful if you have a lot of articles (over 1000) because the live search might slow down significantly. Note that when you search for something in paginated mode, the results themselves aren&#8217;t paginated.</li>
+	<li><strong>Sort by</strong> : define the sort order of the article list.</li>
+	<li><strong>Box size</strong> : specify the <code>width</code> and <code>height</code> values in pixels of each cell in the grid. Default is <code>150x40</code>.</li>
+</ol>
+
+<p>Administrators can also alter the behaviour of the plugin by altering the following prefs:</p>
+
+<ol>
+	<li><strong>Permit entry of</strong>: choose which featured elements users are permitted to enter/alter. If you disable all the checkboxes, the [Edit] links next to featured articles will not appear.</li>
+	<li><strong>Apply textile to</strong>: choose the items to which you wish to apply Textile when you Edit and Save a featured article. <strong>Note this only affects featured articles saved from this point forward</strong>. Thus if you wish to apply a new Textile setting to existing articles you need to visit each one in turn by clicking <code>[Edit]</code> and then <em>Save</em>.</li>
+	<li><strong>Articles from sections</strong>: define a comma-separated list of section names. These will be the only sections from which articles are allowed to be featured. If you leave this box empty you or your users may specify <code>&amp;section_list=list,of,sections,...</code> in the smd_featured tab&#8217;s <span class="caps">URL</span> to limit the list to only articles in the given sections. This is handy if you wish to direct people to the smd_featured tab from a link in another tab.</li>
+</ol>
+
+<p>In addition, if you create a hidden pref called <code>smd_featured_privs</code> you can limit the privilege levels of accounts that can access the <em>Featured articles</em> tab. Default: <code>1,2</code>. If using smd_prefalizer to create this pref, set the name and value as above and set the following additional parameters:</p>
+
+<ul>
+	<li><strong>type</strong> : hidden</li>
+	<li><strong>event</strong> : smd_featured</li>
+	<li><strong>input control</strong> : text_input</li>
+	<li><strong>user</strong> : / empty /</li>
+	<li><strong>position</strong>: 0</li>
+</ul>
+
+<h2>Displaying featured articles</h2>
+
+<p>Once you have chosen your featured articles, you need a way to display them:</p>
+
+<h3>Tag: <code>&lt;txp:smd_featured /&gt;</code></h3>
+
+<p>Acts a bit like the standard <code>&lt;txp:article /&gt;</code> tag to display featured articles. Attributes:</p>
+
+<ul>
+	<li><span class="atnm">label</span> : display featured articles with this label. Specify <code>label=&quot;&quot;</code> to display unlabelled articles (which are <strong>not</strong> the same as unfeatured articles). If this attribute is omitted, all featured articles &#8212; irrespective of label &#8212; will be displayed.</li>
+	<li><span class="atnm">labeltag</span> : the (X)HTML tag &#8212; without brackets &#8212; to apply to the label attribute. If this attribute is specified the label itself is displayed at the head of your featured article list. If you wish to display unlabelled articles you need to specify the <code>unlabel</code> attribute or you&#8217;ll see no label. Note that this tag differs from the <span class="caps">TXP</span> convention: you will <em>only</em> see the label if you specify the <code>labeltag</code>. You can display the label inside your articles using the <code>&lt;txp:featured_info /&gt;</code> tag.</li>
+	<li><span class="atnm">unlabel</span> : when using <code>label=&quot;&quot;</code> (to show unlabelled articles) this attribute specifies the label to use inside the <code>labeltag</code>. Default: &#8220;Featured&#8221;.</li>
+	<li><span class="atnm">time</span> : limit the articles to those in the <code>past</code>, the <code>future</code> or <code>any</code>. Default: <code>past</code>.</li>
+	<li><span class="atnm">status</span> : only display articles of the given status number(s). Default: <code>4,5</code> (a.k.a. live and sticky). Note that this attribute may be ignored if you are trying to view anything other live and sticky articles (since article_custom does the same).</li>
+	<li><span class="atnm">section</span> : only display articles from the given section(s). If the section list is restricted using the plugin preferences, the sections used here must also be in that list.</li>
+	<li><span class="atnm">history</span> : determines whether to remember previously seen articles and thus exclude them from future smd_featured / smd_unfeatured tags. If you are using the same featured tag multiple times on the same page and want it to always output the same list, set this attribute to 0. Default: 1.</li>
+	<li><span class="atnm">form</span> : use this <span class="caps">TXP</span> form to display each article, instead of using the container contents.</li>
+	<li><span class="atnm">limit</span> : maximum number of featured articles to display. Default: 10.</li>
+	<li><span class="atnm">sort</span> : order the featured articles by <code>id</code>, <code>label</code>, <code>Title</code>, <code>Posted</code>, and so on. Add <code>asc</code> or <code>desc</code> to the attribute to alter the direction of the sort. You may also use <code>rand()</code> to sort the articles randomly. Default: <code>feat_position asc, Posted desc</code>. The same list available for the <code>&lt;txp:article /&gt;</code> tag is usable here. You may also use:
+	<ul>
+		<li><strong>feat_position</strong> : your custom position</li>
+		<li><strong>feat_title</strong> : your featured title content</li>
+		<li><strong>description</strong> : your featured description content</li>
+	</ul></li>
+	<li><span class="atnm">wraptag</span> : the (X)HTML tag &#8212; without brackets &#8212; to wrap around the list of featured articles.</li>
+	<li><span class="atnm">break</span> : the (X)HTML tag &#8212; without brackets &#8212; or text to put between each article.</li>
+	<li><span class="atnm">class</span> : the <span class="caps">CSS</span> class name to apply to the wraptag.</li>
+	<li><span class="atnm">html_id</span> : a <span class="caps">DOM</span> ID to apply to the wraptag.</li>
+</ul>
+
+<p>You may use the tag as a container and any tags you specify will be displayed in each featured article. You can use standard article tags such as <code>&lt;txp:title /&gt;</code>, <code>&lt;txp:excerpt /&gt;</code>, <code>&lt;txp:permlink /&gt;</code>, etc, although some articles are not displayable by Textpattern (e.g. hidden, pending and draft articles).</p>
+
+<p class="important">Note that you can&#8217;t use <code>&lt;txp:smd_featured&gt;</code> inside an article or an Article Form. Doing so will trigger a warning because it&#8217;s the same as putting another article tag inside an article. Use the tag only in Pages, or in a Form that is never directly used to display article content.</p>
+
+<p>Each time you use <code>&lt;txp:smd_featured /&gt;</code> it makes a note of the articles it has displayed and will not duplicate articles in later tags. You can use <code>&lt;txp:else /&gt;</code> in your form / container to take action if the featured list is empty.</p>
+
+<h3>Tag: <code>&lt;txp:smd_featured_info /&gt;</code></h3>
+
+<p>Allows you to display the label or the description within your <code>&lt;txp:smd_featured /&gt;</code>  form/container.</p>
+
+<p>Has one attribute:</p>
+
+<ul>
+	<li><span class="atnm">item</span> : the thing you want to display. Choose from:
+	<ul>
+		<li><strong>label</strong>: the label.</li>
+		<li><strong>title</strong>: the (possibly Textile-processed) title.</li>
+		<li><strong>description</strong>: the (possibly Textile-processed) description.</li>
+	</ul></li>
+	</ul>
+
+<h3>Tag: <code>&lt;txp:smd_unfeatured /&gt;</code></h3>
+
+<p>Use this tag if you wish to show the &#8216;remaining&#8217; articles &#8212; i.e. ones not already displayed by any preceding <code>&lt;txp:smd_featured /&gt;</code> tags. It acts very much like the built-in article_custom tag, and takes all the same attributes. Thus, by default, its context is &#8220;any articles from any section defined in the smd_featured plugin that have not been displayed already&#8221;. You can reduce this list by <code>section</code>, <code>time</code> or <code>status</code>.</p>
+
+<p>Unlike article_custom, <code>&lt;txp:smd_unfeatured /&gt;</code> supports pagination and <code>&lt;txp:else /&gt;</code> (for when your unfeatured list returns nothing). You can also specify the <code>history</code> attribute and it works exactly the same way as it does for <code>&lt;txp:smd_featured /&gt;</code>. Thus it can be a very useful, pageable direct replacement tag for article_custom if you use <code>history=&quot;0&quot;</code>.</p>
+
+<p>Notes:</p>
+
+<ul>
+	<li>to use pagination, remove any article tag and add the <code>pageby</code> attribute (and of course <code>limit</code>) to the smd_unfeatured tag. Note you may get a warning about no article tag on the page, but you can ignore it.</li>
+	<li>if you wish the <code>pageby</code> attribute to track any <code>limit</code> you set, specify <code>pageby=&quot;limit&quot;</code>.</li>
+	<li>if you have any other paging in effect on the page, unfeatured pagination will be ignored.</li>
+</ul>
+
+<h3>Tag: <code>&lt;txp:smd_if_featured&gt;</code></h3>
+
+<p>This tag allows you to detect if the current (individual) article is featured and/or has a particular label. You may also use this outside an article context by supplying a list of article IDs.</p>
+
+<p>Has two attributes:</p>
+
+<ul>
+	<li><span class="atnm">id</span> : list of article IDs of which you wish to check the featured status. If omitted, defaults to the current article (if used inside a <code>&lt;txp:article /&gt;</code> container/form).</li>
+	<li><span class="atnm">label</span> : list of labels to compare the given ID(s) with. Specify <code>label=&quot;&quot;</code> to check for unlabelled articles, or use an empty item if specifying a list, e.g. <code>label=&quot;, Featured, Teaser&quot;</code>. Remember that labels are case sensitive.</li>
+</ul>
+
+<p>If the article matches one of the given labels the contained content will be executed. If no label is given the article(s) will be checked if they are featured, irrespective of label.</p>
+
+<h2>Examples</h2>
+
+<h3 id="eg1">Example 1: Complete directory of featured articles</h3>
+
+<pre class="block"><code>&lt;txp:smd_featured labeltag=&quot;h2&quot; limit=&quot;20&quot;
+     wraptag=&quot;dl&quot; sort=&quot;label&quot;&gt;
+   &lt;txp:if_different&gt;
+      &lt;h2&gt;&lt;txp:smd_featured_info item=&quot;label&quot; /&gt;&lt;/h2&gt;
+   &lt;/txp:if_different&gt;
+   &lt;dt&gt;
+      &lt;txp:permlink&gt;&lt;txp:title /&gt;&lt;/txp:permlink&gt;
+   &lt;/dt&gt;
+   &lt;dd&gt;
+      &lt;txp:excerpt /&gt;
+   &lt;/dd&gt;
+&lt;/txp:smd_featured&gt;</code></pre>
+
+<h3 id="eg2">Example 2: One featured article and six teasers on the home page</h3>
+
+<p>Select an article and label it <code>feature</code>. Select six others and label them <code>teasers</code>. Add some description text to your teaser articles.</p>
+
+<p>In your default Page, put this:</p>
+
+<pre class="block"><code>&lt;txp:smd_featured label=&quot;feature&quot;
+     wraptag=&quot;div&quot; html_id=&quot;main_feature&quot;&gt;
+   &lt;txp:permlink&gt;&lt;txp:title /&gt;&lt;/txp:permlink&gt;
+   &lt;txp:article_image class=&quot;feat_image&quot; /&gt;
+   &lt;p class=&quot;leadin&quot;&gt;&lt;txp:excerpt /&gt;&lt;/p&gt;
+&lt;/txp:smd_featured&gt;</code></pre>
+
+<pre class="block"><code>&lt;txp:smd_featured label=&quot;teasers&quot;
+     wraptag=&quot;ul&quot; break=&quot;li&quot; html_id=&quot;teaser_block&quot;&gt;
+   &lt;txp:permlink&gt;&lt;txp:title /&gt;&lt;/txp:permlink&gt;
+   &lt;p class=&quot;leadin&quot;&gt;&lt;txp:excerpt /&gt;&lt;/p&gt;
+&lt;/txp:smd_featured&gt;</code></pre>
+
+<p>If you wanted to have some other articles beneath those, but didn&#8217;t want any duplicates to appear you could use:</p>
+
+<pre class="block"><code>&lt;txp:smd_unfeatured form=&quot;my_list&quot; /&gt;</code></pre>
+
+<h3 id="eg3">Example 3: Per-section landing page featured articles</h3>
+
+<p>If you had a zoo site with a section for primates, a section for mammals and a section for reptiles, when you set up your featured article list define their labels like this:</p>
+
+<ul>
+	<li>Featured primates</li>
+	<li>Featured mammals</li>
+	<li>Featured reptiles</li>
+</ul>
+
+<p>On your section landing page template you can then do this to display four articles from the relevant (current) section:</p>
+
+<pre class="block"><code>&lt;h2&gt;Look who&#39;s here:&lt;/h2&gt;
+&lt;txp:smd_featured label=&#39;Featured &lt;txp:section /&gt;&#39;
+     section=&#39;&lt;txp:section /&gt;&#39; limit=&quot;4&quot;
+     wraptag=&quot;div&quot; html_id=&quot;feat_block&quot;&gt;
+   &lt;div class=&quot;pimped_article&quot;&gt;
+      &lt;txp:permlink&gt;&lt;txp:title /&gt;&lt;/txp:permlink&gt;
+      &lt;txp:smd_featured_info item=&quot;description&quot; /&gt;
+   &lt;/div&gt;
+&lt;/txp:smd_featured&gt;</code></pre>
+
+<h3 id="eg4">Example 4: Conditional check for featured-ness</h3>
+
+<p>If a site visitor has navigated away from your front page and is viewing an article, you may wish to highlight the fact the current article is a featured product. So, somewhere inside you article form add:</p>
+
+<pre class="block"><code>&lt;txp:smd_if_featured&gt;
+   &lt;p class=&quot;hilight&quot;&gt;FEATURED PRODUCT&lt;/p&gt;
+&lt;/txp:smd_if_featured&gt;</code></pre>
+
+<p>Or if you wanted to only highlight the article if it was a featured or on special offer:</p>
+
+<pre class="block"><code>&lt;txp:smd_if_featured label=&quot;Featured, Special&quot;&gt;
+   &lt;p class=&quot;hilight&quot;&gt;As featured on the front page!&lt;/p&gt;
+&lt;/txp:smd_if_featured&gt;</code></pre>
+
+<h2>Author / Credits</h2>
+
+<p><a href="http://stefdawson.com/contact">Stef Dawson</a></p>
