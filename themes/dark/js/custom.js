@@ -24,7 +24,7 @@ const highlighted = document.querySelector(".highlighted");
 const maskHighlighted = document.querySelector(".mask_highlighted");
 const videoHighlighted = document.querySelectorAll(".video_highlighted");
 
-console.log("hola github jaaaar");
+console.log("nuevo mundo");
 
 let mypage = '';
 
