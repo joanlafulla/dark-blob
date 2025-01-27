@@ -24,9 +24,6 @@ const highlighted = document.querySelector(".highlighted");
 const maskHighlighted = document.querySelector(".mask_highlighted");
 const videoHighlighted = document.querySelectorAll(".video_highlighted");
 
-console.log("commmit 2");
-console.log("commit 3");
-
 let mypage = '';
 
 function getmypage() {
