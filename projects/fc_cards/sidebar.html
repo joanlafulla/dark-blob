@@ -1,0 +1,1417 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1">
+    <title>FC Sidebnar</title>
+    <link rel="stylesheet" href="css/my_styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body id="sidebar">
+    <div class="resolution r_1024"></div>
+    <div class="resolution r_950"></div>
+    <div class="resolution r_900"></div>
+    <div class="resolution r_850"></div>
+    <div class="resolution r_750"></div>
+    <div class="resolution r_720"></div>
+    <!-- Publi 
+    <section class="publi">PUBLICIDAD</section>-->
+    <!-- Topbar -->
+    <div class="topbar">
+        <div class="logo">
+            <span class="material-icons open-menu">menu</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="120" height="22" viewBox="0 0 120 22" class="logo-desktop">
+            <g fill="#ffffff" fill-rule="evenodd">
+                <path d="M2.51 21.721V10.05H0V6.83h2.51V6.09c0-2.275.49-3.487 1.685-4.403.826-.65 2.082-.975 3.827-.975.612 0 1.133.03 1.592.118v3.044c-.275-.089-.765-.148-1.408-.148-1.378 0-2.02.591-2.02 2.098V6.83h2.908v3.22H6.185v11.672H2.511M9.614 13.71c0-2.251.805-4.172 2.383-5.702 1.578-1.53 3.514-2.31 5.807-2.31 2.294 0 4.23.78 5.808 2.31 1.578 1.53 2.382 3.45 2.382 5.701 0 2.25-.804 4.17-2.382 5.701-1.578 1.53-3.514 2.311-5.808 2.311-2.293 0-4.229-.78-5.807-2.31-1.578-1.531-2.383-3.451-2.383-5.702M21.11 17.1c.894-.93 1.34-2.04 1.34-3.39s-.446-2.46-1.34-3.36c-.893-.931-1.995-1.381-3.306-1.381-1.34 0-2.441.45-3.335 1.38-.864.9-1.31 2.01-1.31 3.361 0 1.35.446 2.46 1.31 3.39.894.901 1.995 1.35 3.335 1.35 1.311 0 2.413-.449 3.306-1.35M28.893 9.636h-1.83v-3.22h1.83V.711h3.49v5.703h3.225v3.22h-3.226v6.65c0 1.624.552 2.215 1.83 2.215.437 0 .844-.03 1.222-.118v3.162c-.494.118-1.104.177-1.803.177-3.168 0-4.738-1.684-4.738-5.053V9.636M37.033 13.71c0-2.251.804-4.172 2.382-5.702 1.579-1.53 3.515-2.31 5.808-2.31 2.293 0 4.228.78 5.807 2.31 1.578 1.53 2.382 3.45 2.382 5.701 0 2.25-.804 4.17-2.382 5.701-1.579 1.53-3.514 2.311-5.807 2.311-2.293 0-4.23-.78-5.808-2.31-1.578-1.531-2.382-3.451-2.382-5.702m11.495 3.39c.893-.93 1.34-2.04 1.34-3.39s-.447-2.46-1.34-3.36c-.893-.931-1.995-1.381-3.305-1.381-1.34 0-2.442.45-3.336 1.38-.863.9-1.31 2.01-1.31 3.361 0 1.35.447 2.46 1.31 3.39.894.901 1.996 1.35 3.336 1.35 1.31 0 2.412-.449 3.305-1.35M69.08 8.308l-2.215 2.31c-1.046-1.11-2.333-1.65-3.83-1.65-1.316 0-2.423.45-3.321 1.35-.868.9-1.317 2.04-1.317 3.391 0 1.35.45 2.49 1.317 3.391.898.9 2.005 1.35 3.322 1.35 1.496 0 2.783-.54 3.83-1.65l2.214 2.31c-1.616 1.74-3.62 2.611-6.044 2.611-2.305 0-4.25-.75-5.835-2.28-1.587-1.531-2.364-3.451-2.364-5.732 0-2.28.777-4.17 2.364-5.701 1.586-1.53 3.53-2.31 5.835-2.31 2.423 0 4.428.87 6.044 2.61M82.15 8.195v-2.17h3.59v10.464c0 1.279.3 1.754 1.108 1.754.21 0 .479-.03.748-.06v2.884c-.39.15-.988.239-1.765.239-.868 0-1.556-.15-2.095-.476-.658-.446-1.077-1.04-1.227-1.814-1.047 1.576-2.783 2.349-5.176 2.349-2.125 0-3.92-.743-5.386-2.26-1.436-1.516-2.155-3.36-2.155-5.589 0-2.23.719-4.073 2.155-5.56 1.466-1.515 3.261-2.259 5.386-2.259 2.424 0 4.249 1.07 4.817 2.498m-1.077 8.592c.898-.863 1.346-1.963 1.346-3.27 0-1.309-.448-2.409-1.346-3.271-.868-.862-1.974-1.308-3.261-1.308-1.287 0-2.334.446-3.202 1.308-.838.862-1.257 1.962-1.257 3.27s.42 2.408 1.257 3.27c.868.862 1.915 1.309 3.202 1.309s2.393-.447 3.261-1.308M90.911 16.691c.671 1.085 2.1 1.898 3.88 1.898 1.838 0 2.626-.723 2.626-1.657 0-.512-.35-.933-.846-1.205-.321-.21-.934-.421-1.371-.572-.438-.15-1.313-.421-1.809-.632-2.363-.874-3.617-2.109-3.617-4.277 0-1.416.496-2.5 1.488-3.314 1.02-.813 2.245-1.235 3.705-1.235 2.07 0 3.646.754 4.754 2.23l-1.955 2.138c-.641-.843-1.604-1.265-2.858-1.265-1.08 0-1.78.542-1.78 1.355 0 .512.263.783.671 1.054.234.151.817.392 1.196.543.438.12 1.255.421 1.838.632 2.713.994 3.939 2.35 3.939 4.518 0 2.801-2.042 4.82-6.04 4.82-2.946 0-5.133-1.176-6.067-3.073l2.246-1.958M114.554 8.195v-2.17h3.59v10.464c0 1.279.3 1.754 1.108 1.754.21 0 .48-.03.748-.06v2.884c-.389.15-.987.239-1.765.239-.868 0-1.556-.15-2.095-.476-.658-.446-1.077-1.04-1.227-1.814-1.047 1.576-2.782 2.349-5.177 2.349-2.124 0-3.92-.743-5.386-2.26-1.436-1.516-2.154-3.36-2.154-5.589 0-2.23.718-4.073 2.154-5.56 1.467-1.515 3.262-2.259 5.386-2.259 2.424 0 4.25 1.07 4.818 2.498m-1.077 8.592c.897-.863 1.347-1.963 1.347-3.27 0-1.309-.45-2.409-1.347-3.271-.868-.862-1.975-1.308-3.261-1.308-1.287 0-2.335.446-3.202 1.308-.838.862-1.257 1.962-1.257 3.27s.419 2.408 1.257 3.27c.867.862 1.915 1.309 3.202 1.309 1.286 0 2.393-.447 3.261-1.308"/>
+            </g>
+            </svg>
+            <svg width="31" height="24" viewBox="0 0 31 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-mobile">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M2.98341 10.4927V23.5836H7.45853V10.4927H10.4419V7.00182H7.16019V5.83818C7.16019 4.23818 8.05521 3.51091 9.54691 3.51091H11.1878V0.165459H9.39774C7.30936 0.165459 5.81765 0.456368 4.92263 1.18364C3.58009 2.20182 2.98341 3.51091 2.98341 6.12909V6.56546H0V10.4927H2.98341ZM27.3712 11.4709L29.9071 8.85273C27.9679 6.81636 25.7303 5.94363 22.8961 5.94363C20.396 5.93988 17.9911 6.87788 16.1834 8.56182C14.2442 10.3073 13.2 12.3436 13.2 14.9618C13.2116 17.4127 14.2973 19.7418 16.1834 21.3618C17.9735 22.9618 20.3602 23.8345 22.8961 23.8345C25.5811 23.8345 28.2662 22.9618 30.0563 20.9255L27.3712 18.4527C26.1976 19.6223 24.5731 20.2559 22.8961 20.1982C21.4044 20.1982 20.0618 19.7618 19.0176 18.7436C18.1226 17.7255 17.5259 16.4164 17.5259 14.9618C17.5259 13.3618 18.1226 12.0527 19.1668 11.0345C20.0618 10.0164 21.4044 9.58 22.8961 9.58C24.5959 9.55992 26.2238 10.2478 27.3712 11.4709Z" fill="white"/>
+            </svg>
+            <div class="topbar-search">Barcelona capital <span class="material-icons">close</span></div>
+            <div class="menu-opened"><input type="checkbox" id="redlines">Altura resolución</div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#"><span class="material-icons">notifications</span><span class="misalertas-txt">Mis alertas</span></a></li>
+                <li><a href="#"><span class="material-icons">favorite_border</span><span class="mislistas-txt">Mis listas</span></a></li>
+                <li><a href="#"><span class="material-icons">campaign</span><span class="feed-txt">Nuevos para ti</span></a></li>
+                <li><a href="#" class="publicar">Publicar anuncio gratis</a><a href="#" class="publicar-small">Publica</a></li>
+            </ul>
+        </nav>
+    </div>
+    <!-- SearchBar mobile -->
+    <div class="searchbar">
+        <div class="searchbar-box">
+            <div class="topbar-search">Barcelona capital <span class="material-icons">close</span></div>
+        </div>
+        <div>
+            <a href="index.html" class="searchbar-map">
+                <span class="material-icons">map</span>
+                <i>mapa</i>
+            </a>
+        </div>
+    </div>
+    <!-- Filtros -->
+    <section class="filtros-sidebar-contenedor">
+        <div class="filtros-sidebar_margin">
+            <div class="filtros-sidebar">
+                <ul>
+                    <li class="filtros-button"><span class="material-icons">tune</span>Filtros (0)</li>
+                    <li class="dropdown" style="min-width: 160px">Distrito<span class="material-icons">expand_more</span></li>
+                    <li class="dropdown" style="min-width: 184px";>Tipo de vivienda<span class="material-icons">expand_more</span></li>
+                    <li class="dropdown" style="min-width: 200px; background-color:#eaebf7; border-color: #303ab2; color: #303ab2">250.000€ - 300.0...<span class="material-icons">expand_more</span></li>
+                    <li class="dropdown" style="min-width: 143px";>Habitaciones<span class="material-icons">expand_more</span></li>
+                    <li class="alert"><a href="#"><span class="material-icons">notifications</span>Crear alerta</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- Content -->
+    <div class="dominance-mobile">
+        <img src="img/320x50_navalcarnero.png" alt="">
+    </div>
+    <div class="content-sidebar-contenedor">
+        <div class="content-sidebar">
+            <div class="listado-sidebar">
+                <div class="mydominance mdlarge">
+                    Compara ofertas de distintos bancos y elige tu mejor hipoteca <a href="#">Calcular hipoteca</a>
+                </div>
+                <div class="mydominance mdsmall">
+                    Calcular tu hipoteca <span class="material-icons">calculate</span>
+                </div>
+                <div class="title">
+                    <h1>13.006 Viviendas y casas en venta en Barcelona Capital</h1>
+                    <!--<h2>10.345 de segunda mano y 324 de obra nueva</h2>-->
+                </div>
+                <div class="secondary-bar">
+                    <div class="transactions">
+                        <ul>
+                            <li><a href="#" class="transactions-active">Comprar</a></li>
+                            <li><a href="#">Alquilar</a></li>
+                            <li><a href="#">Obra Nueva</a></li>
+                        </ul>
+                    </div>
+                    <div class="sorting">
+                        <div class="sorting_info"><span class="material-icons">info</span> Ordenar:</div>
+                        <div class="sorting_puntuacion">Puntuación Fotocasa<span class="material-icons">expand_more</span></div>
+                    </div>
+                </div>
+                <!-- Cards -->
+                <div class="cards">
+                    <!-- Card 1 -->
+                    <div class="card-container_large">
+                        <div class="card premium">
+                            <!-- Card images -->
+                            <div class="card-image">
+                                <div class="add-favorite-bis">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="29" viewBox="0 0 32 29" fill="none">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M17.2074 4.21969C18.9106 2.49724 21.3285 1.70778 23.706 2.09792C25.8682 2.45274 27.7619 3.74522 28.9059 5.6385L29.0642 5.91302L29.2079 6.18902C30.6038 9.01245 30.1197 12.4036 28.0321 14.6982L16.6308 26.7274C16.3177 27.0578 15.8145 27.0879 15.4668 26.8176L15.3675 26.7275L3.98003 14.7151C2.02692 12.5719 1.46471 9.4823 2.53538 6.76449L2.65635 6.47478L2.79033 6.18896C3.8677 4.01022 5.91482 2.48805 8.29226 2.09792C10.5663 1.72475 12.8774 2.43082 14.5647 4.00033L14.7908 4.21969L15.9991 5.43971L17.2074 4.21969Z" fill="black" fill-opacity="0.4" stroke="white" stroke-width="4"/>
+                                    </svg>
+                                </div>
+                                <div class="first-image">
+                                    <img src="img/premium1/1.avif" alt="">
+                                    <div class="multimedia">
+                                        <ul>
+                                            <li><span class="material-icons">photo_camera</span>1/22</li>
+                                            <li><span class="material-icons">videocam</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="second-image">
+                                    
+                                    <img src="img/premium1/2.avif" alt="">
+                                </div>
+                                <div class="third-image">
+                                    <img src="img/premium1/3.avif" alt="">
+                                </div>
+                                <a href="#" class="card-image-bt-right"><span class="material-icons">navigate_next</span></a>
+                                <a href="#" class="card-image-bt-left"><span class="material-icons">navigate_before</span></a>
+                            </div>
+                            <!-- Card content -->
+                            <div class="card-content">
+                                <!-- Card marca -->
+                                <div class="marca" style="background-color: #C80626; color: white">
+                                    <div class="marca-texto">
+                                        <span>Engel&Völkers&nbsp;</span><span class="partner">· Tu partner inmobiliario</span>
+                                    </div>
+                                    <div class="marca-logo">
+                                        <img src="img/engel.png" alt="">
+                                    </div>
+                                </div>
+                                <!-- Card datos -->
+                                <div class="datos">
+                                    <div class="precio-date">
+                                        <div class="precio">
+                                        <h1>475.000 €</h1>
+                                        <span class="habajado"><span class="material-icons">arrow_downward</span><span class="habajado-txt">Ha bajado</span> 10.000€</span>
+                                        </div>
+                                        <div class="datos-date">
+                                            Hace 3 horas
+                                        </div>
+                                    </div>
+                                    <div class="location">
+                                        <p>Ático con terraza en Pau Clarís, Dreta de l'Eixample</p>
+                                    </div>
+                                    <div class="features">
+                                        <ul>
+                                            <li>2 habs</li>
+                                            <li>98 m²</li>
+                                            <li>2 baños</li>
+                                            <li>3ª planta</li>
+                                            <li>Ascensor</li>
+                                            <li>Piscina</li>
+                                            <li>Aire acondicionado</li>
+                                        </ul>
+                                    </div>
+                                    <div class="more-info">
+                                        <a>Más detalles <span class="material-icons">keyboard_arrow_down</span></a>
+                                        <p class="more-info_details">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit assumenda incidunt repudiandae quaerat ea natus excepturi. Ipsum, amet hic laborum id recusandae delectus, asperiores, voluptas optio facilis atque quis odit?</p>
+                                    </div>
+                                    <div class="contactbar">
+                                        <div class="contact">
+                                            <a href="#" class="mail"><span class="material-icons">email</span>Contactar</a>
+                                            <a href="#" class="phone"><span class="material-icons">phone</span>Llamar</a>
+                                        </div>
+                                        <div class="actions">
+                                            <a href="#" class="compartir"><span class="material-icons">share</span></a>
+                                            <a href="#" class="descartar"><span class="material-icons">delete</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- publi -->
+                    <div class="dominance">
+                        <img src="img/728x90_navalcarnero.png" alt="">
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="card-container_large">
+                        <div class="card promotionON">
+                            <!-- Card images -->
+                            <div class="card-image">
+                                <div class="add-favorite-bis">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="29" viewBox="0 0 32 29" fill="none">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M17.2074 4.21969C18.9106 2.49724 21.3285 1.70778 23.706 2.09792C25.8682 2.45274 27.7619 3.74522 28.9059 5.6385L29.0642 5.91302L29.2079 6.18902C30.6038 9.01245 30.1197 12.4036 28.0321 14.6982L16.6308 26.7274C16.3177 27.0578 15.8145 27.0879 15.4668 26.8176L15.3675 26.7275L3.98003 14.7151C2.02692 12.5719 1.46471 9.4823 2.53538 6.76449L2.65635 6.47478L2.79033 6.18896C3.8677 4.01022 5.91482 2.48805 8.29226 2.09792C10.5663 1.72475 12.8774 2.43082 14.5647 4.00033L14.7908 4.21969L15.9991 5.43971L17.2074 4.21969Z" fill="black" fill-opacity="0.4" stroke="white" stroke-width="4"/>
+                                    </svg>
+                                </div>
+                                    <img src="img/other/8.avif" alt="">
+                                    <div class="badges-left">
+                                        <div class="badgeON">
+                                            Obra nueva
+                                        </div>
+                                        <div class="badgeON-state">
+                                            En construcción
+                                        </div>
+                                    </div>
+                                    <div class="multimedia">
+                                        <ul>
+                                            <li><span class="material-icons">photo_camera</span>1/22</li>
+                                            <li><span class="material-icons">videocam</span></li>
+                                        </ul>
+                                    </div>
+                                    <a href="#" class="card-image-bt-right"><span class="material-icons">navigate_next</span></a>
+                                    <a href="#" class="card-image-bt-left"><span class="material-icons">navigate_before</span></a>
+                            </div>
+                            <!-- Card content -->
+                            <div class="card-content">
+                                <div class="marca" style="background-color: #1B7835; color: white">
+                                    <div class="marca-texto">
+                                        <span>Tecnocasa&nbsp;</span><span class="partner">· Tu partner inmobiliario</span>
+                                    </div>
+                                    <div class="marca-logo">
+                                        <img src="img/tecnocasa.png" alt="">
+                                    </div>
+                                </div>
+                                <!-- Card datos -->
+                                <div class="datos">
+                                    <div class="promotion">
+                                        <a href="#">Promoción Agustí Milà</a>
+                                        <div class="datos-date">
+                                            Hace 3 horas
+                                        </div>
+                                    </div>
+                                    <div class="precio">
+                                        <h1>475.000 €</h1>
+                                    </div>
+                                    <div class="location">
+                                        <p>Obra nueva · Planta baja con piscina en Carrer Mallorca, Sagrada Familia</p>
+                                        <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error corrupti magnam inventore. Asperiores mollitia porro quibusdam culpa, debitis saepe obcaecati. Culpa, optio aliquid alias fugiat ut hic corporis a quaerat!</span>
+                                    </div>
+                                    <div class="features">
+                                        <ul>
+                                            <li>2 habs</li>
+                                            <li>98 m²</li>
+                                            <li>2 baños</li>
+                                            <li>3ª planta</li>
+                                            <li>Ascensor</li>
+                                            <li>Piscina</li>
+                                            <li>Aire acondicionado</li>
+                                        </ul>
+                                    </div>
+                                    <div class="contactbar">
+                                        <div class="contact">
+                                            <a href="#" class="mail"><span class="material-icons">email</span>Contactar</a>
+                                            <a href="#" class="phone"><span class="material-icons">phone</span>Llamar</a>
+                                        </div>
+                                        <div class="actions">
+                                            <a href="#" class="compartir"><span class="material-icons">share</span></a>
+                                            <a href="#" class="descartar"><span class="material-icons">delete</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Cards unidades -->
+                            <div class="unidades">
+                                <div class="unidades-header">
+                                    <h5>Otros inmuebles de la promoción:</h5>
+                                    <div class="unidades-navigate">
+                                        <span class="material-icons">chevron_left</span>
+                                        <span class="material-icons">navigate_next</span>
+                                    </div>
+                                </div>
+                                <div class="unidades-list">
+                                    <div class="unidad">
+                                        <h1>239.000 €</h1>
+                                        <ul>
+                                            <li>2 habs</li>
+                                            <li>88 m²</li>
+                                            <li>2 baños</li>
+                                            <li><span class="material-icons">navigate_next</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="unidad">
+                                        <h1>239.000 €</h1>
+                                        <ul>
+                                            <li>2 habs</li>
+                                            <li>88 m²</li>
+                                            <li>2 baños</li>
+                                            <li><span class="material-icons">navigate_next</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="unidad">
+                                        <h1>239.000 €</h1>
+                                        <ul>
+                                            <li>2 habs</li>
+                                            <li>88 m²</li>
+                                            <li>2 baños</li>
+                                            <li><span class="material-icons">navigate_next</span></li>
+                                        </ul>
+                                    </div><div class="unidad">
+                                        <h1>239.000 €</h1>
+                                        <ul>
+                                            <li>2 habs</li>
+                                            <li>88 m²</li>
+                                            <li>2 baños</li>
+                                            <li><span class="material-icons">navigate_next</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="unidad">
+                                        <h1>239.000 €</h1>
+                                        <ul>
+                                            <li>2 habs</li>
+                                            <li>88 m²</li>
+                                            <li>2 baños</li>
+                                            <li><span class="material-icons">navigate_next</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>    
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="card-container_large">
+                        <div class="card promotionON">
+                            <!-- Card images -->
+                            <div class="card-image">
+                                <div class="add-favorite-bis">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="29" viewBox="0 0 32 29" fill="none">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M17.2074 4.21969C18.9106 2.49724 21.3285 1.70778 23.706 2.09792C25.8682 2.45274 27.7619 3.74522 28.9059 5.6385L29.0642 5.91302L29.2079 6.18902C30.6038 9.01245 30.1197 12.4036 28.0321 14.6982L16.6308 26.7274C16.3177 27.0578 15.8145 27.0879 15.4668 26.8176L15.3675 26.7275L3.98003 14.7151C2.02692 12.5719 1.46471 9.4823 2.53538 6.76449L2.65635 6.47478L2.79033 6.18896C3.8677 4.01022 5.91482 2.48805 8.29226 2.09792C10.5663 1.72475 12.8774 2.43082 14.5647 4.00033L14.7908 4.21969L15.9991 5.43971L17.2074 4.21969Z" fill="black" fill-opacity="0.4" stroke="white" stroke-width="4"/>
+                                    </svg>
+                                </div>
+                                    <img src="img/other/3.avif" alt="">
+                                    <div class="badges-left">
+                                        <div class="badgeON">
+                                            Obra nueva
+                                        </div>
+                                        <div class="badgeON-state">
+                                            En construcción
+                                        </div>
+                                        <div class="badgeTop">
+                                            Top +
+                                        </div>
+                                    </div>
+                                    <div class="multimedia">
+                                        <ul>
+                                            <li><span class="material-icons">photo_camera</span>1/22</li>
+                                            <li><span class="material-icons">videocam</span></li>
+                                        </ul>
+                                    </div>
+                                    <a href="#" class="card-image-bt-right"><span class="material-icons">navigate_next</span></a>
+                                    <a href="#" class="card-image-bt-left"><span class="material-icons">navigate_before</span></a>
+                            </div>
+                            <!-- Card content -->
+                            <div class="card-content">
+                                <div class="marca">
+                                    <div class="marca-texto">
+                                        <span>Almi habitatges&nbsp;</span><span class="partner">· Tu partner inmobiliario</span>
+                                    </div>
+                                    <div class="marca-logo">
+                                        <img src="img/almi.png" alt="">
+                                    </div>
+                                </div>
+                                <!-- Card datos -->
+                                <div class="datos">
+                                    <div class="promotion">
+                                        <a href="#">Promoción Agustí Milà</a>
+                                        <div class="datos-date">
+                                            Hace 3 horas · Top +
+                                        </div>
+                                    </div>
+                                    <div class="precio">
+                                        <h1>475.000 €</h1>
+                                    </div>
+                                    <div class="location">
+                                        <p>Obra nueva · Piso con balcón en Calle Tamarit, Sant Antoni</p>
+                                    </div>
+                                    <div class="features">
+                                        <ul>
+                                            <li>2 habs</li>
+                                            <li>98 m²</li>
+                                            <li>2 baños</li>
+                                            <li>3ª planta</li>
+                                            <li>Ascensor</li>
+                                            <li>Piscina</li>
+                                            <li>Aire acondicionado</li>
+                                        </ul>
+                                    </div>
+                                    <div class="contactbar">
+                                        <div class="contact">
+                                            <a href="#" class="mail"><span class="material-icons">email</span>Contactar</a>
+                                            <a href="#" class="phone"><span class="material-icons">phone</span>Llamar</a>
+                                        </div>
+                                        <div class="actions">
+                                            <a href="#" class="compartir"><span class="material-icons">share</span></a>
+                                            <a href="#" class="descartar"><span class="material-icons">delete</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Cards unidades -->
+                            <div class="unidades">
+                                <div class="unidades-header">
+                                    <h5>Otros inmuebles de la promoción:</h5>
+                                    <div class="unidades-navigate">
+                                        <span class="material-icons">chevron_left</span>
+                                        <span class="material-icons">navigate_next</span>
+                                    </div>
+                                </div>
+                                <div class="unidades-list">
+                                    <div class="unidad">
+                                        <h1>239.000 €</h1>
+                                        <ul>
+                                            <li>2 habs</li>
+                                            <li>88 m²</li>
+                                            <li>2 baños</li>
+                                            <li><span class="material-icons">navigate_next</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="unidad">
+                                        <h1>239.000 €</h1>
+                                        <ul>
+                                            <li>2 habs</li>
+                                            <li>88 m²</li>
+                                            <li>2 baños</li>
+                                            <li><span class="material-icons">navigate_next</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="unidad">
+                                        <h1>239.000 €</h1>
+                                        <ul>
+                                            <li>2 habs</li>
+                                            <li>88 m²</li>
+                                            <li>2 baños</li>
+                                            <li><span class="material-icons">navigate_next</span></li>
+                                        </ul>
+                                    </div><div class="unidad">
+                                        <h1>239.000 €</h1>
+                                        <ul>
+                                            <li>2 habs</li>
+                                            <li>88 m²</li>
+                                            <li>2 baños</li>
+                                            <li><span class="material-icons">navigate_next</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="unidad">
+                                        <h1>239.000 €</h1>
+                                        <ul>
+                                            <li>2 habs</li>
+                                            <li>88 m²</li>
+                                            <li>2 baños</li>
+                                            <li><span class="material-icons">navigate_next</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>    
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="card-container_large">
+                        <div class="card premium">
+                            <!-- Card images -->
+                            <div class="card-image">
+                                <div class="add-favorite-bis">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="29" viewBox="0 0 32 29" fill="none">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M17.2074 4.21969C18.9106 2.49724 21.3285 1.70778 23.706 2.09792C25.8682 2.45274 27.7619 3.74522 28.9059 5.6385L29.0642 5.91302L29.2079 6.18902C30.6038 9.01245 30.1197 12.4036 28.0321 14.6982L16.6308 26.7274C16.3177 27.0578 15.8145 27.0879 15.4668 26.8176L15.3675 26.7275L3.98003 14.7151C2.02692 12.5719 1.46471 9.4823 2.53538 6.76449L2.65635 6.47478L2.79033 6.18896C3.8677 4.01022 5.91482 2.48805 8.29226 2.09792C10.5663 1.72475 12.8774 2.43082 14.5647 4.00033L14.7908 4.21969L15.9991 5.43971L17.2074 4.21969Z" fill="black" fill-opacity="0.4" stroke="white" stroke-width="4"/>
+                                    </svg>
+                                </div>
+                                <div class="first-image">
+                                    <img src="img/premium2/1.avif" alt="">
+                                    <div class="badges-left">
+                                        <div class="badgeTop">
+                                            Top +
+                                        </div>
+                                    </div>
+                                    <div class="multimedia">
+                                        <ul>
+                                            <li><span class="material-icons">photo_camera</span>1/22</li>
+                                            <li><span class="material-icons">videocam</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="second-image">
+                                    <img src="img/premium2/2.avif" alt="">
+                                    
+                                </div>
+                                <div class="third-image">
+                                    <img src="img/premium2/3.avif" alt="">
+                                </div>
+                                <a href="#" class="card-image-bt-right"><span class="material-icons">navigate_next</span></a>
+                                <a href="#" class="card-image-bt-left"><span class="material-icons">navigate_before</span></a>
+                            </div>
+                            <!-- Card content -->
+                            <div class="card-content">
+                                <!-- Card marca -->
+                                <div class="marca" style="background-color: #7454CF; color: white">
+                                    <div class="marca-texto">
+                                        <span>Housell&nbsp;</span><span class="partner">· Calidad Fotocasa</span>
+                                    </div>
+                                        <div class="marca-logo">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="60" viewBox="0 0 50 60" fill="none">
+                                                <g clip-path="url(#clip0_8887_63911)">
+                                                <path d="M24.9926 60L7.3125 42.4193C-2.44011 32.7275 -2.44011 16.9606 7.3125 7.26884C17.0651 -2.42295 32.931 -2.42295 42.6836 7.26884C52.4362 16.9606 52.4362 32.7275 42.6836 42.4193L24.9926 60Z" fill="#303AB2"/>
+                                                <path d="M40.6916 27.871L36.9533 25.4017V17.5674H32.7642V22.6373L25.0677 17.5674L9.30078 27.871V32.5585L25.0677 22.3423L40.6916 32.5585V27.871Z" fill="#F39C8A"/>
+                                                </g>
+                                                <defs>
+                                                <clipPath id="clip0_8887_63911">
+                                                    <rect width="50" height="60" fill="white" transform="translate(-0.00195312)"/>
+                                                </clipPath>
+                                                </defs>
+                                            </svg>
+                                            <img src="img/housell.png" alt="">
+                                        </div>
+                                </div>
+                                <!-- Card datos -->
+                                <div class="datos">
+                                    <div class="precio-date">
+                                        <div class="precio">
+                                        <h1>475.000 €</h1>
+                                        <span class="habajado"><span class="material-icons">arrow_downward</span><span class="habajado-txt">Ha bajado</span> 10.000€</span>
+                                        </div>
+                                        <div class="datos-date">
+                                            Hace 3 horas · Top +
+                                        </div>
+                                    </div>
+                                    <div class="location">
+                                        <p>Obra nueva · Ático en Carrer Mallorca, Sagrada Familia</p>
+                                    </div>
+                                    <div class="features">
+                                        <ul>
+                                            <li>2 habs</li>
+                                            <li>98 m²</li>
+                                            <li>2 baños</li>
+                                            <li>3ª planta</li>
+                                            <li>Ascensor</li>
+                                            <li>Piscina</li>
+                                            <li>Aire acondicionado</li>
+                                        </ul>
+                                    </div>
+                                    <div class="contactbar">
+                                        <div class="contact">
+                                            <a href="#" class="mail"><span class="material-icons">email</span>Contactar</a>
+                                            <a href="#" class="phone"><span class="material-icons">phone</span>Llamar</a>
+                                        </div>
+                                        <div class="actions">
+                                            <a href="#" class="compartir"><span class="material-icons">share</span></a>
+                                            <a href="#" class="descartar"><span class="material-icons">delete</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>    
+                    </div>                   
+                    <!-- Card 5 -->
+                    <div class="card-container_large">
+                        <div class="card promotionON">
+                            <!-- Card images -->
+                            <div class="card-image">
+                                <div class="add-favorite-bis">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="29" viewBox="0 0 32 29" fill="none">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M17.2074 4.21969C18.9106 2.49724 21.3285 1.70778 23.706 2.09792C25.8682 2.45274 27.7619 3.74522 28.9059 5.6385L29.0642 5.91302L29.2079 6.18902C30.6038 9.01245 30.1197 12.4036 28.0321 14.6982L16.6308 26.7274C16.3177 27.0578 15.8145 27.0879 15.4668 26.8176L15.3675 26.7275L3.98003 14.7151C2.02692 12.5719 1.46471 9.4823 2.53538 6.76449L2.65635 6.47478L2.79033 6.18896C3.8677 4.01022 5.91482 2.48805 8.29226 2.09792C10.5663 1.72475 12.8774 2.43082 14.5647 4.00033L14.7908 4.21969L15.9991 5.43971L17.2074 4.21969Z" fill="black" fill-opacity="0.4" stroke="white" stroke-width="4"/>
+                                    </svg>
+                                </div>
+                                    <img src="img/other/9.avif" alt="">
+                                    <div class="badges-left">
+                                        <div class="badgeON">
+                                            Obra nueva
+                                        </div>
+                                        <div class="badgeON-state">
+                                            En construcción
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="multimedia">
+                                        <ul>
+                                            <li><span class="material-icons">photo_camera</span>1/22</li>
+                                            <li><span class="material-icons">videocam</span></li>
+                                        </ul>
+                                    </div>
+                                    <a href="#" class="card-image-bt-right"><span class="material-icons">navigate_next</span></a>
+                                    <a href="#" class="card-image-bt-left"><span class="material-icons">navigate_before</span></a>
+                            </div>
+                            <!-- Card content -->
+                            <div class="card-content">
+                                <div class="marca">
+                                    <div class="marca-texto">
+                                        <span>Almi habitatges&nbsp;</span><span class="partner">· Tu partner inmobiliario</span>
+                                    </div>
+                                    <div class="marca-logo">
+                                        <img src="img/almi.png" alt="">
+                                    </div>
+                                </div>
+                                <!-- Card datos -->
+                                <div class="datos">
+                                    <div class="promotion">
+                                        <a href="#">Promoción Agustí Milà</a>
+                                        <div class="datos-date">
+                                            Hace 3 horas
+                                        </div>
+                                    </div>
+                                    <div class="precio">
+                                        <h1>475.000 €</h1>
+                                    </div>
+                                    <div class="location">
+                                        <p>Apartamento con terraza en Carrer Septimania, El Putget i el Farró</p>
+                                    </div>
+                                    <div class="features">
+                                        <ul>
+                                            <li>2 habs</li>
+                                            <li>98 m²</li>
+                                            <li>2 baños</li>
+                                            <li>3ª planta</li>
+                                            <li>Ascensor</li>
+                                            <li>Piscina</li>
+                                            <li>Aire acondicionado</li>
+                                        </ul>
+                                    </div>
+                                    <div class="contactbar">
+                                        <div class="contact">
+                                            <a href="#" class="mail"><span class="material-icons">email</span>Contactar</a>
+                                            <a href="#" class="phone"><span class="material-icons">phone</span>Llamar</a>
+                                        </div>
+                                        <div class="actions">
+                                            <a href="#" class="compartir"><span class="material-icons">share</span></a>
+                                            <a href="#" class="descartar"><span class="material-icons">delete</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Cards unidades -->
+                            <div class="unidades">
+                                <div class="unidades-header">
+                                    <h5>Otros inmuebles de la promoción:</h5>
+                                    <div class="unidades-navigate">
+                                        <span class="material-icons">chevron_left</span>
+                                        <span class="material-icons">navigate_next</span>
+                                    </div>
+                                </div>
+                                <div class="unidades-list">
+                                    <div class="unidad">
+                                        <h1>239.000 €</h1>
+                                        <ul>
+                                            <li>2 habs</li>
+                                            <li>88 m²</li>
+                                            <li>2 baños</li>
+                                            <li><span class="material-icons">navigate_next</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="unidad">
+                                        <h1>239.000 €</h1>
+                                        <ul>
+                                            <li>2 habs</li>
+                                            <li>88 m²</li>
+                                            <li>2 baños</li>
+                                            <li><span class="material-icons">navigate_next</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="unidad">
+                                        <h1>239.000 €</h1>
+                                        <ul>
+                                            <li>2 habs</li>
+                                            <li>88 m²</li>
+                                            <li>2 baños</li>
+                                            <li><span class="material-icons">navigate_next</span></li>
+                                        </ul>
+                                    </div><div class="unidad">
+                                        <h1>239.000 €</h1>
+                                        <ul>
+                                            <li>2 habs</li>
+                                            <li>88 m²</li>
+                                            <li>2 baños</li>
+                                            <li><span class="material-icons">navigate_next</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="unidad">
+                                        <h1>239.000 €</h1>
+                                        <ul>
+                                            <li>2 habs</li>
+                                            <li>88 m²</li>
+                                            <li>2 baños</li>
+                                            <li><span class="material-icons">navigate_next</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>    
+                    </div>    
+                    <!-- publi -->
+                    <div class="dominance">
+                        <img src="img/728_90.jpg" alt="">
+                    </div>
+                    <div class="dominance-mobile">
+                        <img src="img/300x250_1.jpg" alt="">
+                    </div>
+                    <!-- Card 6 -->
+                    <div class="card-container_large">
+                        <div class="card premium">
+                            <!-- Card images -->
+                            <div class="card-image">
+                                <div class="add-favorite-bis">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="29" viewBox="0 0 32 29" fill="none">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M17.2074 4.21969C18.9106 2.49724 21.3285 1.70778 23.706 2.09792C25.8682 2.45274 27.7619 3.74522 28.9059 5.6385L29.0642 5.91302L29.2079 6.18902C30.6038 9.01245 30.1197 12.4036 28.0321 14.6982L16.6308 26.7274C16.3177 27.0578 15.8145 27.0879 15.4668 26.8176L15.3675 26.7275L3.98003 14.7151C2.02692 12.5719 1.46471 9.4823 2.53538 6.76449L2.65635 6.47478L2.79033 6.18896C3.8677 4.01022 5.91482 2.48805 8.29226 2.09792C10.5663 1.72475 12.8774 2.43082 14.5647 4.00033L14.7908 4.21969L15.9991 5.43971L17.2074 4.21969Z" fill="black" fill-opacity="0.4" stroke="white" stroke-width="4"/>
+                                    </svg>
+                                </div>
+                                <div class="first-image">
+                                    <img src="img/premium3/1.avif" alt="">
+                                    <div class="multimedia">
+                                        <ul>
+                                            <li><span class="material-icons">photo_camera</span>1/22</li>
+                                            <li><span class="material-icons">videocam</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="second-image">
+                                    
+                                    <img src="img/premium3/2.avif" alt="">
+                                </div>
+                                <div class="third-image">
+                                    <img src="img/premium3/3.avif" alt="">
+                                </div>
+                                <a href="#" class="card-image-bt-right"><span class="material-icons">navigate_next</span></a>
+                                <a href="#" class="card-image-bt-left"><span class="material-icons">navigate_before</span></a>
+                            </div>
+                            <!-- Card content -->
+                            <div class="card-content">
+                                <!-- Card marca -->
+                                <div class="marca" style="background-color: #C5B99B;">
+                                    <div class="marca-texto">
+                                        <span>Century 21&nbsp;</span><span class="partner">· Calidad Fotocasa</span>
+                                    </div>
+                                    <div class="marca-logo">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="60" viewBox="0 0 50 60" fill="none">
+                                            <g clip-path="url(#clip0_8887_63911)">
+                                            <path d="M24.9926 60L7.3125 42.4193C-2.44011 32.7275 -2.44011 16.9606 7.3125 7.26884C17.0651 -2.42295 32.931 -2.42295 42.6836 7.26884C52.4362 16.9606 52.4362 32.7275 42.6836 42.4193L24.9926 60Z" fill="#303AB2"/>
+                                            <path d="M40.6916 27.871L36.9533 25.4017V17.5674H32.7642V22.6373L25.0677 17.5674L9.30078 27.871V32.5585L25.0677 22.3423L40.6916 32.5585V27.871Z" fill="#F39C8A"/>
+                                            </g>
+                                            <defs>
+                                            <clipPath id="clip0_8887_63911">
+                                                <rect width="50" height="60" fill="white" transform="translate(-0.00195312)"/>
+                                            </clipPath>
+                                            </defs>
+                                        </svg>
+                                        <img src="img/century_21.png" alt="">
+                                    </div>
+                                </div>
+                                <!-- Card datos -->
+                                <div class="datos">
+                                    <div class="precio-date">
+                                        <div class="precio">
+                                        <h1>475.000 €</h1>
+                                        <span class="habajado"><span class="material-icons">arrow_downward</span><span class="habajado-txt">Ha bajado</span> 10.000€</span>
+                                        </div>
+                                        <div class="datos-date">
+                                            Hace 3 horas
+                                        </div>
+                                    </div>
+                                    <div class="location">
+                                        <p>Piso con balcón en Plaça del Comerç, Sant Andreu del Palomar</p>
+                                    </div>
+                                    <div class="features">
+                                        <ul>
+                                            <li>2 habs</li>
+                                            <li>98 m²</li>
+                                            <li>2 baños</li>
+                                            <li>3ª planta</li>
+                                            <li>Ascensor</li>
+                                            <li>Piscina</li>
+                                            <li>Aire acondicionado</li>
+                                        </ul>
+                                    </div>
+                                    <div class="contactbar">
+                                        <div class="contact">
+                                            <a href="#" class="mail"><span class="material-icons">email</span>Contactar</a>
+                                            <a href="#" class="phone"><span class="material-icons">phone</span>Llamar</a>
+                                        </div>
+                                        <div class="actions">
+                                            <a href="#" class="compartir"><span class="material-icons">share</span></a>
+                                            <a href="#" class="descartar"><span class="material-icons">delete</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>    
+                    </div>
+                    <!-- Card 7 -->
+                    <div class="card-container_large">
+                        <div class="card premium">
+                            <!-- Card images -->
+                            <div class="card-image">
+                                <div class="add-favorite-bis">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="29" viewBox="0 0 32 29" fill="none">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M17.2074 4.21969C18.9106 2.49724 21.3285 1.70778 23.706 2.09792C25.8682 2.45274 27.7619 3.74522 28.9059 5.6385L29.0642 5.91302L29.2079 6.18902C30.6038 9.01245 30.1197 12.4036 28.0321 14.6982L16.6308 26.7274C16.3177 27.0578 15.8145 27.0879 15.4668 26.8176L15.3675 26.7275L3.98003 14.7151C2.02692 12.5719 1.46471 9.4823 2.53538 6.76449L2.65635 6.47478L2.79033 6.18896C3.8677 4.01022 5.91482 2.48805 8.29226 2.09792C10.5663 1.72475 12.8774 2.43082 14.5647 4.00033L14.7908 4.21969L15.9991 5.43971L17.2074 4.21969Z" fill="black" fill-opacity="0.4" stroke="white" stroke-width="4"/>
+                                    </svg>
+                                </div>
+                                <div class="first-image">
+                                    <img src="img/premium4/1.avif" alt="">
+                                    <div class="multimedia">
+                                        <ul>
+                                            <li><span class="material-icons">photo_camera</span>1/22</li>
+                                            <li><span class="material-icons">videocam</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="second-image">
+                                    
+                                    <img src="img/premium4/2.avif" alt="">
+                                </div>
+                                <div class="third-image">
+                                    <img src="img/premium4/3.avif" alt="">
+                                </div>
+                                <a href="#" class="card-image-bt-right"><span class="material-icons">navigate_next</span></a>
+                                <a href="#" class="card-image-bt-left"><span class="material-icons">navigate_before</span></a>
+                            </div>
+                            <!-- Card content -->
+                            <div class="card-content">
+                                <!-- Card marca -->
+                                <div class="marca" style="background-color: #8c162c; color: white">
+                                    <div class="marca-texto">
+                                        <span>Barnafinc&nbsp;</span><span class="partner">· Tu partner inmobiliario</span>
+                                    </div>
+                                    <div class="marca-logo">
+                                        <img src="img/barnafinc.png" alt="">
+                                    </div>
+                                </div>
+                                <!-- Card datos -->
+                                <div class="datos">
+                                    <div class="precio-date">
+                                        <div class="precio">
+                                        <h1>475.000 €</h1>
+                                        </div>
+                                        <div class="datos-date">
+                                            Hace 3 horas
+                                        </div>
+                                    </div>
+                                    <div class="location">
+                                        <p>Ático con terraza en Carrer Mallorca, l'Antiga Esquerra de l'Eixample</p>
+                                    </div>
+                                    <div class="features">
+                                        <ul>
+                                            <li>2 habs</li>
+                                            <li>98 m²</li>
+                                            <li>2 baños</li>
+                                            <li>3ª planta</li>
+                                            <li>Ascensor</li>
+                                            <li>Piscina</li>
+                                            <li>Aire acondicionado</li>
+                                        </ul>
+                                    </div>
+                                    <div class="contactbar">
+                                        <div class="contact">
+                                            <a href="#" class="mail"><span class="material-icons">email</span>Contactar</a>
+                                            <a href="#" class="phone"><span class="material-icons">phone</span>Llamar</a>
+                                        </div>
+                                        <div class="actions">
+                                            <a href="#" class="compartir"><span class="material-icons">share</span></a>
+                                            <a href="#" class="descartar"><span class="material-icons">delete</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>    
+                    </div>   
+                    <!-- Card 8 -->
+                    <div class="card-container_large">
+                        <div class="card premium">
+                            <!-- Card images -->
+                            <div class="card-image">
+                                <div class="add-favorite-bis">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="29" viewBox="0 0 32 29" fill="none">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M17.2074 4.21969C18.9106 2.49724 21.3285 1.70778 23.706 2.09792C25.8682 2.45274 27.7619 3.74522 28.9059 5.6385L29.0642 5.91302L29.2079 6.18902C30.6038 9.01245 30.1197 12.4036 28.0321 14.6982L16.6308 26.7274C16.3177 27.0578 15.8145 27.0879 15.4668 26.8176L15.3675 26.7275L3.98003 14.7151C2.02692 12.5719 1.46471 9.4823 2.53538 6.76449L2.65635 6.47478L2.79033 6.18896C3.8677 4.01022 5.91482 2.48805 8.29226 2.09792C10.5663 1.72475 12.8774 2.43082 14.5647 4.00033L14.7908 4.21969L15.9991 5.43971L17.2074 4.21969Z" fill="black" fill-opacity="0.4" stroke="white" stroke-width="4"/>
+                                    </svg>
+                                </div>
+                                <div class="first-image">
+                                    <img src="img/premium5/1.avif" alt="">
+                                    <div class="multimedia">
+                                        <ul>
+                                            <li><span class="material-icons">photo_camera</span>1/22</li>
+                                            <li><span class="material-icons">videocam</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="second-image">
+                                    
+                                    <img src="img/premium5/2.avif" alt="">
+                                </div>
+                                <div class="third-image">
+                                    <img src="img/premium5/3.avif" alt="">
+                                </div>
+                                <a href="#" class="card-image-bt-right"><span class="material-icons">navigate_next</span></a>
+                                <a href="#" class="card-image-bt-left"><span class="material-icons">navigate_before</span></a>
+                            </div>
+                            <!-- Card content -->
+                            <div class="card-content">
+                                <!-- Card marca -->
+                                <div class="marca" style="background-color: #7454CF; color: white">
+                                    <div class="marca-texto">
+                                        <span>Housell&nbsp;</span><span class="partner">· Tu partner inmobiliario</span>
+                                    </div>
+                                    <div class="marca-logo">
+                                        <img src="img/housell.png" alt="">
+                                    </div>
+                                </div>
+                                <!-- Card datos -->
+                                <div class="datos">
+                                    <div class="precio-date">
+                                        <div class="precio">
+                                        <h1>475.000 €</h1>
+                                        <span class="habajado"><span class="material-icons">arrow_downward</span><span class="habajado-txt">Ha bajado</span> 10.000€</span>
+                                        </div>
+                                        <div class="datos-date">
+                                            Hace 3 horas
+                                        </div>
+                                    </div>
+                                    <div class="location">
+                                        <p>Piso con balcón en Calle Valencia, Sagrada Família</p>
+                                    </div>
+                                    <div class="features">
+                                        <ul>
+                                            <li>2 habs</li>
+                                            <li>98 m²</li>
+                                            <li>2 baños</li>
+                                            <li>3ª planta</li>
+                                            <li>Ascensor</li>
+                                            <li>Piscina</li>
+                                            <li>Aire acondicionado</li>
+                                        </ul>
+                                    </div>
+                                    <div class="contactbar">
+                                        <div class="contact">
+                                            <a href="#" class="mail"><span class="material-icons">email</span>Contactar</a>
+                                            <a href="#" class="phone"><span class="material-icons">phone</span>Llamar</a>
+                                        </div>
+                                        <div class="actions">
+                                            <a href="#" class="compartir"><span class="material-icons">share</span></a>
+                                            <a href="#" class="descartar"><span class="material-icons">delete</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>    
+                    </div>   
+                    <!-- Card 9 -->
+                    <div class="card-container_large">
+                        <div class="card premium">
+                            <!-- Card images -->
+                            <div class="card-image">
+                                <div class="add-favorite-bis">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="29" viewBox="0 0 32 29" fill="none">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M17.2074 4.21969C18.9106 2.49724 21.3285 1.70778 23.706 2.09792C25.8682 2.45274 27.7619 3.74522 28.9059 5.6385L29.0642 5.91302L29.2079 6.18902C30.6038 9.01245 30.1197 12.4036 28.0321 14.6982L16.6308 26.7274C16.3177 27.0578 15.8145 27.0879 15.4668 26.8176L15.3675 26.7275L3.98003 14.7151C2.02692 12.5719 1.46471 9.4823 2.53538 6.76449L2.65635 6.47478L2.79033 6.18896C3.8677 4.01022 5.91482 2.48805 8.29226 2.09792C10.5663 1.72475 12.8774 2.43082 14.5647 4.00033L14.7908 4.21969L15.9991 5.43971L17.2074 4.21969Z" fill="black" fill-opacity="0.4" stroke="white" stroke-width="4"/>
+                                    </svg>
+                                </div>
+                                <div class="first-image">
+                                    <img src="img/premium6/1.avif" alt="">
+                                    <div class="multimedia">
+                                        <ul>
+                                            <li><span class="material-icons">photo_camera</span>1/22</li>
+                                            <li><span class="material-icons">videocam</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="second-image">
+                                    
+                                    <img src="img/premium6/2.avif" alt="">
+                                </div>
+                                <div class="third-image">
+                                    <img src="img/premium6/3.avif" alt="">
+                                </div>
+                                <a href="#" class="card-image-bt-right"><span class="material-icons">navigate_next</span></a>
+                                <a href="#" class="card-image-bt-left"><span class="material-icons">navigate_before</span></a>
+                            </div>
+                            <!-- Card content -->
+                            <div class="card-content">
+                                <!-- Card marca -->
+                                <div class="marca">
+                                    <div class="marca-texto">
+                                        <span>Almi habitatges&nbsp;</span><span class="partner">· Tu partner inmobiliario</span>
+                                    </div>
+                                    <div class="marca-logo">
+                                        <img src="img/almi.png" alt="">
+                                    </div>
+                                </div>
+                                <!-- Card datos -->
+                                <div class="datos">
+                                    <div class="precio-date">
+                                        <div class="precio">
+                                        <h1>475.000 €</h1>
+                                        <span class="habajado"><span class="material-icons">arrow_downward</span><span class="habajado-txt">Ha bajado</span> 10.000€</span>
+                                        </div>
+                                        <div class="datos-date">
+                                            Hace 3 horas
+                                        </div>
+                                    </div>
+                                    <div class="location">
+                                        <p>Ático en Carrer Mallorca, Sagrada Familia</p>
+                                    </div>
+                                    <div class="features">
+                                        <ul>
+                                            <li>2 habs</li>
+                                            <li>98 m²</li>
+                                            <li>2 baños</li>
+                                            <li>3ª planta</li>
+                                            <li>Ascensor</li>
+                                            <li>Piscina</li>
+                                            <li>Aire acondicionado</li>
+                                        </ul>
+                                    </div>
+                                    <div class="contactbar">
+                                        <div class="contact">
+                                            <a href="#" class="mail"><span class="material-icons">email</span>Contactar</a>
+                                            <a href="#" class="phone"><span class="material-icons">phone</span>Llamar</a>
+                                        </div>
+                                        <div class="actions">
+                                            <a href="#" class="compartir"><span class="material-icons">share</span></a>
+                                            <a href="#" class="descartar"><span class="material-icons">delete</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>    
+                    </div>
+                    <!-- Card 10 BASIC -->
+                    <div class="card-container_small">
+                        <div class="card basic">
+                            <!-- Card images -->
+                            <div class="card-image">
+                                 <div class="add-favorite-bis">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="29" viewBox="0 0 32 29" fill="none">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M17.2074 4.21969C18.9106 2.49724 21.3285 1.70778 23.706 2.09792C25.8682 2.45274 27.7619 3.74522 28.9059 5.6385L29.0642 5.91302L29.2079 6.18902C30.6038 9.01245 30.1197 12.4036 28.0321 14.6982L16.6308 26.7274C16.3177 27.0578 15.8145 27.0879 15.4668 26.8176L15.3675 26.7275L3.98003 14.7151C2.02692 12.5719 1.46471 9.4823 2.53538 6.76449L2.65635 6.47478L2.79033 6.18896C3.8677 4.01022 5.91482 2.48805 8.29226 2.09792C10.5663 1.72475 12.8774 2.43082 14.5647 4.00033L14.7908 4.21969L15.9991 5.43971L17.2074 4.21969Z" fill="black" fill-opacity="0.4" stroke="white" stroke-width="4"/>
+                                    </svg>
+                                </div>
+                                <img src="img/other/2.avif" alt="">
+                                <div class="badges-left">
+                                    <div class="badgeON">
+                                        Obra nueva
+                                    </div>
+                                    <div class="badgeON-state">
+                                        En construcción
+                                    </div>
+                                </div>
+                                <div class="multimedia">
+                                    <ul>
+                                        <li><span class="material-icons">photo_camera</span>1/22</li>
+                                        <li><span class="material-icons">videocam</span></li>
+                                    </ul>
+                                </div>
+                                <a href="#" class="card-image-bt-right"><span class="material-icons">navigate_next</span></a>
+                                <a href="#" class="card-image-bt-left"><span class="material-icons">navigate_before</span></a>
+                            </div>
+                            <!-- Card content -->
+                            <div class="card-content">
+                                <!-- Card datos -->
+                                <div class="datos">
+                                    <div class="datos-content">
+                                        <div class="promotion"><a href="#">Promoción Agustí Milà</a></div>
+                                        <div class="precio">
+                                            <h1>475.000 €</h1>
+                                        </div>
+                                        <div class="location">
+                                            <p>Obra nueva · Ático con terraza en Carrer dels Tallers, El Raval</p>
+                                        </div>
+                                        <div class="features">
+                                            <ul>
+                                                <li>2 habs</li>
+                                                <li>98 m²</li>
+                                                <li>2 baños</li>
+                                                <li>3ª planta</li>
+                                                <li>Ascensor</li>
+                                            </ul>
+                                        </div>
+                                        <div class="marca-lite">
+                                            <div class="marca-texto">
+                                                <span class="marca-text-publisher">Almi habitatges</span>
+                                                <span class="marca-text-date">Hace 3 horas</span>
+                                            </div>
+                                            <div class="marca-lite-img"><img src="img/century_22_sm.png" alt=""></div>  
+                                        </div>
+                                    </div>
+                                    <div class="contactbar">
+                                        <div class="contact">
+                                            <a href="#" class="mail"><span class="material-icons">email</span>Contactar</a>
+                                            <a href="#" class="phone"><span class="material-icons">phone</span>Llamar</a>
+                                        </div>
+                                        <div class="actions">
+                                            <a href="#" class="compartir"><span class="material-icons">share</span></a>
+                                            <a href="#" class="descartar"><span class="material-icons">delete</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>   
+                    </div>
+                    <!-- Card 11 BASIC -->
+                    <div class="card-container_small">
+                        <div class="card basic">
+                            <!-- Card images -->
+                            <div class="card-image">
+                                <div class="add-favorite-bis">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="29" viewBox="0 0 32 29" fill="none">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M17.2074 4.21969C18.9106 2.49724 21.3285 1.70778 23.706 2.09792C25.8682 2.45274 27.7619 3.74522 28.9059 5.6385L29.0642 5.91302L29.2079 6.18902C30.6038 9.01245 30.1197 12.4036 28.0321 14.6982L16.6308 26.7274C16.3177 27.0578 15.8145 27.0879 15.4668 26.8176L15.3675 26.7275L3.98003 14.7151C2.02692 12.5719 1.46471 9.4823 2.53538 6.76449L2.65635 6.47478L2.79033 6.18896C3.8677 4.01022 5.91482 2.48805 8.29226 2.09792C10.5663 1.72475 12.8774 2.43082 14.5647 4.00033L14.7908 4.21969L15.9991 5.43971L17.2074 4.21969Z" fill="black" fill-opacity="0.4" stroke="white" stroke-width="4"/>
+                                    </svg>
+                                </div>
+                                    <img src="img/other/5.avif" alt="">
+                                    <div class="multimedia">
+                                        <ul>
+                                            <li><span class="material-icons">photo_camera</span>1/22</li>
+                                            <li><span class="material-icons">videocam</span></li>
+                                        </ul>
+                                    </div>
+                                    <a href="#" class="card-image-bt-right"><span class="material-icons">navigate_next</span></a>
+                                    <a href="#" class="card-image-bt-left"><span class="material-icons">navigate_before</span></a>
+                            </div>
+                            <!-- Card content -->
+                            <div class="card-content">
+                                <!-- Card datos -->
+                                <div class="datos">
+                                    <div class="datos-content">
+                                        <div class="precio">
+                                            <h1>475.000 €</h1>
+                                        </div>
+                                        <div class="location">
+                                            <p>Piso con ascensor en Carrer de FEijó, El Carmel</p>
+                                        </div>
+                                        <div class="features">
+                                            <ul>
+                                                <li>2 habs</li>
+                                                <li>98 m²</li>
+                                                <li>2 baños</li>
+                                                <li>3ª planta</li>
+                                                <li>Ascensor</li>
+                                            </ul>
+                                        </div>
+                                        <div class="marca-lite">
+                                            <div class="marca-texto">
+                                                <span class="marca-text-publisher">Almi habitatges</span>
+                                                <span class="marca-text-date">Hace 3 horas</span>
+                                            </div>
+                                            <div class="marca-lite-img"><img src="img/almi_sm.png" alt=""></div>  
+                                        </div>
+                                    </div>
+                                    <div class="contactbar">
+                                        <div class="contact">
+                                            <a href="#" class="mail"><span class="material-icons">email</span>Contactar</a>
+                                            <a href="#" class="phone"><span class="material-icons">phone</span>Llamar</a>
+                                        </div>
+                                        <div class="actions">
+                                            <a href="#" class="compartir"><span class="material-icons">share</span></a>
+                                            <a href="#" class="descartar"><span class="material-icons">delete</span></a>
+                                            <a href="#" class="more"><span class="material-icons">more_horiz</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>    
+                    </div>
+                    <!-- Card 12 AYCE -->
+                    <div class="card-container_small">
+                        <div class="card ayce">
+                            <!-- Card images -->
+                            <div class="card-image">
+                                <div class="add-favorite-bis">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="29" viewBox="0 0 32 29" fill="none">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M17.2074 4.21969C18.9106 2.49724 21.3285 1.70778 23.706 2.09792C25.8682 2.45274 27.7619 3.74522 28.9059 5.6385L29.0642 5.91302L29.2079 6.18902C30.6038 9.01245 30.1197 12.4036 28.0321 14.6982L16.6308 26.7274C16.3177 27.0578 15.8145 27.0879 15.4668 26.8176L15.3675 26.7275L3.98003 14.7151C2.02692 12.5719 1.46471 9.4823 2.53538 6.76449L2.65635 6.47478L2.79033 6.18896C3.8677 4.01022 5.91482 2.48805 8.29226 2.09792C10.5663 1.72475 12.8774 2.43082 14.5647 4.00033L14.7908 4.21969L15.9991 5.43971L17.2074 4.21969Z" fill="black" fill-opacity="0.4" stroke="white" stroke-width="4"/>
+                                    </svg>
+                                </div>
+                                    <img src="img/other/4.avif" alt="">
+                                    
+                                    <div class="multimedia">
+                                        <ul>
+                                            <li><span class="material-icons">photo_camera</span>1/22</li>
+                                            <li><span class="material-icons">videocam</span></li>
+                                        </ul>
+                                    </div>
+                                    <a href="#" class="card-image-bt-right"><span class="material-icons">navigate_next</span></a>
+                                    <a href="#" class="card-image-bt-left"><span class="material-icons">navigate_before</span></a>
+                            </div>
+                            <!-- Card content -->
+                            <div class="card-content">
+                                <!-- Card datos -->
+                                <div class="datos">
+                                    <div class="datos-content">
+                                        <div class="precio">
+                                            <h1>475.000 €</h1>
+                                        </div>
+                                        <div class="location">
+                                            <p>Casa o Chalet con terraza en Margenat, Sant Gervasi i la Bonanova </p>
+                                        </div>
+                                        <div class="features">
+                                            <ul>
+                                                <li>2 habs</li>
+                                                <li>98 m²</li>
+                                                <li>2 baños</li>
+                                                <li>3ª planta</li>
+                                                <li>Ascensor</li>
+                                            </ul>
+                                        </div>
+                                        <div class="marca-lite">
+                                            <div class="marca-texto">
+                                                <span class="marca-text-publisher">Almi habitatges</span>
+                                                <span class="marca-text-date">Hace 3 horas</span>
+                                            </div>
+                                            <div class="marca-lite-img"><img src="img/century_22_sm.png" alt=""></div>  
+                                        </div>
+                                    </div>
+                                    <div class="contactbar">
+                                        <div class="contact">
+                                            <a href="#" class="mail"><span class="material-icons">email</span>Contactar</a>
+                                            <a href="#" class="phone"><span class="material-icons">phone</span>Llamar</a>
+                                        </div>
+                                        <div class="actions">
+                                            <a href="#" class="compartir"><span class="material-icons">share</span></a>
+                                            <a href="#" class="descartar"><span class="material-icons">delete</span></a>
+                                            <a href="#" class="more"><span class="material-icons">more_horiz</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>    
+                    </div>       
+                    <!-- Card 13 AYCE -->
+                    <div class="card-container_small">
+                        <div class="card ayce">
+                            <!-- Card images -->
+                            <div class="card-image">
+                                <div class="add-favorite-bis">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="29" viewBox="0 0 32 29" fill="none">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M17.2074 4.21969C18.9106 2.49724 21.3285 1.70778 23.706 2.09792C25.8682 2.45274 27.7619 3.74522 28.9059 5.6385L29.0642 5.91302L29.2079 6.18902C30.6038 9.01245 30.1197 12.4036 28.0321 14.6982L16.6308 26.7274C16.3177 27.0578 15.8145 27.0879 15.4668 26.8176L15.3675 26.7275L3.98003 14.7151C2.02692 12.5719 1.46471 9.4823 2.53538 6.76449L2.65635 6.47478L2.79033 6.18896C3.8677 4.01022 5.91482 2.48805 8.29226 2.09792C10.5663 1.72475 12.8774 2.43082 14.5647 4.00033L14.7908 4.21969L15.9991 5.43971L17.2074 4.21969Z" fill="black" fill-opacity="0.4" stroke="white" stroke-width="4"/>
+                                    </svg>
+                                </div>
+                                    <img src="img/other/3.avif" alt="">
+                                    <div class="badges-left">
+                                        <div class="badgeON">
+                                            Obra nueva
+                                        </div>
+                                        <div class="badgeON-state">
+                                            En construcción
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="multimedia">
+                                        <ul>
+                                            <li><span class="material-icons">photo_camera</span>1/22</li>
+                                            <li><span class="material-icons">videocam</span></li>
+                                        </ul>
+                                    </div>
+                                    <a href="#" class="card-image-bt-right"><span class="material-icons">navigate_next</span></a>
+                                    <a href="#" class="card-image-bt-left"><span class="material-icons">navigate_before</span></a>
+                            </div>
+                            <!-- Card content -->
+                            <div class="card-content">
+                                <!-- Card datos -->
+                                <div class="datos">
+                                    <div class="datos-content">
+                                        <div class="promotion"><a href="#">Promoción Agustí Milà</a></div>
+                                        <div class="precio">
+                                            <h1>475.000 €</h1>
+                                            <span class="habajado"><span class="material-icons">arrow_downward</span><span class="habajado-txt">Ha bajado</span> 10.000€</span>
+                                        </div>
+                                        <div class="location">
+                                            <p>Obra nueva · Ático con ascensor en Carrer de la Immaculada, Sant Gervasi i la Bonanova</p>
+                                        </div>
+                                        <div class="features">
+                                            <ul>
+                                                <li>2 habs</li>
+                                                <li>98 m²</li>
+                                                <li>2 baños</li>
+                                                <li>3ª planta</li>
+                                                <li>Ascensor</li>
+                                            </ul>
+                                        </div>
+                                        <div class="marca-lite">
+                                            <div class="marca-texto">
+                                                <span class="marca-text-publisher">Housell</span>
+                                                <span class="marca-text-date">Hace 3 horas · Top +</span>
+                                            </div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="60" viewBox="0 0 50 60" fill="none">
+                                                <g clip-path="url(#clip0_8887_63911)">
+                                                <path d="M24.9926 60L7.3125 42.4193C-2.44011 32.7275 -2.44011 16.9606 7.3125 7.26884C17.0651 -2.42295 32.931 -2.42295 42.6836 7.26884C52.4362 16.9606 52.4362 32.7275 42.6836 42.4193L24.9926 60Z" fill="#303AB2"/>
+                                                <path d="M40.6916 27.871L36.9533 25.4017V17.5674H32.7642V22.6373L25.0677 17.5674L9.30078 27.871V32.5585L25.0677 22.3423L40.6916 32.5585V27.871Z" fill="#F39C8A"/>
+                                                </g>
+                                                <defs>
+                                                <clipPath id="clip0_8887_63911">
+                                                    <rect width="50" height="60" fill="white" transform="translate(-0.00195312)"/>
+                                                </clipPath>
+                                                </defs>
+                                            </svg>
+                                            <div class="marca-lite-img"><img src="img/housell_sm.png" alt=""></div>  
+                                        </div>
+                                    </div>
+                                    <div class="contactbar">
+                                        <div class="contact">
+                                            <a href="#" class="mail"><span class="material-icons">email</span>Contactar</a>
+                                            <a href="#" class="phone"><span class="material-icons">phone</span>Llamar</a>
+                                        </div>
+                                        <div class="actions">
+                                            <a href="#" class="compartir"><span class="material-icons">share</span></a>
+                                            <a href="#" class="descartar"><span class="material-icons">delete</span></a>
+                                            <a href="#" class="more"><span class="material-icons">more_horiz</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>    
+                    </div>
+                    <!-- Card 14 AYCE -->
+                    <div class="card-container_small">
+                        <div class="card ayce">
+                            <!-- Card images -->
+                            <div class="card-image">
+                                <div class="add-favorite-bis">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="29" viewBox="0 0 32 29" fill="none">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M17.2074 4.21969C18.9106 2.49724 21.3285 1.70778 23.706 2.09792C25.8682 2.45274 27.7619 3.74522 28.9059 5.6385L29.0642 5.91302L29.2079 6.18902C30.6038 9.01245 30.1197 12.4036 28.0321 14.6982L16.6308 26.7274C16.3177 27.0578 15.8145 27.0879 15.4668 26.8176L15.3675 26.7275L3.98003 14.7151C2.02692 12.5719 1.46471 9.4823 2.53538 6.76449L2.65635 6.47478L2.79033 6.18896C3.8677 4.01022 5.91482 2.48805 8.29226 2.09792C10.5663 1.72475 12.8774 2.43082 14.5647 4.00033L14.7908 4.21969L15.9991 5.43971L17.2074 4.21969Z" fill="black" fill-opacity="0.4" stroke="white" stroke-width="4"/>
+                                    </svg>
+                                </div>
+                                    <img src="img/other/6.avif" alt="">
+                                    <div class="multimedia">
+                                        <ul>
+                                            <li><span class="material-icons">photo_camera</span>1/22</li>
+                                            <li><span class="material-icons">videocam</span></li>
+                                        </ul>
+                                    </div>
+                                    <a href="#" class="card-image-bt-right"><span class="material-icons">navigate_next</span></a>
+                                    <a href="#" class="card-image-bt-left"><span class="material-icons">navigate_before</span></a>
+                            </div>
+                            <!-- Card content -->
+                            <div class="card-content">
+                                <!-- Card datos -->
+                                <div class="datos">
+                                    <div class="datos-content">
+                                        <div class="precio">
+                                            <h1>475.000 €</h1>
+                                        </div>
+                                        <div class="location">
+                                            <p>Ático en Carrer Mallorca, Sagrada Familia</p>
+                                        </div>
+                                        <div class="features">
+                                            <ul>
+                                                <li>2 habs</li>
+                                                <li>98 m²</li>
+                                                <li>2 baños</li>
+                                                <li>3ª planta</li>
+                                                <li>Ascensor</li>
+                                            </ul>
+                                        </div>
+                                        <div class="marca-lite">
+                                            <div class="marca-texto">
+                                                <span class="marca-text-publisher">Anunciante profesional</span>
+                                                <span class="marca-text-date">Hace 3 horas</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="contactbar">
+                                        <div class="contact">
+                                            <a href="#" class="mail"><span class="material-icons">email</span>Contactar</a>
+                                            <a href="#" class="phone"><span class="material-icons">phone</span>Llamar</a>
+                                        </div>
+                                        <div class="actions">
+                                            <a href="#" class="compartir"><span class="material-icons">share</span></a>
+                                            <a href="#" class="descartar"><span class="material-icons">delete</span></a>
+                                            <a href="#" class="more"><span class="material-icons">more_horiz</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>    
+                    </div>      
+                </div>
+            </div>
+            <div class="sidebar">
+                <div class="sidebar-publi-mapa">
+                    <div class="publi-contenedor">
+                        <div class="acces-mapa">
+                        <img src="img/draw.svg" alt="zona dibujada">
+                        <a href="index.html" class="acces-mapa-ver"><span class="material-icons">place</span>Ver en mapa</a>
+                        <div class="acces-mapa-actions">
+                            <button class="acces-mapa-trayecto"><span class="material-icons">directions_car</span>Trayecto</button>
+                            <button class="acces-mapa-draw"><span class="material-icons">draw</span>Dibujar</button>
+                        </div>
+                    </div> 
+                    </div>
+                     
+                </div> 
+                <div class="lapubli">
+                    
+                    <div class="sidebar-publi-1">
+                        <div class="publi-contenedor">
+                            <!-- <div class="acces-mapa">
+                                <img src="img/draw.svg" alt="zona dibujada">
+                                <a href="index.html" class="acces-mapa-ver"><span class="material-icons">place</span>Ver en mapa</a>
+                                <div class="acces-mapa-actions">
+                                    <button class="acces-mapa-trayecto"><span class="material-icons">directions_car</span>Trayecto</button>
+                                    <button class="acces-mapa-draw"><span class="material-icons">draw</span>Dibujar</button>
+                                </div>   
+                            </div>  -->
+                            <img src="img/300x600_navalcarnero.png" alt="">
+                        </div>
+                    </div>
+                    <div class="sidebar-publi-2">
+                        <div class="publi-contenedor">
+                            <img src="img/300x50_navalcarnero.png" alt="">
+                            <img src="img/300x600_1.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="sidebar-publi-3">
+                        <div class="publi-contenedor">
+                            <img src="img/300x250_1.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/minified/app.min.js"></script>
+</body>
+</html>

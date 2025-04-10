@@ -1858,7 +1858,7 @@ aside#aside_articles .aside_content {
 aside#aside_articles .aside_content_header {
   color: #272934;
 }
-aside#aside_articles .aside_content_header h1 {
+aside#aside_articles .aside_content_header h4 {
   font-family: "Outfit", sans-serif;
   font-size: 48px;
   font-weight: bold;
@@ -2171,7 +2171,7 @@ aside#aside_articles .aside_content_valoradas ul li div.aside_content_valoradas_
 .datos_datos img {
   margin-top: 4px;
 }
-.datos_datos h2 {
+.datos_datos h1 {
   font-family: "Outfit", sans-serif;
   font-size: 32px;
   color: #272934;
@@ -2195,7 +2195,7 @@ aside#aside_articles .aside_content_valoradas ul li div.aside_content_valoradas_
   display: none;
 }
 
-body.dark .datos_datos h2 {
+body.dark .datos_datos h1 {
   color: #6892FE;
 }
 
@@ -2424,6 +2424,56 @@ body.dark .donde_ver {
     margin-top: 8px;
   }
 }
+.tmdb_actor img {
+  max-height: 175px;
+  max-width: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+#tmdb_casting {
+  margin-top: 32px;
+  border-top: 1px solid #EDE6C0;
+}
+
+#tmdb_casting > h3 {
+  font-size: 32px;
+  font-family: "Outfit", sans-serif;
+  margin-bottom: 0;
+}
+
+.swiper-3 {
+  padding-top: 0.5rem;
+}
+
+.tmdb_actor h4 {
+  font-size: 1rem;
+  font-family: "Outfit", sans-serif;
+  margin-top: 0;
+  margin-bottom: 0.25rem;
+}
+.tmdb_actor p {
+  font-size: 0.75rem;
+  margin-top: 0;
+  margin-bottom: 0;
+  color: rgba(0, 0, 0, 0.75);
+}
+
+body.dark .tmdb_actor p {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.no_photo_actor {
+  max-height: 175px;
+  max-width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #272934;
+}
+
 .searcher {
   position: absolute;
   top: 0;
@@ -2771,7 +2821,7 @@ body.dark .trailer_content h3 {
   margin-left: -34px;
   margin-top: -24px;
   position: absolute;
-  background: url("https://i.ibb.co/j3jcJKv/yt.png") no-repeat;
+  background: url("../../../images/videos/play_youtube.png") no-repeat;
   cursor: pointer;
 }
 

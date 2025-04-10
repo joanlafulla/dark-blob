@@ -24,8 +24,6 @@ const highlighted = document.querySelector(".highlighted");
 const maskHighlighted = document.querySelector(".mask_highlighted");
 const videoHighlighted = document.querySelectorAll(".video_highlighted");
 
-console.log("nuevo mundo");
-
 let mypage = '';
 
 function getmypage() {
@@ -42,14 +40,17 @@ function getmypage() {
 document.addEventListener('DOMContentLoaded', getmypage);
 
 // Show contextual menu
-window.addEventListener('scroll', function(e) {
+if(contextualNav){
+    window.addEventListener('scroll', function(e) {
     const scrollPosition = this.window.scrollY;
-    if (scrollPosition > 100) {
+        if (scrollPosition > 100) { 
         contextualNav.classList.add('contextual_nav-visible');
-    } else if(scrollPosition < 100 && contextualNav.classList.contains('contextual_nav-visible')) {
+        } else if(scrollPosition < 100 && contextualNav.classList.contains('contextual_nav-visible')) {
         contextualNav.classList.remove('contextual_nav-visible');
-    }
-});
+        }
+    });
+}
+
 
 function randomIntFromInterval(min, max) { 
     return Math.floor(Math.random() * (max - min + 1) + min)
@@ -57,7 +58,7 @@ function randomIntFromInterval(min, max) {
 
 //Aplicamos texto random a los botones listado
 buttonsGrid.forEach( (button) => {
-    button.firstChild.textContent = randomWords[Math.floor( Math.random() * randomWords.length)];
+    button.firstChild.textContent = randomWords[Math.floor(Math.random() * randomWords.length)];
 });
 
 const pageAccessedByReload = (
@@ -88,7 +89,7 @@ if(colorScheme && colorScheme.textContent.includes("dark")) {
 openSearch.forEach (open => {
     open.addEventListener('click', (event) => {
         search.style.display = 'block';
-        search.style.opacity = '100';
+        search.style.opacity = '1';
         body.classList.add('opened_searcher');
     })
 });
@@ -266,6 +267,10 @@ platform.forEach( (myPlatform) => {
             addLinkBadge("planet-horror", "phorror", "review");
             myPlatform.after(platformBadge);
             break;
+        case "Movistar +":
+            addLinkBadge("movistar", "movistar", "review");
+            myPlatform.after(platformBadge);
+            break;
         case "Cine":
             addLinkBadge("cine", "cine", "review");
             myPlatform.after(platformBadge);
@@ -378,6 +383,26 @@ const swiper2 = new Swiper('.swiper-2', {
       
       prevEl: '.arrow_left_2',
     },
+  });
+
+  //Swipper 3
+const swiper3 = new Swiper('.swiper-3', {
+    direction: 'horizontal',
+    slidesPerView: 3.40,
+    spaceBetween: 8,
+    freeMode: true,
+    keyboard: {
+        enabled: true,
+        onlyInViewport: false,
+      },
+      breakpoints: {
+        660: {
+            slidesPerView: 6,
+            slidesPerGroup: 3,
+            spaceBetween: 24,
+            freeMode: false
+          },
+      }, 
   });
 
   //let arrowRight = document.querySelector('.swiper_navigation_custom div:nth-child(2)');
@@ -718,16 +743,69 @@ document.addEventListener('DOMContentLoaded', addCounter);
     })
     });
 
-//width del window menos scrollbar
+// Casting de las peliculas (integración TMDB)
+
+const tmdb_options = {
+    method: 'GET',
+    headers: {
+      accept: 'application/json',
+      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxOWZiMmUwOGI3YjBmODk2YzVmN2IzZDM4ODk2M2M1NSIsIm5iZiI6MTc0MzQxNzQwNi42OTYsInN1YiI6IjY3ZWE3MDNlNjFjYWMyYjNhM2Y2ZmIzYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.SIUY_0PjI-XmwjMxiwMvcHIT6ZXRgPfp_250Pkhzkek'
+    }
+};
+
+const casting = document.getElementById('tmdb_casting');
+if(casting) {
+    const tmdb_id_movie = casting.getAttribute('data-tmdbid');
+    const tmdb_url = `https://api.themoviedb.org/3/movie/${tmdb_id_movie}?append_to_response=credits&language=es-ES`;
+    const listaActores = document.getElementById('tmdb_casting_list');
+    const tmdb_duration = document.getElementById('tmdb_duration');
+
+function nameActor(cadena) {
+    return cadena.replace(/ /g, '-').toLowerCase();
+}
+
+const cargarActores = async() => {
+
+	try {
+		const respuesta = await fetch(tmdb_url, tmdb_options);
+        //console.log(respuesta);
+
+        if(respuesta.status === 200){
+            const datos = await respuesta.json(); // Si hay respuesta, recojo los datos del json
+			//console.log(datos);
+
+            let actores = "";
+            let duracion = "";
+            let tmdb_actores = datos.credits.cast;
+            for (let n=0; n <= 6; n++) {
+                let actorName = nameActor(tmdb_actores[n].name);
+                //console.log(actorName);
+
+					if(tmdb_actores[n].profile_path != null) {
+						//console.log("NO es igual a null")
+						actores += "<div class='swiper-slide tmdb_actor'><a href='https://www.themoviedb.org/person/"+tmdb_actores[n].id+"-"+actorName+"?language=es' target='_blank'><img class='tmdb_foto' alt='Imagen de " + tmdb_actores[n].name + "' src='https://image.tmdb.org/t/p/w500/"+tmdb_actores[n].profile_path+"'/></a>";
+					} else {
+						//console.log("no pasa el if")
+                        //actores += "<div class='swiper-slide tmdb_actor'><div class='no_photo_actor'><img class='tmdb_foto' alt='Imagen de " + tmdb_actores[n].name + "' src='https://darkblobcine.com/images/logos/avatar_dark.svg'/></div>";
+                        actores += "<div class='swiper-slide tmdb_actor'><a href='https://www.themoviedb.org/person/"+tmdb_actores[n].id+"-"+actorName+"?language=es' target='_blank'><img class='tmdb_foto' alt='Imagen de " + tmdb_actores[n].name + "' src='https://darkblobcine.com/images/logos/avatar_no_photo.png'/></a>";
+					}
+                actores += "<h4 class='tmdb_nombre'>"+tmdb_actores[n].name+"</h4>";
+                actores += "<p class='tmdb_personaje'>"+tmdb_actores[n].character+"</p>";
+				actores += `</div>`;
+                //console.log(actores);
+                duracion = document.createTextNode(datos.runtime+"'");
+        }
+            listaActores.innerHTML = actores;
+            tmdb_duration.appendChild(duracion);  
+        }
+    } catch(error){
+        console.log(error);
+    }
+}
+    cargarActores();
+}
 
 
-
-
-
-
-
-
-    
 
   
   

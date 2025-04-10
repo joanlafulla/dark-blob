@@ -62,7 +62,7 @@
             margin-top: 4px;
         }
 
-        h2 {
+        h1 {
             font-family: 'Outfit', sans-serif;
             font-size: $title_1;
             color: $l_On_Background;
@@ -91,7 +91,7 @@
         }
 }
 
-body.dark .datos_datos h2 {
+body.dark .datos_datos h1 {
     color: $d_Mask;
 }
 
@@ -258,4 +258,59 @@ body.dark .donde_ver {
     .article_individual {
         margin-top: 8px;
     }
+}
+
+
+.tmdb_actor img {
+    max-height: 175px;
+    max-width: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+#tmdb_casting {
+    margin-top: 32px;
+    border-top: 1px solid #EDE6C0;
+}
+
+#tmdb_casting > h3 {
+    font-size: 32px;
+    font-family: "Outfit", sans-serif;
+    margin-bottom: 0;
+}
+
+.swiper-3 {
+    padding-top: .5rem;
+}
+
+.tmdb_actor {
+
+        h4 {
+            font-size: 1rem;
+            font-family: "Outfit", sans-serif;
+            margin-top: 0;
+            margin-bottom: .25rem;
+        }
+
+        p {
+            font-size: 0.75rem;
+            margin-top: 0;
+            margin-bottom: 0;
+            color: rgba(0, 0, 0, .75);
+        }
+}
+
+body.dark .tmdb_actor p {
+    color: rgba(255, 255, 255, .75);
+}
+
+.no_photo_actor{
+    max-height: 175px;
+    max-width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $d_Background
 }
